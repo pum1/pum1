@@ -1,0 +1,27 @@
+% Standardinkluderingsfil
+\input{standard}
+
+\ifpdf
+  \DeclareGraphicsExtensions{.pdf, .jpg, .tif, .png}
+  \pdfinfo{            
+    /Title  (Glossary)
+    /Author (PUM-grupp 1)
+  }
+\else
+  \DeclareGraphicsExtensions{.eps, .jpg}
+\fi
+
+\title{Glossary}
+\author{PUM-grupp 1}
+\date{\today}
+
+\begin{document}
+
+\maketitle\thispagestyle{empty}
+
+\newpage
+
+
+\section{Inledning}
+Här ska det finnas en ordlista
+\end{document}
