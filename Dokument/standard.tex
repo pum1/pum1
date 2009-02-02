@@ -1,0 +1,62 @@
+%
+%  untitled
+%
+%  Created by David Granqvist on 2008-09-08.
+%  Modified by Martin Erola
+%
+
+% Set document format/class
+\documentclass[a4paper,twoside]{article}
+
+%%%%%%%%%%%%%%%%%%%
+% Include packages
+%
+\usepackage[utf8]{inputenc}   % Use utf-8 encoding for foreign characters
+\usepackage[swedish]{babel}   % Support for swedish letters
+\usepackage{fullpage}         % Setup for fullpage use
+\usepackage{fancyhdr}         % Running Headers and footers
+\usepackage{boxedminipage}    % Surround parts of graphics with box
+\usepackage{listings}         % Package for including code in the document
+\usepackage{ifpdf}            % Recommended way for checking for PDFLaTeX:
+\usepackage{tabularx}         % Tabeller med automatisk stretch
+% \usepackage[nofancy]{svninfo} % Extract Subversion info about the file
+% \usepackage{color}          % Color
+% \usepackage{lastpage}       % Total page count
+
+% Graphics
+\ifpdf
+\usepackage[pdftex]{graphicx}
+\else
+\usepackage{graphicx}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Uncomment some of the following if you use the features
+%
+
+% Multipart figures
+%\usepackage{subfigure}
+
+% More symbols
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{latexsym}
+
+% If you want to generate a toc for each chapter (use with book)
+% \usepackage{minitoc}
+
+%%%%%%%%%%%%%%%%%%%%
+% Document settings
+%
+
+% Header
+\pagestyle{fancy}
+% Sätter en marginal mellan header och (ovanstående?) text %
+\setlength\headsep{10pt}
+% Sätter höjden på headern
+\setlength{\headheight}{32pt}
+
+% Sätter styckesinställningar
+\setlength\parindent{0pt}
+\setlength\parskip{10pt}
+
