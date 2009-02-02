@@ -1,0 +1,26 @@
+% Standardinkluderingsfil
+\input{standard}
+
+\ifpdf
+  \DeclareGraphicsExtensions{.pdf, .jpg, .tif, .png}
+  \pdfinfo{            
+    /Title  (Use-case)
+    /Author (PUM-grupp 1)
+  }
+\else
+  \DeclareGraphicsExtensions{.eps, .jpg}
+\fi
+
+\title{Use-case}
+\author{PUM-grupp 1}
+\date{\today}
+
+\begin{document}
+
+\maketitle\thispagestyle{empty}
+
+\newpage
+
+\section{Inledning}
+Use-case
+\end{document}
