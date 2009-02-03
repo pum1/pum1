@@ -24,7 +24,7 @@
 \section{Inledning}
 \textsc{\LARGE Use-case}
 
-\begin{enumerate}
+\begin{itemize}
 	\item Brief description
 	
 	Snabb beskrivning av vad som hander under caset.
@@ -49,6 +49,54 @@
 	\item Special Requirements
 	
 	Speciella krav for caset.
-\end{enumerate}
+\end{itemize}
+
+\begin{itemize}
+	\item Brief description
+	
+	Person ska merga sina dokument eller annat arbeta med andra personers arbeten.
+	\item Actors
+	
+	Anvandare
+	Administrator	
+	\item Preconditions
+	
+	Ett distribuerat wiki-system ar konfigurerat, satt igang och anvands.
+	\item Basic flow of events
+	
+	\begin{enumerate}
+		\item Person A har arbetat med dokument pa sin dator och vill satta ihop detta med person B:s och person C:s dokument.
+		\item Person A har vet inte vad person B och person C har arbetat med men oppnar anda sin wiki.
+		\item Han gar in pa sidan for person B samt C:s dokument och valjer att synkronisera.
+		\item Systemet forsoker att sammanfoga dokumenten.
+		\item Eftersom olika stycken ar andrade i dokumenten sker en konflikt.
+		\item Anvandaren far en forfragan om han vill losa konflikten.
+		\item Anvandaren far upp dokumenten brevid varnadra och kan sedan andra det han behagar.
+		\item Till sist spara anvandaren dokumentet och kanner sig nojd.
+	\end{enumerate}
+	\item Alternate flow of events
+	
+	Efter steg 5. Om anvandaren inte har rattigheter att andra pa filerna.
+	Anvandaren kontaktar administratoren om hjalp.
+	\item Alternate flow of events
+	Efter steg 5. Om anvandaren inte kanner sig tillrackligt saker att andra pa filerna.
+	Anvandaren kontaktar da den/de personer som har skrivit filerna och ber om hjalp.
+	\item Key scenarios
+	
+	Att sammanfoga olika filer med varandra trots att rattigheter samt kompetens kan stalla till det.
+	\item Post-conditions	
+	
+		Success condition 
+		\\
+		Anvandaren lyckades med att sammanfoga (merge) tva eller fler filer.
+		\\
+		Failure condition
+		\\
+		Anvandaren lyckades ej med en sammanfogning.
+		
+	\item Special Requirements
+	
+	???
+\end{itemize}
 
 \end{document}
