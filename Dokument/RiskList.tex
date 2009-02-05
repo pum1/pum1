@@ -4,14 +4,14 @@
 \ifpdf
   \DeclareGraphicsExtensions{.pdf, .jpg, .tif, .png}
   \pdfinfo{            
-    /Title  (RiskList)
+    /Title  (Risklista)
     /Author (PUM-grupp 1)
   }
 \else
   \DeclareGraphicsExtensions{.eps, .jpg}
 \fi
 
-\title{Projektplan}
+\title{Ristlista}
 \author{PUM-grupp 1}
 \date{\today}
 
@@ -20,60 +20,67 @@
 \maketitle\thispagestyle{empty}
 
 \newpage
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
 \section{Inledning}
-Nedan följer de risker som är aktuella i projektet
+Nedan fÃ¶ljer de risker som Ã¤r aktuella i projektet
 
-
-\subsection Maintainability / Underhållbarhet
+\subsection{Maintainability / UnderhÃ¥llbarhet}
 \begin{itemize}
-\item Risk - Systemet som levereras kan vara svårt att underhålla.
-Lösning: Se över koden för att få det mera underhållningsbar.
-Alt. Lösning: Koda moduler där vissa delar t.ex. UI är mkt. välkommenterad och lätt att förändra.
+\item Risk - Systemet som levereras kan vara svÃ¥rt att underhÃ¥lla.
+LÃ¶sning: Se Ã¶ver koden fÃ¶r att fÃ¥ det mera underhÃ¥llningsbar.
+Alt. LÃ¶sning: Koda moduler dÃ¤r vissa delar t.ex. UI Ã¤r mkt. vÃ¤lkommenterad och lÃ¤tt att fÃ¶rÃ¤ndra.
 \end{itemize}
 
-\subsection Requirements / Krav
+\subsection{Requirements / Krav}
 \begin{itemize}
-\item Risk - Kunden ger luddiga krav och blir sedan inte nöjd med produkten då den inte blev som han "hade tänkt sig".
-Lösning: Prata med kunden om om strukturering av programvaran. Typ.
-\item Risk - Beställarens krav stämmer inte överens med slutanvändarens krav.
-Lösning:Intervjuer, prototyp-test eller annat samarbete med slutanvändaren under utvecklingen.
-\item Risk - Kraven är ouppnåeliga för oss under detta tidsbegränsade projekt.
-Lösning: Förklara för kunden vad vi tror att vi kan och inte kan slutföra under detta projekt. Sätta upp ny kravlista.
+\item Risk - Kunden ger luddiga krav och blir sedan inte nÃ¶jd med produkten dÃ¥ den inte blev som han "hade tÃ¤nkt sig".
+LÃ¶sning: Prata med kunden om om strukturering av programvaran. Typ.
+\item Risk - BestÃ¤llarens krav stÃ¤mmer inte Ã¶verens med slutanvÃ¤ndarens krav.
+LÃ¶sning:Intervjuer, prototyp-test eller annat samarbete med slutanvÃ¤ndaren under utvecklingen.
+\item Risk - Kraven Ã¤r ouppnÃ¥eliga fÃ¶r oss under detta tidsbegrÃ¤nsade projekt.
+LÃ¶sning: FÃ¶rklara fÃ¶r kunden vad vi tror att vi kan och inte kan slutfÃ¶ra under detta projekt. SÃ¤tta upp ny kravlista.
 \end{itemize}
 
-\subsection Usability / Användbarhet
+\subsection{Usability / AnvÃ¤ndbarhet}
 \begin{itemize}
-\item Risk - Produkten blir inte lika användbar som var tänkt från början.
-Lösning: Iterera fram bättre och bättre GUI och gör användartester mellan varje iteration. Följa guider om att göra bättre GUI etc.
+\item Risk - Produkten blir inte lika anvÃ¤ndbar som var tÃ¤nkt frÃ¥n bÃ¶rjan.
+LÃ¶sning: Iterera fram bÃ¤ttre och bÃ¤ttre GUI och gÃ¶r anvÃ¤ndartester mellan varje iteration. FÃ¶lja guider om att gÃ¶ra bÃ¤ttre GUI etc.
 \end{itemize}
 
-\subsection Portability / Flyttbarhet
+\subsection{Portability / Flyttbarhet}
+(OsÃ¤ker pÃ¥ om detta Ã¤r nÃ¥got vi behÃ¶ver oroa oss Ã¶ver)
 \begin{itemize}
-(Osäker på om detta är något vi behöver oroa oss över)
-\item Risk - Produkten görs för att fungera bra på olika operativsystem och det slutar med att det inte funkar på något.
-Lösning: Se över om det verkligen är nödvändigt att fungera på alla operativsystem.
+\item Risk - Produkten gÃ¶rs fÃ¶r att fungera bra pÃ¥ olika operativsystem och det slutar med att det inte funkar pÃ¥ nÃ¥got.
+LÃ¶sning: Se Ã¶ver om det verkligen Ã¤r nÃ¶dvÃ¤ndigt att fungera pÃ¥ alla operativsystem.
 ...ability of a program (or software system) to execute properly on multiple hardware platforms.
-(Känns konstigt att under Portability ha en lösning på ett problem som strider mot själva rubriken?)
-\item Risk - Produkten görs endast för ett operativsystem men det visar sig sedan att det hade behövts för flera.
-Lösning: Använd högnivåspråk vid programmering och undvik plattformsberoende paket etc.
-\item Risk - Produkten blir för hårdvarukrävande så att det inte går att använda mjukvaran på den tänkta hårdvaran.
-Lösning: Försök att begränsa produkten till det mest väsentliga och fokusera på funktionalitet och användbarhet.
+(KÃ¤nns konstigt att under Portability ha en lÃ¶sning pÃ¥ ett problem som strider mot sjÃ¤lva rubriken?)
+\item Risk - Produkten gÃ¶rs endast fÃ¶r ett operativsystem men det visar sig sedan att det hade behÃ¶vts fÃ¶r flera.
+LÃ¶sning: AnvÃ¤nd hÃ¶gnivÃ¥sprÃ¥k vid programmering och undvik plattformsberoende paket etc.
+\item Risk - Produkten blir fÃ¶r hÃ¥rdvarukrÃ¤vande sÃ¥ att det inte gÃ¥r att anvÃ¤nda mjukvaran pÃ¥ den tÃ¤nkta hÃ¥rdvaran.
+LÃ¶sning: FÃ¶rsÃ¶k att begrÃ¤nsa produkten till det mest vÃ¤sentliga och fokusera pÃ¥ funktionalitet och anvÃ¤ndbarhet.
 \end{itemize}
 
-\subsection Testability / Tester
+\subsection{Testability / Tester}
 \begin{itemize}
 \item Risk - Tester kan inte ske innan implementation av programvaran.
-Lösning: Läs på om gränssnitt, protokoll, dokumentation, använd driver? Testa små delar åt gången?
+LÃ¶sning: LÃ¤s pÃ¥ om grÃ¤nssnitt, protokoll, dokumentation, anvÃ¤nd driver? Testa smÃ¥ delar Ã¥t gÃ¥ngen?
 Compability / Kompatibilitet
 
-\item Risk - Komponenter vi använder oss av fungerar i någon mån inte som tänkt.
-Lösning: Byta komponenter eller se till att kolla upp så att samtliga komponenter samarbetar bra.
+\item Risk - Komponenter vi anvÃ¤nder oss av fungerar i nÃ¥gon mÃ¥n inte som tÃ¤nkt.
+LÃ¶sning: Byta komponenter eller se till att kolla upp sÃ¥ att samtliga komponenter samarbetar bra.
 \end{itemize}
 
-\subsection Generella risker
+\subsection{Generella risker}
 \begin{itemize}
 \item Risk - En nyckelperson i projektet blir utbytt eller tvingas sluta.
-Lösning: Dokumentera rikligt så någon annan lätt kan ta över personens arbete
-\iten Risk - Kod blir rörigt och svårläst
-Lösning - Sätt upp en kod och kommenteringsstandard som hela gruppen följer.
+LÃ¶sning: Dokumentera rikligt sÃ¥ nÃ¥gon annan lÃ¤tt kan ta Ã¶ver personens arbete
+\item Risk - Kod blir rÃ¶rigt och svÃ¥rlÃ¤st
+LÃ¶sning - SÃ¤tt upp en kod och kommenteringsstandard som hela gruppen fÃ¶ljer.
 \end{itemize}
+
+\end{document}
+
