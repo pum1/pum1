@@ -1,3 +1,5 @@
+Dokument/PDF/*
+Dokument/Log/*
 Dokument/*.pdf
 Dokument/*.log
 Dokument/*.aux
