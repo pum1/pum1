@@ -23,5 +23,39 @@
 
 
 \section{Inledning}
-Här ska det finnas en ordlista
+
+Många av termerna inom detta område är på engelska och kan vara svåra att förstå. Därför har denna lilla ordlista producerats för att kunna få ett grepp om vissa av dessa termer. Ordlistan är sorterad i bokstavsordning.
+
+\section{Ordlista}
+\begin{itemize}
+	\item \textbf{Branch}
+	\\I ett projekt vill man oftast att olika personer ska kunna arbeta på samma filer samtidigt. För att inte behöva vänta på att andra personer ska arbeta klart på filen kan man skapa en kopia av hela projektet så att modifikationer kan ske parallellt. Detta kallas för en branch.
+	
+	\item \textbf{Centraliserat versionshanteringssystem}
+	\\Ett centraliserat versionshanteringssystem fungerar på det viset att det finns en central server där allt arbete finns lagrat. När en användare har hämtat ner filer från servern och ändrat på dem kan denne ladda upp filerna till servern igen (se Commit) och ändringarna sparas på servern så att andra användare sedan kan hämta ner dessa.
+	
+	\item \textbf{Commit}
+	\\Varje gång en användare känner att han har gjort ändringar som är värda att spara kan denne "commita" sina ändringar, oftast också med ett litet meddelande om vad ändringarna gäller. Ändringarna skickas då till ett repository där motsvarande filer uppdateras.
+	
+	\item \textbf{Distribuerat versionshanteringssystem}
+	\\Ett distribuerat versionshanteringssystem skiljer från det centraliserade i huvudsak på det sättet att det inte finns någon central server. Istället har varje användare en lokal kopia av projektet och kan sedan hämta nya versioner av filer från varandra.
+	
+	\item \textbf{Fork}
+	\\Att skapa en branch från ett projekt kallas ofta för att forka.
+	
+	\item \textbf{Konflikt}
+	\\En konflikt kan ske när två eller fler användare ändrar på samma sak i en fil och sedan försöker någon av dem att hämta hem den andras fil eller en tredje part försöker hämta hem bådas. Versionshanteringssystemet vet då inte vilket version den ska använda och signalerar att en konflikt har skett. Detta måste då lösas av någon.
+
+	\item \textbf{Merge}
+	\\Detta sker när en användare försöker hämta ner nya versioner av filer från andra användares repositories. Versionshanteringssystemet försöker då att sammanfoga ändringarna som skett i de olika filerna.
+			
+	\item \textbf{Repository}
+	\\En repository är ett ställe där filerna är sparade. I den centraliserade systemet är detta på servern och på det distrubuerade har varje användare en egen repository.
+
+	\item \textbf{Resolve}
+	\\Att lösa en konflikt kallas för resolve.
+	
+	\item \textbf{Revision}
+	\\En revision eller version är en ändring av något slag i filerna tillhörande projektet. Varje commit skapar en ny revision.
+\end{itemize}
 \end{document}
