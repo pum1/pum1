@@ -18,7 +18,10 @@ movefiles:
 	@mv *.aux Log/
 	@mv *.toc Log/
 
-build: Develop_Technical_Vision.pdf Glossary.pdf Projektplan.pdf RiskList.pdf System-WideRequirements.pdf Use-case Model.pdf Use-case.pdf Vision.pdf movefiles
+build: Architecture_Notebook.pdf Develop_Technical_Vision.pdf Glossary.pdf Projektplan.pdf RiskList.pdf System-WideRequirements.pdf Use-case Model.pdf Use-case.pdf Vision.pdf movefiles
+
+Architecture_Notebook.pdf:
+	${TEX_COMPILER} "Architecture Notebook.tex"
 
 Develop_Technical_Vision.pdf:
 	${TEX_COMPILER} "Develop Technical Vision.tex"
