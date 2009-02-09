@@ -1,0 +1,80 @@
+% Standardinkluderingsfil
+\input{standard}
+
+\ifpdf
+  \DeclareGraphicsExtensions{.pdf, .jpg, .tif, .png}
+  \pdfinfo{            
+    /Title  (Risklista)
+    /Author (PUM-grupp 1)
+  }
+\else
+  \DeclareGraphicsExtensions{.eps, .jpg}
+\fi
+
+\title{Risklista}
+\author{PUM-grupp 1}
+\date{\today}
+
+\begin{document}
+
+\maketitle\thispagestyle{empty}
+
+\newpage
+
+\setcounter{tocdepth}{2}
+\newpage
+
+\section{Inledning}
+
+Nedan följer de risker som är aktuella i projektet.
+
+
+
+\subsection{Requirements / Krav}
+\begin{itemize}
+\item Risk - Kraven är ouppnåeliga för oss under detta tidsbegränsade projekt.
+\\Sannolikhet - 3
+\\Inverkan - 2
+\\Magnitud - 6
+\\Lösning - Förklara för kunden vad vi tror att vi kan och inte kan slutföra under detta projekt. Sätta upp ny kravlista.
+\end{itemize}
+
+\subsection{Usability / Användbarhet}
+\begin{itemize}
+\item Risk - Produkten blir inte lika användbar som var tänkt från början.
+\\Sannolikhet - 3
+\\Inverkan - 3
+\\Magnitud - 9
+\\Lösning - Iterera fram bättre och bättre GUI och gör användartester mellan varje iteration. Följ guider om att göra bättre GUI.
+\end{itemize}
+
+\subsection{Testability / Tester}
+\begin{itemize}
+\item Risk - Tester kan inte ske innan implementation av programvaran.
+\\Sannolikhet - 2
+\\Inverkan - 3
+\\Magnitud - 6
+\\Lösning - Läs på om gränssnitt, protokoll och dokumentation.Pröva att använda drivers. Testa små delar åt gången.
+\end{itemize}
+
+\subsection{Generella risker}
+\begin{itemize}
+\item Risk - En nyckelperson i projektet blir utbytt eller tvingas sluta.
+\\Sannolikhet - 4
+\\Inverkan - 3
+\\Magnitud - 12
+\\Lösning - Dokumentera rikligt så någon annan lätt kan ta över personens arbete.
+\item Risk - Kod blir rörig och svårläst.
+\\Sannolikhet - 4
+\\Inverkan - 2
+\\Magnitud - 8
+\\Lösning - Sätt upp en kod och kommenteringsstandard som hela gruppen följer.
+\item Risk - Vi lyckas inte få kontakt med kunden på länge.
+\\Sannolikhet - 1
+\\Inverkan - 3
+\\Magnitud - 3
+\\Lösning - Jobba vidare mot kraven så gott det går och fortsätt söka kunden.
+\end{itemize}
+
+\end{document}
+

@@ -26,10 +26,12 @@ Detta dokument syftar till att beskriva de filosofier och motiveringar som står
 \section{Arkitekturella mål och filosofi}
 Arkitekturen i projektet drivs till stor del av de krav som har stipulerats.
 \section{Antaganden och beroenden}
+I denna sektion nämns de antaganden och beroenden som finns och som tillsammans bygger upp en bild över hur programvaran kommer byggas.
 \begin{itemize}
 \item Systemet skall fungera på Linux
-\item Systemet skall fungera decentralisera
-\item Systemet skall kommunicera via nätverk
+\item Systemet skall fungera decentraliserat
+\item Systemet skall kunna kommunicera via nätverk
+\item Systemet skall lokalt lagra data över lång tid
 \end{itemize}
 \section{Arkitekturellt signifikanta krav}
 Här kommer referenser till krav i andra dokument att finnas.
@@ -39,20 +41,55 @@ Här kommer referenser till krav i andra dokument att finnas.
 \item Beslut eller begränsning med motivering
 \end{itemize}
 \section{Arkitekturella mekanismer}
-\subsection{Distribueringsmekanismen}
-Distribueringsmekanismen är det som sköter synkroniseringen klienterna emellan. Den ser till att uppdateringar sprider sig över nätverket till så många klienter som möjligt.
+I denna sektion nämns de olika mekanismerna som driver programvaran. Dessa kommer få mer detaljerade beskrivningar under senare iterationer.
+\subsection{Säkerhet}
+Som en del av programvarans specifikation nämns säkerhet mellan klienterna. Klienterna måste kunna lita på att datan som är överförd verkligen inte är en förfalskning.
+
+\begin{itemize}
+\item Mellan vilka arkitekturella moduler och i vilka instanser är säker kommunikation nödvändig?
+\item Vilken data är relevant att kryptera eller verifiera?
+\item Hur stor del av fokus ska säkerhet få innan övriga delar börjar lida för mycket?
+\end{itemize}
+\subsection{Debuggning}
+Programvaran kommer med största sannolikhet behöva debuggas under utvecklingstiden. Debuggning kommer vara relevant i många delar av programvaran.
+
+Frågor rörande debuggning som kommer utvecklas senare i projektet följer.
+\begin{itemize}
+\item I vilka instanser kommer debuggning vara relevant?
+\item Hur stora datamängder behöver loggas?
+\item Hur ska loggning ske utan att användarens integritet kränks?
+\end{itemize}
+\subsection{Lagring}
+Lagringsmekanismen är den mekanism som sköter den lokalt lagrade datan hos alla klienter.
+
+För en wiki krävs att en viss mängd data lagras om varje artikel. Redigeringshistoria är i många fall essentiell men kan i många fall var ointressant nog att inte automatiskt distribueras.
+
+Lagringsmekanismen tar upp en viss mängd lokalt utrymme på ett icke-flyktigt medium, till exempel på en hårddisk. Lagringsmekanismen kommunicerar med distributionsmekanismen när det blir aktuellt växla data med andra klienter.
+
+Relevanta frågor som rör lagring följer.
+\begin{itemize}
+\item Hur mycket utrymme krävs?
+\item Vad händer om det inte finns mer lokalt utrymme?
+\end{itemize}
+\subsection{Distribuering}
+Distribueringsmekanismen är den som sköter synkroniseringen klienterna emellan. Den ser till att uppdateringar sprider sig över nätverket till så många klienter som möjligt.
 
 För att möjliggöra distribution håller distributionsmekanismen koll på alla ändringar som skett, tar emot ändringar från andra klienter och skickar iväg lokala sådana. Om en konflikt sker ser distributionsmekanismen till att den ansvarige skribenten blir meddelad om konflikten samtidigt som den gamla, konfliktfria versionen görs tillgänglig för den lokala användaren. Detta för att en tredje part inte ska behöva lägga sig i en redigeringskonflikt mellan två andra.
-\subsection{Redigeringsmekanismen}
+
+Relevanta frågor som rör distribuering följer.
+\begin{itemize}
+\item Vad händer om en användare bryter en pågående distribution?
+\end{itemize}
+\subsection{Redigering}
 Redigeringsmekanismen finns lokalt hos klienten och tillåter användaren att redigera wiki-sidor via ett grafiskt gränssnitt.
 
 När användaren redigerat klart sparas ändringen till det lokala versionshanteringssystemet och distributionsmekanismen informeras.
-\subsection{Bläddringsmekanismen}
+\subsection{Bläddring}
 Bläddringsmekanismen går ut på att visa wiki-sidor för användaren. Användaren kan använda bläddringsmekanismen för att utforska sin lokala kopia av den distribuerade wikin. När ändringar sker i sidor som är i vy ser bläddringsmekanismen till att uppdateringarna presenteras till användaren på smidigast möjliga sätt.
 \section{Huvudabstraktioner}
 \section{Arkitekturellt ramverk}
 \section{Arkitekturella vyer}
-\subsection{Logisk vy}
-\subsection{Operationell vy}
 \subsection{Användarfall}
+\subsection{Logisk vy}
+\subsection{Processvy}
 \end{document}

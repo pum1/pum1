@@ -22,9 +22,8 @@
 \thispagestyle{empty}
 \newpage
 \section{Inledning}
-En distribuerad wiki är en wiki som istället för att vara en traditionell centraliserad webbapplikation ska vara en wiki som distribueras med en versionhanterare som är distribuerad. Så varje användare har en lokal kopia av hela wiki:n, med alla förändringar. Alla ändringar som sker på wiki:n ska distribueras automatiskt med hjälp av ett peer-to-peer protokoll till användarna.
+En distribuerad wiki är en wiki som istället för att vara en traditionell centraliserad webbapplikation ska vara en wiki som distribueras med en versionhanterare som är distribuerad. Så varje användare har en lokal kopia av hela wikin, med hela historian. Alla ändringar som sker på wikin ska distribueras automatiskt med hjälp av ett peer-to-peer-protokoll till användarna.
 \section{Positionering}
-
 
 \subsection{Problemformulering}
 \begin{tabular}{|c|m{15 cm}|}
@@ -33,9 +32,9 @@ Problem: & En centraliserad lösning kräver resurser som bandbredd, servar och 
 \hline
 Påverkan: & Ideella projekt måste förlita sig på donationer för att klara av kostnaderna, donationerna kan komma med en politisk agenda. För företag så kan det vara skillnaden om projektet är lönsamt eller ej.   \\
 \hline
-Följderna: & Ideella projekt riskerar sitt oberoende om de tar emot pengar från till exempel en politisk aktör eller någon med en agenda. Företagen vågar inte ta riskerna om kostnaderna är stora. Ett projekt läggs om det blir stora omkostnader eller dataförluster pågrund av attacker mot projektet. \\
+Följderna: & Ideella projekt riskerar sitt oberoende om de tar emot pengar från till exempel en politisk aktör eller någon med en agenda. Företagen vågar inte ta riskerna om kostnaderna är stora. Ett projekt läggs ned om det blir stora omkostnader eller dataförluster på grund av attacker mot projektet. \\
 \hline
-Lösning: & Med en distribuerad lösning som utnyttjar snabbheten i peer-to-peer så skulle även kostnaderna distribueras till kunderna/medlemmarna. Projekten klarar sig på färre donationer och blir mindre beroende. Den distribuerade lösningen skulle även minska risken av dataförluster och skapar ett robust system mot attacker och en kraftig ökning av användare. \\
+Lösning: & Med en distribuerad lösning som utnyttjar snabbheten och flexibiliteten i peer-to-peer så skulle även kostnaderna distribueras till kunderna/medlemmarna. Projekten klarar sig på färre donationer och blir mindre beroende. Den distribuerade lösningen skulle även minska risken av dataförluster och skapar ett robust system mot attacker och en kraftig ökning av användare. \\
 \hline
 \end{tabular}
 
@@ -56,28 +55,29 @@ Vår produkt & Öppnar för ett nytt sätt att samarbeta i molnet \\
 \hline
 \end{tabular}
 \section{Intressenter}
+Här samlas information om de intressenter (``stakeholders'') som berörs av projektet och dess utveckling.
 \subsection{Sammanfattning av Intressenter}
 \begin{tabular}{|c|m{14 cm}|}
- \hline
-PUM-gruppen & Är ansvariga för utveckla systemet, gör projektnära beslut och implementera funktionerna kunden och gruppen formulerar.  PUM-gruppen bör ha nära kontakt med kunden. \\ \hline
+\hline
+PUM-gruppen & Är ansvariga för utveckla systemet, göra projektnära beslut och implementera funktionerna som tillsammans formuleras av gruppen och kunden. PUM-gruppen bör ha nära kontakt med kunden. \\ \hline
 Kunden & VISIARC AB är ansvarig för beställning av systemet. Ska samarbeta med PUM-gruppen för att formulerar krav och funktioner till systemet. \\ \hline
-Användargrupp 1 & Användare som ej har tillgång till en traditionell klient-server lösning. Vi ser att det finns två sorters användare i den här gruppen. Dom som av ekonomiska skäl väljer bort en serverlösning. Serverar är kostsamma i el, underhåll och lokal. Även användare utan större datorvana. För en oerfaren datoranvändare kan det vara svårt att få tillgång till en server. \\ \hline
-Användargrupp 2 & Användare som väljer en distribuerad lösning på grund av strukturen och robusthet i systemet. Användarna sitter mycket i offline miljöer eller i otillförlitliga nätverk. Robusthet blir intressant då användaren ska publicera material som är kontroversiellt eller populärt så informationen blir redundant och har hög tillgänglighet.\\ \hline
-Nya utvecklare & Utvecklare som kommer in i projektet i framtiden. Hur tar man tillvara deras engagemang?\\ \hline
+Användargrupp 1 & Användare som ej har tillgång till en traditionell klient-serverlösning. Vi ser att det finns två sorters användare i den här gruppen. De som av ekonomiska skäl väljer bort en serverlösning. Serverar är kostsamma i drift; el, underhåll och lokal. Den andra gruppen är användare utan större datorvana. För en oerfaren datoranvändare kan det vara svårt att få tillgång till en server. \\ \hline
+Användargrupp 2 & Användare som väljer en distribuerad lösning på grund av strukturen och robusthet i systemet. Användarna sitter mycket i offlinemiljöer eller i otillförlitliga nätverk. Robusthet blir intressant då användaren ska publicera material som är kontroversiellt eller populärt och som kräver redundans och hög tillgänglighet.\\ \hline
+Ny personal & Om det tillkommer utvecklare eller annat folk till gemenskapen så måste vi ha dokumenten i ordning. Översätta dokumenten till engelska kan bli intressant i framtiden. All kod och kommentarer kommer vara skriva på engelska.  \\ \hline
 \end{tabular}
 \subsection{Användarmiljö}
-Wiki:n ämnar användas till nätverk om 5-10 användare, men om möjligt ska programmet gå att skala upp till fler. Användarna kommer jobba via ett webbgränssnitt eller en lokal applikation där de kan läsa och redigera wiki:n. Detta kommer ske som nuvarande wiki-implementationer där de olika aktiviteterna oftast sträcker sig från några enstaka sekunder (bläddring) till några minuter (redigering). Synkroniseringen användarna emellan sker i bakgrunden och ska till stor del vara osynlig.
+Wikin ämnar användas till nätverk om 5-10 användare, men om möjligt ska programmet gå att skala upp till fler. Användarna kommer jobba via ett webbgränssnitt eller en lokal applikation där de kan läsa och redigera wikin. Detta kommer ske som nuvarande wiki-implementationer där de olika aktiviteterna oftast sträcker sig från några enstaka sekunder (bläddring) till några minuter (redigering). Synkroniseringen mellan användarna sker i bakgrunden och ska till stor del vara osynlig.
 
-Applikationen riktar sig mot linux med grafiskt gränssnitt men bör vara skrivet så att det kan bli plattformsoberoende. Wiki:n kommer behöva integreras med någon form av git-teknologi samt ett peer-to-peer protokoll.
+Applikationen riktar sig mot linux med grafiskt gränssnitt men bör vara skrivet så att det kan bli plattformsoberoende. Wikin kommer behöva integreras med någon form av git-teknologi samt ett peer-to-peer-protokoll.
 \section{Produktöversikt}
 \subsection*{Behov och funktoner}
 \begin{tabular}{|l|l|l|l|}
 \hline
 Behov & Prioritet & Funktion & Planerad publikation \\
 \hline
-Läsa och bläddra i wiki:n & Hög & Läsare med länkfunktion & 1 \\
+Läsa och bläddra i wikin & Hög & Läsare med länkfunktion & 1 \\
 \hline
-Redigera wiki:n & Hög & Redigeringsverktyg & 1 \\
+Redigera wikin & Hög & Redigeringsverktyg & 1 \\
 \hline
 Installera programmet & Hög & Integrera med en paktethanterare & 1 \\
 \hline
@@ -101,7 +101,9 @@ Användarvänligt redigeringsgränssnitt & Hög & - \\
 \hline
 Låga minimikrav på användarens tekniska förmåga & Hög & - \\
 \hline
-Plattforms oberoende & Normal & - \\
+Plattformsoberoende & Normal & - \\
+\hline
+Hög robusthet i systemet & Normal & - \\
 \hline
 \end{tabular}
 \end{document}
