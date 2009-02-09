@@ -24,7 +24,7 @@
 \section{Inledning}
 \textsc{\LARGE Use-case}
 
-
+\subsection{Exempel}
 \begin{itemize}
 	\item Brief description
 	
@@ -52,6 +52,149 @@
 	Speciella krav for caset.
 \end{itemize}
 
+\subsection{Bläddra}
+\begin{itemize}
+	\item Brief description
+	\\En person vill finna en speciell artikel.
+	\item Actors
+	\\En användare person A utan större datorvana.
+	\item Preconditions
+	\\Person A har programmet installerat på sin dator.
+	\item Basic flow of events
+	\\Person A startar programmet.
+	\\Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
+	\\Person A skriver in sökord som matchar artikeln han vill söka efter i en sökruta.
+	\\En lista med möjliga artiklar dyker upp och person A väljer en av dem.
+	\\Artikeln visas i ett fönster och person A kan läsa den.
+	\item Alternate flow of events
+	\\Person A startar programmet.
+	\\Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
+	\\Person A navigerar till sin önskade artikel genom länkar från andra artiklar.	
+	\\Artikeln visas i ett fönster och person A kan läsa den.
+	\item Key scenarios
+	\\Den viktigaste delen i detta use-case är att person A kan välja mellan två sätt att finna sin artikel. Antingen hitta den genom länkar från andra artiklar eller genom att söka efter den.
+	\item Post-conditions
+	\\Detta use-case utgår från att användaren är online och får uppdateringar på artiklar men användaren kan bläddra efter artiklar offline.
+	\item Special Requirements
+	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
+	\\Användaren skall ha läsrättigheter i wikigruppen(behövs endast för att ta emot nya uppdateringar).
+\end{itemize}
+
+\subsection{Allmän distribuering}
+\begin{itemize}
+	\item Brief description
+	\\En person skriver en artikel, en annan person läser artikeln och en annan redigerar den.
+	\item Actors
+	\\En användare person A utan större datorvana.
+	\\En användare person B utan större datorvana.
+	\\En användare person C utan större datorvana.
+	\item Preconditions
+	\\Person A, B och C har programmet installerat på sin dator.
+	\item Basic flow of events
+	\\Person A startar programmet.
+	\\Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
+	\\Person A skriver en ny artikel.
+	\\Person B kommer online och får uppdateringar innehållande artikeln från person A.
+	\\Person A går offline.
+	\\Person C kommer online och får uppdateringar innehållande artikeln från person B.
+	\\Person B går offline.
+	\\Person C väljer att redigera artikeln.
+	\\Person A kommer online och får uppdateringar innehållande ändringarna i artikeln från person C.
+	\\Person C går offline.
+	\\Person B kommer online och får uppdateringar från person A innehållande ändringarna i artikeln.
+	\item Key scenarios
+	\\Den viktigaste delen i detta use-case är att visa på vilket sätt ändringar sprids i ett distribuerat system.
+	\item Post-conditions
+	\\Detta use-case utgår från att flera användare har programmet och är medlemmar i samma wikigrupp.
+	\item Special Requirements
+	\\Användarna skall kunna vara medlem i en speciell wikigrupp.
+	\\Användare A skall ha skriv och läs-rättigheter i wikigruppen.
+	\\Användare B skall ha läsrättigheter i wikigruppen.
+	\\Användare C skall ha skriv och läs-rättigheter i wikigruppen.
+\end{itemize}
+
+
+\subsection{Läsa en artikel}
+\begin{itemize}
+	\item Brief description
+	\\En person skall läsa en artikel i sin wiki online.
+	\item Actors
+	\\En användare person A utan större datorvana.
+	\item Preconditions
+	\\Person A är online och har programmet installerat på sin dator.
+	\item Basic flow of events
+	\\Person A startar programmet.
+	\\Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
+	\\Person A väljer en uppdaterad artikel han/hon vill läsa.
+	\\Artikeln visas och person A läser den.
+	\item Alternate flow of events
+	\\Person A startar programmet.
+	\\Programmet söker efter uppdateringar från andra medlemmar i wikigruppen men finner inga.
+	\\Person A låter programmet stå på i bakgrunden i väntan på nya uppdateringar.	
+	\item Key scenarios
+	\\Den viktigaste delen i use-caset är när programmet synkroniserar artiklarna med de andra medlemmarna
+	\item Post-conditions
+	\\Detta use-case utgår från att användaren är online. Användaren kan lika gärna läsa artiklar offline men inga nya uppdateringar kan då hämtas.
+	\item Special Requirements
+	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
+	\\Användaren skall ha läsrättigheter i wikigruppen.
+\end{itemize}
+
+\subsection{Skriva en artikel}
+\begin{itemize}
+	\item Brief description
+	\\En person skall skriva en artikel i sin wiki online.
+	\item Actors
+	\\En användare person A utan större datorvana.
+	\item Preconditions
+	\\Person A är online och har programmet installerat på sin dator.
+	\item Basic flow of events
+	\\Person A startar programmet.
+	\\Person A väljer att skapa en ny artikel.
+	\\Ett redigeringsfönster visas och person A skriver sin artikel.
+	\\När person A är färdig väljer han att publicera sin artikel som nu kan hämtas och läsas av de andra medlemmarna i gruppen.
+	\item Alternate flow of events
+	\\Person A startar programmet.
+	\\Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
+	\\Person A läser en uppdaterad artikel och bestämmer sig för att ändra på den.
+	\\Person A väljer att redigera artikeln och ett redigeringsfönster med artikeln i visas.
+	\\Person A gör de önskvärda ändringarna	och publicerar den nya artikeln	som nu kan hämtas och läsas av de andra medlemmarna i gruppen.
+	\item Key scenarios
+	\\De viktigaste delarna i detta use-case är när person A redigerar en artikel i det redigerbara fönstret samt när person A är färdig och publicerar artikeln.
+	\item Post-conditions
+	\\Detta use-case utgår från att användaren är online. Användaren kan lika gärna skriva artiklar offline men inga  andra användare kan då läsa dem innan användaren kopplar upp sig.
+	\item Special Requirements
+	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
+	\\Användaren skall ha läsrättigheter i wikigruppen.
+	\\Användaren skall ha skrivrättigheter i wikigruppen.
+\end{itemize}
+
+\subsection{Ta tillbaks en gammal version av en artikel}
+\begin{itemize}
+	\item Brief description
+	\\En person finner att en artikel blivit felaktigt uppdaterad och vill återställa sin gamla kopia lokalt.
+	\item Actors
+	\\En användare person A utan större datorvana.
+	\item Preconditions
+	\\Person A är online och har programmet installerat på sin dator.
+	\item Basic flow of events
+	\\Person A startar programmet.
+	\\Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
+	\\Person A läser en av de uppdaterade artiklarna och ogillar de nya ändringarna.
+	\\Person A väljer att återskapa en äldre version av artikeln och ett fönster med möjliga äldre versioner visas.
+	\\Person A väljer den version av artikeln han vill ha och artikeln återskapas lokalt.
+	\item Key scenarios
+	\\Den viktigaste delen i detta use-case är att person A kan välja vilken version han vill gå tillbaks till.
+	\item Post-conditions
+	\\Detta use-case utgår från att användaren är online och får en uppdatering på en artikel men användaren kan återskapa äldre versioner av artiklar även offline.
+	\item Special Requirements
+	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
+	\\Användaren skall ha läsrättigheter i wikigruppen(behövs endast för att ta emot nya uppdateringar).
+	\\Användaren har ändringar av den aktuella artikeln sparade lokalt.
+\end{itemize}
+
+
+\subsection{Sammanslagning}
 \begin{itemize}
 	\item Brief description
 	
