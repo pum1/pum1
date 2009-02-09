@@ -22,7 +22,6 @@
 \newpage
 
 \setcounter{tocdepth}{2}
-\tableofcontents
 \newpage
 
 \section{Inledning}
@@ -30,59 +29,50 @@
 Nedan följer de risker som är aktuella i projektet.
 
 
-\subsection{Maintainability / Underhållbarhet}
-\begin{itemize}
-\item Risk - Systemet som levereras kan vara svårt att underhålla.
-
-\\Lösning - Se över koden för att få det mera underhållningsbar.
-\\Alternativ Lösning - Koda moduler där vissa delar, t.ex. UI, är mycket välkommenterad och lätt att förändra.
-
-\end{itemize}
 
 \subsection{Requirements / Krav}
 \begin{itemize}
-\item Risk - Kunden ger luddiga krav och blir sedan inte nöjd med produkten då den inte blev som han "hade tänkt sig".
-
-\\Lösning - Prata med kunden om om strukturering av programvaran.
-\item Risk - Beställarens krav stämmer inte överens med slutanvändarens krav.
-\\Lösning - Utför intervjuer, prototyp-test eller annat samarbete med slutanvändaren under utvecklingen.
 \item Risk - Kraven är ouppnåeliga för oss under detta tidsbegränsade projekt.
+\\Sannolikhet - 3
+\\Inverkan - 2
+\\Magnitud - 6
 \\Lösning - Förklara för kunden vad vi tror att vi kan och inte kan slutföra under detta projekt. Sätta upp ny kravlista.
 \end{itemize}
 
 \subsection{Usability / Användbarhet}
 \begin{itemize}
 \item Risk - Produkten blir inte lika användbar som var tänkt från början.
+\\Sannolikhet - 3
+\\Inverkan - 3
+\\Magnitud - 9
 \\Lösning - Iterera fram bättre och bättre GUI och gör användartester mellan varje iteration. Följ guider om att göra bättre GUI.
-\end{itemize}
-
-\subsection{Portability / Flyttbarhet}
-\begin{itemize}
-\item Risk - Produkten görs endast för ett operativsystem men det visar sig sedan att det hade behövts för flera.
-\\Lösning - Använd högnivåspråk vid programmering och undvik plattformsberoende paket och liknande.
-\item Risk - Produkten blir för hårdvarukrävande så att det inte går att använda mjukvaran på den tänkta hårdvaran.
-\\Lösning - Försök att begränsa produkten till det mest väsentliga och fokusera på funktionalitet och användbarhet.
 \end{itemize}
 
 \subsection{Testability / Tester}
 \begin{itemize}
 \item Risk - Tester kan inte ske innan implementation av programvaran.
+\\Sannolikhet - 2
+\\Inverkan - 3
+\\Magnitud - 6
 \\Lösning - Läs på om gränssnitt, protokoll och dokumentation.Pröva att använda drivers. Testa små delar åt gången.
-\end{itemize}
-
-\subsection{Compability / Kompatibilitet}
-\begin{itemize}
-\item Risk - Komponenter vi använder oss av fungerar i någon mån inte som tänkt.
-\\Lösning - Byta komponenter eller se till att kolla upp så att samtliga komponenter samarbetar bra.
 \end{itemize}
 
 \subsection{Generella risker}
 \begin{itemize}
 \item Risk - En nyckelperson i projektet blir utbytt eller tvingas sluta.
+\\Sannolikhet - 4
+\\Inverkan - 3
+\\Magnitud - 12
 \\Lösning - Dokumentera rikligt så någon annan lätt kan ta över personens arbete.
-\item Risk - Kod blir rörigt och svårläst.
+\item Risk - Kod blir rörig och svårläst.
+\\Sannolikhet - 4
+\\Inverkan - 2
+\\Magnitud - 8
 \\Lösning - Sätt upp en kod och kommenteringsstandard som hela gruppen följer.
 \item Risk - Vi lyckas inte få kontakt med kunden på länge.
+\\Sannolikhet - 1
+\\Inverkan - 3
+\\Magnitud - 3
 \\Lösning - Jobba vidare mot kraven så gott det går och fortsätt söka kunden.
 \end{itemize}
 
