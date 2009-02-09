@@ -15,8 +15,9 @@ build: \
 	${OUTPUT_DIR}/Architecture_Notebook.pdf \
 	${OUTPUT_DIR}/Develop_Technical_Vision.pdf \
 	${OUTPUT_DIR}/Glossary.pdf \
+	${OUTPUT_DIR}/Index_över_dokument.pdf \
 	${OUTPUT_DIR}/Projektplan.pdf \
-	${OUTPUT_DIR}/RiskList.pdf \
+	${OUTPUT_DIR}/Risk_List.pdf \
 	${OUTPUT_DIR}/System-WideRequirements.pdf \
 	${OUTPUT_DIR}/Use-case_Model.pdf \
 	${OUTPUT_DIR}/Use-case.pdf \
@@ -41,11 +42,14 @@ ${OUTPUT_DIR}/Develop_Technical_Vision.pdf:
 ${OUTPUT_DIR}/Glossary.pdf:
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ Glossary.tex
 
+${OUTPUT_DIR}/Index_över_dokument.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Index över dokument.tex"
+
 ${OUTPUT_DIR}/Projektplan.pdf:
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ Projektplan.tex
 
-${OUTPUT_DIR}/RiskList.pdf:
-	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ RiskList.tex
+${OUTPUT_DIR}/Risk_List.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Risk List.tex"
 
 ${OUTPUT_DIR}/System-WideRequirements.pdf:
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ System-WideRequirements.tex
