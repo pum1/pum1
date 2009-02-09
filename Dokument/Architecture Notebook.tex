@@ -1,0 +1,58 @@
+% Standardinkluderingsfil
+\input{standard}
+
+\ifpdf
+  \DeclareGraphicsExtensions{.pdf, .jpg, .tif, .png}
+  \pdfinfo{            
+    /Title  (Architecture Notebook)
+    /Author (PUM-grupp 1)
+  }
+\else
+  \DeclareGraphicsExtensions{.eps, .jpg}
+\fi
+
+\title{Distribuerad wiki \\ Architecture Notebook}
+\author{PUM-grupp 1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+\newpage
+\section{Syfte}
+Detta dokument syftar till att beskriva de filosofier och motiveringar som står till grund för det arkitekturella ramverket för projektet.
+\section{Arkitekturella mål och filosofi}
+Arkitekturen i projektet drivs till stor del av de krav som har stipulerats.
+\section{Antaganden och beroenden}
+\begin{itemize}
+\item Systemet skall fungera på Linux
+\item Systemet skall fungera decentralisera
+\item Systemet skall kommunicera via nätverk
+\end{itemize}
+\section{Arkitekturellt signifikanta krav}
+Här kommer referenser till krav i andra dokument att finnas.
+\section{Beslut, begrängningar och motiveringar}
+\begin{itemize}
+\item Beslut eller begränsning med motivering
+\item Beslut eller begränsning med motivering
+\end{itemize}
+\section{Arkitekturella mekanismer}
+\subsection{Distribueringsmekanismen}
+Distribueringsmekanismen är det som sköter synkroniseringen klienterna emellan. Den ser till att uppdateringar sprider sig över nätverket till så många klienter som möjligt.
+
+För att möjliggöra distribution håller distributionsmekanismen koll på alla ändringar som skett, tar emot ändringar från andra klienter och skickar iväg lokala sådana. Om en konflikt sker ser distributionsmekanismen till att den ansvarige skribenten blir meddelad om konflikten samtidigt som den gamla, konfliktfria versionen görs tillgänglig för den lokala användaren. Detta för att en tredje part inte ska behöva lägga sig i en redigeringskonflikt mellan två andra.
+\subsection{Redigeringsmekanismen}
+Redigeringsmekanismen finns lokalt hos klienten och tillåter användaren att redigera wiki-sidor via ett grafiskt gränssnitt.
+
+När användaren redigerat klart sparas ändringen till det lokala versionshanteringssystemet och distributionsmekanismen informeras.
+\subsection{Bläddringsmekanismen}
+Bläddringsmekanismen går ut på att visa wiki-sidor för användaren. Användaren kan använda bläddringsmekanismen för att utforska sin lokala kopia av den distribuerade wikin. När ändringar sker i sidor som är i vy ser bläddringsmekanismen till att uppdateringarna presenteras till användaren på smidigast möjliga sätt.
+\section{Huvudabstraktioner}
+\section{Arkitekturellt ramverk}
+\section{Arkitekturella vyer}
+\subsection{Logisk vy}
+\subsection{Operationell vy}
+\subsection{Användarfall}
+\end{document}

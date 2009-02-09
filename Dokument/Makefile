@@ -1,0 +1,61 @@
+TEX_COMPILER=pdflatex
+OUTPUT_DIR=PDF
+LOG_DIR=Log
+
+$PHONY: all
+
+all: clean build
+
+clean:
+	@rm -rf ${OUTPUT_DIR}
+	@rm -rf ${LOG_DIR}
+
+build: \
+	dirs \
+	${OUTPUT_DIR}/Architecture_Notebook.pdf \
+	${OUTPUT_DIR}/Develop_Technical_Vision.pdf \
+	${OUTPUT_DIR}/Glossary.pdf \
+	${OUTPUT_DIR}/Projektplan.pdf \
+	${OUTPUT_DIR}/RiskList.pdf \
+	${OUTPUT_DIR}/System-WideRequirements.pdf \
+	${OUTPUT_DIR}/Use-case_Model.pdf \
+	${OUTPUT_DIR}/Use-case.pdf \
+	${OUTPUT_DIR}/Vision.pdf \
+	movelogs
+
+dirs:
+	@mkdir -p ${OUTPUT_DIR}
+	@mkdir -p ${LOG_DIR}
+
+movelogs:
+	@mv ${OUTPUT_DIR}/*.log ${LOG_DIR}/
+	@mv ${OUTPUT_DIR}/*.aux ${LOG_DIR}/
+	@mv ${OUTPUT_DIR}/*.toc ${LOG_DIR}/
+
+${OUTPUT_DIR}/Architecture_Notebook.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Architecture Notebook.tex"
+
+${OUTPUT_DIR}/Develop_Technical_Vision.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Develop Technical Vision.tex"
+
+${OUTPUT_DIR}/Glossary.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ Glossary.tex
+
+${OUTPUT_DIR}/Projektplan.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ Projektplan.tex
+
+${OUTPUT_DIR}/RiskList.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ RiskList.tex
+
+${OUTPUT_DIR}/System-WideRequirements.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ System-WideRequirements.tex
+
+${OUTPUT_DIR}/Use-case_Model.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Use-case Model.tex"
+
+${OUTPUT_DIR}/Use-case.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ Use-case.tex
+
+${OUTPUT_DIR}/Vision.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ Vision.tex
+
