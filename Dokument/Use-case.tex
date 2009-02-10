@@ -22,148 +22,134 @@
 \newpage
 
 \section{Inledning}
-\textsc{\LARGE Use-case}
+För att lättare förstå vad användarna ska kunna åstadkomma med vårt system har gruppen satt upp ett antal use-cases för att försöka täcka de olika funktionaliteter som kommer att finnas.
 
-\subsection{Exempel}
-\begin{itemize}
-	\item Brief description
-	
-	Snabb beskrivning av vad som hander under caset.
-	\item Actors
-	Vilka personer ar med i caset?
-	
-	\item Preconditions
-	
-	Antaganden for att caset ska kunna "`genomforas"'
-	\item Basic flow of events
-	
-	Ga steg for steg igenom vad som hander i caset.
-	\item Alternate flow of events
-	
-	Andra satt caset kan utspela sig pa, t.ex. att nagot gar fel.
-	\item Key scenarios
-	
-	Det viktigaste scenariot i caset(?).
-	\item Post-conditions
-	
-	Mojliga utgangar av caset.
-	\item Special Requirements
-	
-	Speciella krav for caset.
-\end{itemize}
-
+\section{Use-cases} 
 \subsection{Bläddra}
 \begin{itemize}
-	\item Brief description
+	\item Kortfattad beskrivning
 	\\En person vill finna en speciell artikel.
-	\item Actors
-	\\En användare person A utan större datorvana.
-	\item Preconditions
+	\item Aktörer
+	\\En användare, person A, utan större datorvana.
+	\item Förhandsvillkor
 	\\Person A har programmet installerat på sin dator.
-	\item Basic flow of events
-	\\Person A startar programmet.
-	\\Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
-	\\Person A skriver in sökord som matchar artikeln han vill söka efter i en sökruta.
-	\\En lista med möjliga artiklar dyker upp och person A väljer en av dem.
-	\\Artikeln visas i ett fönster och person A kan läsa den.
-	\item Alternate flow of events
-	\\Person A startar programmet.
-	\\Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
-	\\Person A navigerar till sin önskade artikel genom länkar från andra artiklar.	
-	\\Artikeln visas i ett fönster och person A kan läsa den.
+	\item Händelseförlopp
+	\begin{enumerate}
+		\item Person A startar programmet.
+		\item Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
+		\item Person A skriver in sökord som matchar artikeln han vill söka efter i en sökruta.
+		\item En lista med möjliga artiklar dyker upp och person A väljer en av dem.
+		\item Artikeln visas i ett fönster och person A kan läsa den.
+	\end{enumerate}
+	\item Alternativt händelseförlopp
+	\\Efter steg 2:
+	\begin{enumerate}
+		\item Person A navigerar till sin önskade artikel genom länkar från andra artiklar.	
+		\item Artikeln visas i ett fönster och person A kan läsa den.
+	\end{enumerate}	
 	\item Key scenarios
 	\\Den viktigaste delen i detta use-case är att person A kan välja mellan två sätt att finna sin artikel. Antingen hitta den genom länkar från andra artiklar eller genom att söka efter den.
 	\item Post-conditions
 	\\Detta use-case utgår från att användaren är online och får uppdateringar på artiklar men användaren kan bläddra efter artiklar offline.
-	\item Special Requirements
-	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
-	\\Användaren skall ha läsrättigheter i wikigruppen(behövs endast för att ta emot nya uppdateringar).
+	\item Speciella krav
+	\\ Användaren skall kunna vara medlem i en speciell wikigrupp.
+	\\ Användaren skall ha läsrättigheter i wikigruppen (behövs endast för att ta emot nya uppdateringar).
 \end{itemize}
 
 \subsection{Allmän distribuering}
 \begin{itemize}
-	\item Brief description
-	\\En person skriver en artikel, en annan person läser artikeln och en annan redigerar den.
-	\item Actors
-	\\En användare person A utan större datorvana.
-	\\En användare person B utan större datorvana.
-	\\En användare person C utan större datorvana.
-	\item Preconditions
+	\item Kortfattad beskrivning
+	\\En person skriver en artikel, en annan person läser artikeln och en tredje redigerar den.
+	\item Aktörer
+	\\Tre användare A, B och C som alla är utan någon större datorvana.
+	\item Förhandsvillkor
 	\\Person A, B och C har programmet installerat på sin dator.
-	\item Basic flow of events
-	\\Person A startar programmet.
-	\\Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
-	\\Person A skriver en ny artikel.
-	\\Person B kommer online och får uppdateringar innehållande artikeln från person A.
-	\\Person A går offline.
-	\\Person C kommer online och får uppdateringar innehållande artikeln från person B.
-	\\Person B går offline.
-	\\Person C väljer att redigera artikeln.
-	\\Person A kommer online och får uppdateringar innehållande ändringarna i artikeln från person C.
-	\\Person C går offline.
-	\\Person B kommer online och får uppdateringar från person A innehållande ändringarna i artikeln.
+	\item  Händelseförlopp
+	\begin{enumerate}
+		\item Person A startar programmet.
+		\item Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
+		\item Person A skriver en ny artikel.
+		\item Person B kommer online och får uppdateringar innehållande artikeln från person A.
+		\item Person A går offline.
+		\item Person C kommer online och får uppdateringar innehållande artikeln från person B.
+		\item Person B går offline.
+		\item Person C väljer att redigera artikeln.
+		\item Person A kommer online och får uppdateringar innehållande ändringarna i artikeln från person C.
+		\item Person C går offline.
+		\item Person B kommer online och får uppdateringar från person A innehållande ändringarna i artikeln.
+	\end{enumerate}	
 	\item Key scenarios
 	\\Den viktigaste delen i detta use-case är att visa på vilket sätt ändringar sprids i ett distribuerat system.
 	\item Post-conditions
 	\\Detta use-case utgår från att flera användare har programmet och är medlemmar i samma wikigrupp.
-	\item Special Requirements
-	\\Användarna skall kunna vara medlem i en speciell wikigrupp.
-	\\Användare A skall ha skriv och läs-rättigheter i wikigruppen.
-	\\Användare B skall ha läsrättigheter i wikigruppen.
-	\\Användare C skall ha skriv och läs-rättigheter i wikigruppen.
+	\item Speciella krav
+	\begin{enumerate}	
+		\item Användarna skall kunna vara medlem i en speciell wikigrupp.
+		\item Användare A skall ha skriv och läs-rättigheter i wikigruppen.
+		\item Användare B skall ha läsrättigheter i wikigruppen.
+		\item Användare C skall ha skriv och läs-rättigheter i wikigruppen.
+	\end{enumerate}
 \end{itemize}
 
 
 \subsection{Läsa en artikel}
 \begin{itemize}
-	\item Brief description
+	\item Kortfattad beskrivning
 	\\En person skall läsa en artikel i sin wiki online.
-	\item Actors
+	\item Aktörer
 	\\En användare person A utan större datorvana.
-	\item Preconditions
+	\item Förhandsvillkor
 	\\Person A är online och har programmet installerat på sin dator.
-	\item Basic flow of events
-	\\Person A startar programmet.
-	\\Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
-	\\Person A väljer en uppdaterad artikel han/hon vill läsa.
-	\\Artikeln visas och person A läser den.
-	\item Alternate flow of events
-	\\Person A startar programmet.
-	\\Programmet söker efter uppdateringar från andra medlemmar i wikigruppen men finner inga.
-	\\Person A låter programmet stå på i bakgrunden i väntan på nya uppdateringar.	
+	\item Händelseförlopp
+	\begin{enumerate}
+		\item Person A startar programmet.
+		\item Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
+		\item Person A väljer en uppdaterad artikel han/hon vill läsa.
+		\item Artikeln visas och person A läser den.
+	\end{enumerate}
+	\item Alternativt händelseförlopp
+	\\Efter steg 1:
+	\begin{enumerate}	
+		\item Programmet söker efter uppdateringar från andra medlemmar i wikigruppen men finner inga.
+		\item Person A låter programmet stå på i bakgrunden i väntan på nya uppdateringar.	
+	\end{enumerate}	
 	\item Key scenarios
 	\\Den viktigaste delen i use-caset är när programmet synkroniserar artiklarna med de andra medlemmarna
 	\item Post-conditions
 	\\Detta use-case utgår från att användaren är online. Användaren kan lika gärna läsa artiklar offline men inga nya uppdateringar kan då hämtas.
-	\item Special Requirements
+	\item Speciella krav
 	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
 	\\Användaren skall ha läsrättigheter i wikigruppen.
 \end{itemize}
 
 \subsection{Skriva en artikel}
 \begin{itemize}
-	\item Brief description
+	\item Kortfattad beskrivning
 	\\En person skall skriva en artikel i sin wiki online.
-	\item Actors
+	\item Aktörer
 	\\En användare person A utan större datorvana.
-	\item Preconditions
+	\item Förhandsvillkor
 	\\Person A är online och har programmet installerat på sin dator.
-	\item Basic flow of events
-	\\Person A startar programmet.
-	\\Person A väljer att skapa en ny artikel.
-	\\Ett redigeringsfönster visas och person A skriver sin artikel.
-	\\När person A är färdig väljer han att publicera sin artikel som nu kan hämtas och läsas av de andra medlemmarna i gruppen.
-	\item Alternate flow of events
-	\\Person A startar programmet.
-	\\Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
-	\\Person A läser en uppdaterad artikel och bestämmer sig för att ändra på den.
-	\\Person A väljer att redigera artikeln och ett redigeringsfönster med artikeln i visas.
-	\\Person A gör de önskvärda ändringarna	och publicerar den nya artikeln	som nu kan hämtas och läsas av de andra medlemmarna i gruppen.
+	\item Händelseförlopp
+	\begin{enumerate}
+		\item Person A startar programmet.
+		\item Person A väljer att skapa en ny artikel.
+		\item Ett redigeringsfönster visas och person A skriver sin artikel.
+		\item När person A är färdig väljer han att publicera sin artikel som nu kan hämtas och läsas av de andra medlemmarna i gruppen.
+	\end{enumerate}
+	\item Alternativt händelseförlopp
+	\\Efter steg 1:
+	\begin{enumerate}	
+		\item Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
+		\item Person A läser en uppdaterad artikel och bestämmer sig för att ändra på den.
+		\item Person A väljer att redigera artikeln och ett redigeringsfönster med artikeln i visas.
+		\item Person A gör de önskvärda ändringarna	och publicerar den nya artikeln	som nu kan hämtas och läsas av de andra medlemmarna i gruppen.
+	\end{enumerate}
 	\item Key scenarios
 	\\De viktigaste delarna i detta use-case är när person A redigerar en artikel i det redigerbara fönstret samt när person A är färdig och publicerar artikeln.
 	\item Post-conditions
 	\\Detta use-case utgår från att användaren är online. Användaren kan lika gärna skriva artiklar offline men inga  andra användare kan då läsa dem innan användaren kopplar upp sig.
-	\item Special Requirements
+	\item Speciella krav
 	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
 	\\Användaren skall ha läsrättigheter i wikigruppen.
 	\\Användaren skall ha skrivrättigheter i wikigruppen.
@@ -171,23 +157,25 @@
 
 \subsection{Ta tillbaks en gammal version av en artikel}
 \begin{itemize}
-	\item Brief description
+	\item Kortfattad beskrivning
 	\\En person finner att en artikel blivit felaktigt uppdaterad och vill återställa sin gamla kopia lokalt.
-	\item Actors
-	\\En användare person A utan större datorvana.
-	\item Preconditions
+	\item Aktörer
+	\\En användare av systemet, person A, utan större datorvana.
+	\item Förhandsvillkor
 	\\Person A är online och har programmet installerat på sin dator.
-	\item Basic flow of events
-	\\Person A startar programmet.
-	\\Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
-	\\Person A läser en av de uppdaterade artiklarna och ogillar de nya ändringarna.
-	\\Person A väljer att återskapa en äldre version av artikeln och ett fönster med möjliga äldre versioner visas.
-	\\Person A väljer den version av artikeln han vill ha och artikeln återskapas lokalt.
+	\item Händelseförlopp
+	\begin{enumerate}
+		\item Person A startar programmet.
+		\item Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
+		\item Person A läser en av de uppdaterade artiklarna och ogillar de nya ändringarna.
+		\item Person A väljer att återskapa en äldre version av artikeln och ett fönster med möjliga äldre versioner visas.
+		\item Person A väljer den version av artikeln han vill ha och artikeln återskapas lokalt.
+	\end{enumerate}	
 	\item Key scenarios
 	\\Den viktigaste delen i detta use-case är att person A kan välja vilken version han vill gå tillbaks till.
 	\item Post-conditions
-	\\Detta use-case utgår från att användaren är online och får en uppdatering på en artikel men användaren kan återskapa äldre versioner av artiklar även offline.
-	\item Special Requirements
+	\\Detta use-case utgår från att användaren är online och får en uppdatering på en artikel. Dock kan användaren även återskapa äldre versioner av artiklar offline.
+	\item Speciella krav
 	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
 	\\Användaren skall ha läsrättigheter i wikigruppen(behövs endast för att ta emot nya uppdateringar).
 	\\Användaren har ändringar av den aktuella artikeln sparade lokalt.
@@ -196,51 +184,53 @@
 
 \subsection{Sammanslagning}
 \begin{itemize}
-	\item Brief description
-	
-	Person ska merga sina dokument eller annat arbeta med andra personers arbeten.
-	\item Actors
-	
-	Anvandare
-	Administrator	
-	\item Preconditions
-	
-	Ett distribuerat wiki-system ar konfigurerat, satt igang och anvands.
-	\item Basic flow of events
-	
+	\item Kortfattad beskrivning
+	\\En användare ska sammanfoga sina dokument eller annat arbete med andra personers arbeten.
+	\item Aktörer
+	\\Tre användare A, B och C som inte har någon större datorvana.
+	\\Administratör för wiki-gruppen med lite mer datorvana.	
+	\item Förhandsvillkor
+	\\Ett distribuerat wiki-system är konfigurerat, satt igång och används.
+	\item Händelseförlopp
 	\begin{enumerate}
-		\item Person A har arbetat med dokument pa sin dator och vill satta ihop detta med person B:s och person C:s dokument.
-		\item Person A har vet inte vad person B och person C har arbetat med men oppnar anda sin wiki.
-		\item Han gar in pa sidan for person B samt C:s dokument och valjer att synkronisera.
-		\item Systemet forsoker att sammanfoga dokumenten.
-		\item Eftersom olika stycken ar andrade i dokumenten sker en konflikt.
-		\item Anvandaren far en forfragan om han vill losa konflikten.
-		\item Anvandaren far upp dokumenten brevid varnadra och kan sedan andra det han behagar.
-		\item Till sist spara anvandaren dokumentet och kanner sig nojd.
+		\item Person A har arbetat med dokument på sin dator och vill sätta ihop detta med person B:s och person C:s dokument.
+		\item Person A vet inte vad person B och person C har arbetat med men öppnar ändå sin wiki.
+		\item Han går in på sidan för person B samt C:s dokument och därmed synkroniseras hans dokument automatiskt.
+		\item Systemet försöker att sammanfoga dokumenten.
+		\item Eftersom olika stycken är ändrade i dokumenten sker en konflikt.
+		\item Användaren får en förfrågan om han vill lösa konflikten.
+		\item Användaren får upp dokumenten brevid varnadra och kan sedan andra det han behagar.
+		\item Till sist sparar användaren dokumentet och kanner sig nöjd.
 	\end{enumerate}
-	\item Alternate flow of events
-	
-	Efter steg 5. Om anvandaren inte har rattigheter att andra pa filerna.
-	Anvandaren kontaktar administratoren om hjalp.
-	\item Alternate flow of events
-	Efter steg 5. Om anvandaren inte kanner sig tillrackligt saker att andra pa filerna.
-	Anvandaren kontaktar da den/de personer som har skrivit filerna och ber om hjalp.
+	\item Alternativt händelseförlopp
+	\\Efter steg 5:
+	\begin{enumerate}	
+		\item Användaren inte har rättigheter att andra på filerna.
+		\item Användaren kontaktar administratören om hjalp.
+	\end{enumerate}	
+	\item Alternativt händelseförlopp
+	\\Efter steg 5: 
+	\begin{enumerate}	
+		\item Användaren inte känner sig tillräckligt säker att ändra på filerna.
+		\item Användaren kontaktar då den/de personer som har skrivit filerna och ber om hjälp.
+	\end{enumerate}
 	\item Key scenarios
 	
-	Att sammanfoga olika filer med varandra trots att rattigheter samt kompetens kan stalla till det.
+	Det viktiga i detta use-case är att visa att man kan sammanfoga olika filer med varandra trots att rättigheter samt kompetens kan ställa till det.
 	\item Post-conditions	
-	
-		Success condition 
-		\\
-		Anvandaren lyckades med att sammanfoga (merge) tva eller fler filer.
-		\\
-		Failure condition
-		\\
-		Anvandaren lyckades ej med en sammanfogning.
+		\\Success condition 
+		\\Anvandaren lyckades med att sammanfoga (merge) tva eller fler filer.
+		\\Failure condition
+		\\Anvandaren lyckades ej med en sammanfogning.
 		
-	\item Special Requirements
-	
-	???
+	\item Speciella krav
+	\\Användaren ska vara medlem i en speciell wiki-grupp.
 \end{itemize}
 
+%\subsection{Rättstavning}
+%\begin{itemize}
+%	\item Kortfattad beskrivning
+%	\\En användare orkar eller vill inte sitta och korrekturläsa hela dokumentet för att hitta stavfel utan vill använda en automatisk rättstavare.
+%	\item 
+%\end{itemize}
 \end{document}
