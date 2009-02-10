@@ -21,7 +21,7 @@
 
 \newpage
 
-\section{Introduktion}
+\section{Inledning}
 Det här dokumentet beskriver hur projektet ska genomföras. Inledningsvis beskrivs projektets bakgrund, dess syfte och mål samt vilka personer som är delaktiga i projektet. Därefter ges en översiktlig beskrivning av projektprocessen OpenUp som används i projektet samt vilka roller som är aktuella för detta projekt. Slutligen beskrivs hur projektet ska levereras och de lärdomar dragits från projektet.
 
 \subsection{Bakgrund}
@@ -33,83 +33,121 @@ Syftet med projektet är att visa hur mjukvaruframställning på projektfrom gå
 Målet med projektet är att genomföra projektet på ett lyckat sätt och samtidigt ge kunden en mjukvara som denne är nöjd med och kan dra nytta av.
 
 \section{Projektöversikt}
-[kort översiktlig beskrivning av vad vårt projekt går ut på]
+Slutprodukten från projektet är tänkt att vara en applikationsplatform byggd på ett distribuerat versionshanteringssystem och peer-to-peer-teknik samt en wiki som är byggd på denna platform. Synkronseringen av databasen som wikin använder ska ske automatisk och helst ska denna överföring ske via ett krypterat protokoll. Användaren ska kunna bestämma vem han/hon vill dela informationen på wikin med.
+
+Målgruppen är användare med relativt liten datorvana och användargränssnittet för wikin måste därför vara enkelt. Produkten ska släppas som open source och är i första hand tänkt att köras på Linux, men det kan bli aktuellt att även porta platformen och wikin till Windows och Mac.
 
 \section{Projektorganisation}
-[Projektorganisation]
+Den här delen av dokumentet beskriver hur projektet är organiserat och vem kunden är. Dessutom beskrivs vilka projektmedlammarna är och vilken roll respektive medlem har.
 
 \subsection{Projektmedlemmar}
-[Introduce the project team, team members, and roles that they play during this project. If applicable, introduce work areas, domains, or technical work packages that are assigned to team members.]
-Nedan följer en beskrivning utav de roller som innehas av medlemmar i projektgruppen.
+Nedan följer en beskrivning utav de roller som innehas av medlemmarna i projektgruppen och vem som har vilken roll.
 
 \subsubsection*{Projektledare - Mikael Waernér}
-Projektledaren är den person som har huvudansvaret för planeringen i projektet. Han ser till så att projektgruppen är fokuserad på målen i projektet. Projektledaren ser till så att projektgruppen genomför ett projekt med ett resultat som kunden är nöjd med.
+Projektledaren är den person som har huvudansvaret för planeringen i projektet. Han ser till så att projektgruppen är fokuserad på projektets mål. Projektledaren ser till så att projektgruppen genomför ett projekt med ett resultat som kunden är nöjd med. Att planera och boka möten är även projektledarens uppgift.
 
 \subsubsection*{Analytiker - Erik Thorselius}
-Analytikerns jobb är att fånga in kunden och målgruppens behov och förstå de problem som måste lösas. Analytiker bör också se de möjligheter som eventuella problem kan medföra.
+Analytikerns jobb är att identifiera kundens och målgruppens behov samt förstå de problem som måste lösas. Tillsammans med kunden skriver han projektets tekniska vision som ligger till grund för mycket arbete inom projektet.
 
 \subsubsection*{Arkitekt - Oskar Holstensson}
-Arkitekten ansvarar för mjukvarans arkitektur, i det ingår att ta tekniska beslut om den överläggande designen och implementationen av systemet. Arkitekten måste balansera kundens behov med tekniska risker för att skapa en design som är genomförbar och effektiv att följa och validera.
+Arkitekten ansvarar för mjukvarans arkitektur, i det ingår att ta tekniska beslut om den överläggande designen och implementationen av systemet. Arkitekten måste kunna balansera kundens behov med tekniska risker för att skapa en design som är genomförbar och effektiv att följa och validera.
 
 \subsubsection*{Utvecklare - Victor Ortman}
-Utvecklaren ansvarar för att systemet blir utvecklat enligt arkitekturen. I det ingår bland annat att implementera enhetstestning och integrera olika komponenter.
+Utvecklaren ansvarar för att systemet blir utvecklat enligt arkitekturen. I det ingår bland annat att implementera enhetstestning och integrera olika färdiga komponenter.
 
 \subsubsection*{Testare - Martin Pettersson}
-Testaren ansvarar för att idientifiera de tester som är nödvändiga för produkten. Han ansvarar också för implementationen och ledandet av dessa tester. Testaren skall också logga testresultaten och förstå innebörden av dessa för systemet.
+Testaren ansvarar för att idientifiera de tester som är nödvändiga för produkten. Han ansvarar också för implementationen och ledandet av dessa tester. Testaren skall också logga testresultaten och kunna förstå innebörden av dessa för systemet.
 
 \subsubsection*{Kvalitetssamordnare - Linus Dunkers}
-[Kvalitetssamordnaren]
+Kvalitetssamordnaren har som uppgift att se över själva processen och föreslå förbättringar. Det är dessutom hans ansvar att samla ihop data till en erfarenhetsrapport och samla in tidsrapporter från projektmedlemarna. Kvalitetssamordnaren är även dokumentansvarig och tar också hand om eventuella förfrågningar om ändringar i projektet. Han ansvarar även för att det finns en klar definition av projektets kvalitetskrav.
 
 \subsection{Kunden}
-[Kunden]
+Den kund som beställt detta projekt är VISIARC AB. Det finns idagsläget ingen verksamhet som specifikt har efterfrågat den lösning som projektet erbjuder, utan VISIARC AB har istället tagit initiativet till detta projektförslag. Kunden avser att projektet ska utvecklas som en open source-produkt och kan därmed spridas fritt, dock bör projektet utvecklas på ett sådant sätt att en organisation får upphovsrättigheterna för att underlätta vidareutveckling.
 
 \section{Projektgenomförande}
-[Describe or reference which management and technical practices will be used in the project, such as iterative development, continuous integration, independent testing and list any changes or particular configuration to the project.
+Den process som kommer användas för att utveckla projektet är OpenUP\cite{openup} med vissa tillägg specifika för kursen TDDD09, exempelvis rollen som kvalitetssamordnare\cite{sandahl}. Den här delen av dokumentet beskriver hur projektet ska genomföras och hur statusrapportering ska ske.
 
 \subsection{Fasplan}
-Nedan beskrivs de faser som ingår i projektet.
+Nedan beskrivs de faser som ingår i projektet. Varje iteration kommer att avslutas med en dokumentinlämning till handledaren och ett seminarium där ett antal personer ur projektgruppen presenterar projektstatus samt presenterar projektet genom ett scenario.
 
 \subsubsection*{Inception}
 Inception är den första fasen i projektet. I denna fas så startas projektet och kontakten med kunden inleds. Kunden och projektgruppen kommer överens om projektets omfattning och en projektplan för projektets genomförande skrivs. Idén om den tekniska lösningen skrivs också ner i en vision. Utöver dessa två dokument så skall en work items list och en risklista skrivas. I work items list bryts det som ska göras i projektet ned och i risklistan listas de största riskerna i projektet så dessa kan hanteras i ett tidigt stadie.
 
 \subsubsection*{Elaboration}
-I elaboration identifieras och utvecklas de krav som kunden har på produkten. 
+I elaboration identifieras och utvecklas de krav som kunden har på produkten. Ur dessa krav skapas en arkitektur och design för produkten. Även testfall för kundens krav och själva arkitekturen implementeras i elaboration.
 
 \subsubsection*{Construction}
-Construction är den tredje fasen i projektet. Här påbörjas konstruktionen av programvaran.
+Utifrån den grund som lades i elaboration i form av arkitektur, design och krav konstrueras resten av produkten i construction-fasen. Den här fasen är tillräckligt stor för att delas upp i minst 2 stycken mindre iterationer, något som övriga faser ej tillåter.
 
 \subsubsection*{Transition}
-[Transition]
+Det sista stadiet i projektet är transition. Det är här som produkten kommer att levereras till kunden genom en överlämning av produkten.
 
 \subsection{Status- och tidrapportering}
-[Specify how you will track progress in each practice. As an example, for iterative development the team may decide to use iteration assessments and iteration burndown reports and collect metrics such as velocity (completed work item points/ iteration).]
+Varje enskild projektmedlem ska rapportera in status på de uppgifter denna för tillfälligt arbetar med. Statusrapporter lämnas via verktyget Redmine som kvalitetssamordnaren satt upp. Dessa sammanställs sedan till en iteration burndown-rapport och en project burndown-rapport. Kvalitetssamordnaren kommer även att ha som uppgift att bedömma om en iteration har fungerat bra eller dåligt.
+Tidsrapportering gör varje enskild projektmedlem och även denna sker via Redmine. Tidsrapporter lämnas in till handledaren vid slutet av varje fas.
+
+\newpage
 
 \section{Milstolpar och mål}
-[Define and describe the high-level objectives for the iterations and define milestones. For example, use the following table to lay out the schedule. If needed you may group the iterations into phases and use a separate table for each phase]
+Den här delen av dokumentet beskriver de olika milstolparna inom projektet.
 
 \begin{center}
-	\begin{tabular}{ | c | m{1.3cm} | m{5cm} | m{2.5cm} | m{2cm} |}
+	\begin{tabular}{| c | m{1.5cm} | m{5cm} | m{2.5cm} | m{2cm} |}
 		\hline
-		\textbf{Fas} & \textbf{Iteration} & \textbf{Primära mål (risker och use case-scenarier)} & \textbf{Start och slut (milstolpe)} & \textbf{Uppskattad tid (arbetsdagar)} \\
+		\textbf{Fas} & \textbf{Iteration} & \textbf{Primära mål} & \textbf{Start och slut (milstolpe)} \\
 		\hline
-		Inception & M0 & \begin{enumerate} \item Mitigate Risk \item Develop Use Case 3, Scenario 2 \end{enumerate} & 2009-01-26 2009-02-12 & X \\
+		Inception & M0 & \begin{enumerate} \item Starta projektet \item Upprätta en vision \item Identifiera primära krav \end{enumerate} & 2009-01-26 2009-02-12 \\
 		\hline
-		Elaboration & M1 & \begin{enumerate} \item Mitigate Risk 2 \item Develop Use Case 1, Scenario 2 \end{enumerate} & 2009-02-13 2009-03-06 & X \\
+		Elaboration & M1 & \begin{enumerate} \item Identifiera krav \item Skapa en arkitektur \item Skapa tester för krav \end{enumerate} & 2009-02-13 2009-03-06 \\
 		\hline
-		Construction & M2 & \begin{enumerate} \item Mitigate Risk \item Develop Use Case 3, Scenario 2 \end{enumerate} & 2009-03-07 2009-04-10 & X \\
+		Construction & M2 & \begin{enumerate} \item Utveckling och test av produkten \end{enumerate} & 2009-03-07 2009-04-10 \\
 		\hline
-		Construction & M3 & \begin{enumerate} \item Mitigate Risk \item Develop Use Case 3, Scenario 2 \end{enumerate} & 2009-04-11 2008-05-12 & X \\
+		Construction & M3 & \begin{enumerate} \item Utveckling och test av produkten \end{enumerate} & 2009-04-11 2008-05-12 \\
 		\hline
-		Transition & M4 & \begin{enumerate} \item Mitigate Risk \item Develop Use Case 3, Scenario 2 \end{enumerate} & 2008-05-13 2008-05-21 & X \\
+		Transition & M4 & \begin{enumerate} \item Leverera produkten till kunden \item Slutför projektet \end{enumerate} & 2008-05-13 2008-05-21 \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\emph{ }\linebreak
+Nedan följer en förklaring av de olika milstolparna.
+
+\begin{center}
+	\begin{tabular}{| c | l |}
+		\hline
+		Beteckning & Milstolple \\
+		\hline
+		M0 & Lifecycle Objectives Milestone \\
+		\hline
+		M1 & Lifecycle Architecture Milestone \\
+		\hline
+		M2 & (Ej bestämd ännu) \\
+		\hline
+		M3 & Initial Operational Capability Milestone \\
+		\hline
+		M4 & Product Release Milestone \\
 		\hline
 	\end{tabular}
 \end{center}
 
 \section{Leverans}
-Mjukvaran kommer paketeras för enkel installation hos klientdatorerna. Om möjlighet ges för slutproduken att läggas på en central produktserver kommer denna att utnyttjas för enklast möjliga distribution och uppdatering av mjukvaran.
+Mjukvaran kommer paketeras för enkel installation på klientdatorerna. Om möjlighet ges för slutproduken att läggas på en central produktserver kommer denna att utnyttjas för enklast möjliga distribution och uppdatering av mjukvaran.
 
 \section{Lärdomar}
 Den här delen av dokumentet kommer att fyllas på senare med de lärdomar som dragits från projektet.
+
+\begin{thebibliography}{9}
+	\bibitem{openup}
+	Eclipse contributors and others,
+	\emph{OpenUP}.
+	http://www.ida.liu.se/\~{}TDDD09/openup/index.htm
+	2004, 2008.
+
+	\bibitem{sandahl}
+	Kristian Sandahl,
+	\emph{TDDD09: Processen}.
+	http://www.ida.liu.se/\~{}TDDD09/processen.sv.shtml
+\end{thebibliography}
 
 \end{document}
 
