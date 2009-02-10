@@ -1,0 +1,9 @@
+
+echo "Välkommen till Linus oändliga pull-loop!"
+if (($#>0)); then ((SWTIME=$1*60)); else echo "Du måste ange loopintervall som första argument i minuter"; exit; fi
+if (($1>1000)); then echo "Loopintervallet måste vara ett tal mellan 0 och 1000"; exit; fi
+if (($1<0)); then echo "Loopintervallet måste vara ett tal mellan 0 och 1000"; exit; fi
+((MWTIME=$SWTIME/60))
+echo "Loopintervall satt till: $MWTIME minuter"
+echo "För att avbryta oändlig loop, tryck Ctrl + C"
+while ((1)); do pull_all; sleep $SWTIME; done
