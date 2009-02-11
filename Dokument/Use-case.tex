@@ -27,28 +27,29 @@
 
 \subsection{Exempel}
 \begin{itemize}
-	\item Brief description
+	\item Kortfattad beskrivning
 	
 	Snabb beskrivning av vad som händer under fallet.
-	\item Actors
-	Vilka personer ar med i fallet?
+	\item Aktörer
 	
-	\item Preconditions
+	Vilka personer är med i fallet?
+	
+	\item Förhandsvillkor
 	
 	Antaganden för att fallet ska kunna genomföras
-	\item Basic flow of events
+	\item Händelseförlopp
 	
-	Gå steg for steg igenom vad som händer i fallet.
-	\item Alternate flow of events
+	Gå steg för steg igenom vad som händer i fallet.
+	\item Alternativt händelseförlopp
 	
-	Andra satt fallet kan utspela sig på, till exempel att något går fel.
-	\item Key scenarios
+	Andra sätt fallet kan utspela sig på, till exempel att något går fel.
+	\item Huvudscenario
 	
 	Det viktigaste scenariot i fallet.
-	\item Post-conditions
+	\item Efterhandsvillkor
 	
 	Möjliga utgångar av fallet.
-	\item Special Requirements
+	\item Speciella krav
 	
 	Speciella krav for fallet.
 \end{itemize}
@@ -80,9 +81,9 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 		\item Person A navigerar till sin önskade artikel genom länkar från andra artiklar.	
 		\item Artikeln visas i ett fönster och person A kan läsa den.
 	\end{enumerate}	
-	\item Key scenarios
+	\item Huvudscenario
 	\\Den viktigaste delen i detta use-case är att person A kan välja mellan två sätt att finna sin artikel. Antingen hitta den genom länkar från andra artiklar eller genom att söka efter den.
-	\item Post-conditions
+	\item Efterhandsvillkor
 	\\Detta use-case utgår från att användaren är online och får uppdateringar på artiklar men användaren kan bläddra efter artiklar offline.
 	\item Speciella krav
 	\\ Användaren skall kunna vara medlem i en speciell wikigrupp.
@@ -112,9 +113,9 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 		\item Person C går offline.
 		\item Person B kommer online och får uppdateringar från person A innehållande ändringarna i artikeln.
 	\end{enumerate}	
-	\item Key scenarios
+	\item Huvudscenario
 	\\Den viktigaste delen i detta use-case är att visa på vilket sätt ändringar sprids i ett distribuerat system.
-	\item Post-conditions
+	\item Efterhandsvillkor
 	\\Detta use-case utgår från att flera användare har programmet och är medlemmar i samma wikigrupp.
 	\item Speciella krav
 	\begin{enumerate}	
@@ -147,9 +148,9 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 		\item Programmet söker efter uppdateringar från andra medlemmar i wikigruppen men finner inga.
 		\item Person A låter programmet stå på i bakgrunden i väntan på nya uppdateringar.	
 	\end{enumerate}	
-	\item Key scenarios
+	\item Huvudscenario
 	\\Den viktigaste delen i use-caset är när programmet synkroniserar artiklarna med de andra medlemmarna
-	\item Post-conditions
+	\item Efterhandsvillkor
 	\\Detta use-case utgår från att användaren är online. Användaren kan lika gärna läsa artiklar offline men inga nya uppdateringar kan då hämtas.
 	\item Speciella krav
 	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
@@ -179,9 +180,9 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 		\item Person A väljer att redigera artikeln och ett redigeringsfönster med artikeln i visas.
 		\item Person A gör de önskvärda ändringarna	och publicerar den nya artikeln	som nu kan hämtas och läsas av de andra medlemmarna i gruppen.
 	\end{enumerate}
-	\item Key scenarios
+	\item Huvudscenario
 	\\De viktigaste delarna i detta use-case är när person A redigerar en artikel i det redigerbara fönstret samt när person A är färdig och publicerar artikeln.
-	\item Post-conditions
+	\item Efterhandsvillkor
 	\\Detta use-case utgår från att användaren är online. Användaren kan lika gärna skriva artiklar offline men inga  andra användare kan då läsa dem innan användaren kopplar upp sig.
 	\item Speciella krav
 	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
@@ -205,9 +206,9 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 		\item Person A väljer att återskapa en äldre version av artikeln och ett fönster med möjliga äldre versioner visas.
 		\item Person A väljer den version av artikeln han vill ha och artikeln återskapas lokalt.
 	\end{enumerate}	
-	\item Key scenarios
+	\item Huvudscenario
 	\\Den viktigaste delen i detta use-case är att person A kan välja vilken version han vill gå tillbaks till.
-	\item Post-conditions
+	\item Efterhandsvillkor
 	\\Detta use-case utgår från att användaren är online och får en uppdatering på en artikel. Dock kan användaren även återskapa äldre versioner av artiklar offline.
 	\item Speciella krav
 	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
@@ -248,10 +249,10 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 		\item Användaren inte känner sig tillräckligt säker att ändra på filerna.
 		\item Användaren kontaktar då den/de personer som har skrivit filerna och ber om hjälp.
 	\end{enumerate}
-	\item Key scenarios
+	\item Huvudscenario
 	
 	Det viktiga i detta use-case är att visa att man kan sammanfoga olika filer med varandra trots att rättigheter samt kompetens kan ställa till det.
-	\item Post-conditions	
+	\item Efterhandsvillkor	
 		\\Success condition 
 		\\Anvandaren lyckades med att sammanfoga (merge) tva eller fler filer.
 		\\Failure condition
@@ -277,7 +278,7 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 		\item För varje fel som rättstavningskontrollen hittar får användaren en fråga om han vill ändra det befintliga ordet till det som rättstavningskontrollen föreslår.
 		\item När användaren är klar sparar han dokumentet.
 	\end{enumerate}
-	\item Key scenarios
+	\item Huvudscenario
 	\\Det viktiga delen i det här use-caset är att en användare skall kunna använda automatisk rättstavning för att snabba upp dokumenthanteringen.
 	\item Post-condition
 	\\ Antingen hittar rättstavningskontrollen inga fel och godkänner dokumentet direkt eller så hittar den något som den klagar på och användaren får välja om det ska rättas till.
