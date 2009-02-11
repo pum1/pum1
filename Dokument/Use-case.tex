@@ -28,35 +28,26 @@
 \subsection{Exempel}
 \begin{itemize}
 	\item Kortfattad beskrivning
-	
-	Snabb beskrivning av vad som händer under fallet.
+	Kort beskrivning av use-case.
 	\item Aktörer
-	
-	Vilka personer är med i fallet?
-	
+	Beskrivning av de aktörer som medverkar.
 	\item Förhandsvillkor
-	
-	Antaganden för att fallet ska kunna genomföras
+	Antaganden för att fallet ska kunna genomföras.
 	\item Händelseförlopp
-	
-	Gå steg för steg igenom vad som händer i fallet.
+	Stegvis genomgång av händelseförloppet.
 	\item Alternativt händelseförlopp
-	
 	Andra sätt fallet kan utspela sig på, till exempel att något går fel.
 	\item Huvudscenario
-	
 	Det viktigaste scenariot i fallet.
 	\item Efterhandsvillkor
-	
 	Möjliga utgångar av fallet.
 	\item Speciella krav
-	
-	Speciella krav for fallet.
+	Speciella krav för fallet.
 \end{itemize}
 
 \section{Use-cases} 
 
-För att lättare förstå vad användarna ska kunna åstadkomma med vårt system har gruppen satt upp ett antal use-cases för att försöka täcka de olika funktionaliteter som kommer att finnas.
+För att lättare förstå vad användarna ska kunna åstadkomma med vårt system har gruppen satt upp ett antal use-cases för att försöka täcka de olika funktioner som kommer att finnas.
 
 \subsection{Bläddra}
 
@@ -70,24 +61,27 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Händelseförlopp
 	\begin{enumerate}
 		\item Person A startar programmet.
-		\item Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
 		\item Person A skriver in sökord som matchar artikeln han vill söka efter i en sökruta.
 		\item En lista med möjliga artiklar dyker upp och person A väljer en av dem.
 		\item Artikeln visas i ett fönster och person A kan läsa den.
 	\end{enumerate}
 	\item Alternativt händelseförlopp
-	\\Efter steg 2:
 	\begin{enumerate}
+		\item Person A startar programmet.
 		\item Person A navigerar till sin önskade artikel genom länkar från andra artiklar.	
 		\item Artikeln visas i ett fönster och person A kan läsa den.
 	\end{enumerate}	
 	\item Huvudscenario
-	\\Den viktigaste delen i detta use-case är att person A kan välja mellan två sätt att finna sin artikel. Antingen hitta den genom länkar från andra artiklar eller genom att söka efter den.
+	\\Den viktigaste delen i detta use-case är att person A kan välja mellan två sätt att finna sin artikel. Antingen med hjälp av länkar från andra artiklar eller genom en sökfunktion.
 	\item Efterhandsvillkor
-	\\Detta use-case utgår från att användaren är online och får uppdateringar på artiklar men användaren kan bläddra efter artiklar offline.
+	\begin{itemize}
+	\item Fann önskad artikel
+	\\Användaren fick tag på den artikel som han/hon önskade
+	\item Fann inte önskad artikel
+	\\Användaren fick inte tag på den artikel han/hon önskade, antingen på grund av bristande sökord, felaktiga länkningar eller så kanske inte användarens wiki fått hem alla artiklar från övriga användare i gruppen.
+	\end{itemize}
 	\item Speciella krav
-	\\ Användaren skall kunna vara medlem i en speciell wikigrupp.
-	\\ Användaren skall ha läsrättigheter i wikigruppen (behövs endast för att ta emot nya uppdateringar).
+	\\En startsida på användarens wiki med länkar till andra wiki-sidor krävs för det alternativa händelseförloppet.
 \end{itemize}
 
 \subsection{Allmän distribuering}
@@ -97,21 +91,14 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Aktörer
 	\\Tre användare A, B och C som alla är utan någon större datorvana.
 	\item Förhandsvillkor
-	\\Person A, B och C har programmet installerat på sin dator.
-	\pagebreak 	
+	\\Personerna A, B och C har programmet installerat på sin dator. De har oskcå programmet igång och är anslutna till Internet.
 	\item Händelseförlopp
 	\begin{enumerate}
-		\item Person A startar programmet.
-		\item Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
 		\item Person A skriver en ny artikel.
-		\item Person B kommer online och får uppdateringar innehållande artikeln från person A.
-		\item Person A går offline.
-		\item Person C kommer online och får uppdateringar innehållande artikeln från person B.
-		\item Person B går offline.
+		\item Person B och C får automatiskt artikeln från person A.
+		\item Person B läser artikeln.
 		\item Person C väljer att redigera artikeln.
-		\item Person A kommer online och får uppdateringar innehållande ändringarna i artikeln från person C.
-		\item Person C går offline.
-		\item Person B kommer online och får uppdateringar från person A innehållande ändringarna i artikeln.
+		\item Person A och B får automatiskt ändringarna i artikeln från person C.
 	\end{enumerate}	
 	\item Huvudscenario
 	\\Den viktigaste delen i detta use-case är att visa på vilket sätt ändringar sprids i ett distribuerat system.
@@ -234,14 +221,14 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 		\item Systemet försöker att sammanfoga dokumenten.
 		\item Eftersom olika stycken är ändrade i dokumenten sker en konflikt.
 		\item Användaren får en förfrågan om han vill lösa konflikten.
-		\item Användaren får upp dokumenten brevid varnadra och kan sedan andra det han behagar.
-		\item Till sist sparar användaren dokumentet och kanner sig nöjd.
+		\item Användaren får upp dokumenten bredvid varandra och kan sedan ändra det han behagar.
+		\item Till sist sparar användaren dokumentet och känner sig nöjd.
 	\end{enumerate}
 	\item Alternativt händelseförlopp
 	\\Efter steg 5:
 	\begin{enumerate}	
 		\item Användaren inte har rättigheter att andra på filerna.
-		\item Användaren kontaktar administratören om hjalp.
+		\item Användaren kontaktar administratören om hjälp.
 	\end{enumerate}	
 	\item Alternativt händelseförlopp
 	\\Efter steg 5: 
@@ -254,7 +241,7 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	Det viktiga i detta use-case är att visa att man kan sammanfoga olika filer med varandra trots att rättigheter samt kompetens kan ställa till det.
 	\item Efterhandsvillkor	
 		\\Success condition 
-		\\Anvandaren lyckades med att sammanfoga (merge) tva eller fler filer.
+		\\Anvandaren lyckades med att sammanfoga (merge) två eller fler filer.
 		\\Failure condition
 		\\Anvandaren lyckades ej med en sammanfogning.
 		
