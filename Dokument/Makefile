@@ -15,13 +15,15 @@ build: \
 	${OUTPUT_DIR}/Architecture_Notebook.pdf \
 	${OUTPUT_DIR}/Develop_Technical_Vision.pdf \
 	${OUTPUT_DIR}/Glossary.pdf \
-	${OUTPUT_DIR}/Index_över_dokument.pdf \
-	${OUTPUT_DIR}/Projektplan.pdf \
+	${OUTPUT_DIR}/Index_over_dokument.pdf \
+	${OUTPUT_DIR}/Iteration_plan_-_inception.pdf \
+	${OUTPUT_DIR}/Project_plan.pdf \
 	${OUTPUT_DIR}/Risk_List.pdf \
 	${OUTPUT_DIR}/System-WideRequirements.pdf \
 	${OUTPUT_DIR}/Use-case_Model.pdf \
 	${OUTPUT_DIR}/Use-case.pdf \
 	${OUTPUT_DIR}/Vision.pdf \
+	${OUTPUT_DIR}/Work_items_list.pdf \
 	movelogs
 
 dirs:
@@ -42,11 +44,14 @@ ${OUTPUT_DIR}/Develop_Technical_Vision.pdf:
 ${OUTPUT_DIR}/Glossary.pdf:
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ Glossary.tex
 
-${OUTPUT_DIR}/Index_över_dokument.pdf:
-	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Index över dokument.tex"
+${OUTPUT_DIR}/Index_over_dokument.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Index over dokument.tex"
 
-${OUTPUT_DIR}/Projektplan.pdf:
-	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ Projektplan.tex
+${OUTPUT_DIR}/Iteration_plan_-_inception.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Iteration plan - inception.tex"
+
+${OUTPUT_DIR}/Project_plan.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Project plan.tex"
 
 ${OUTPUT_DIR}/Risk_List.pdf:
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Risk List.tex"
@@ -62,4 +67,7 @@ ${OUTPUT_DIR}/Use-case.pdf:
 
 ${OUTPUT_DIR}/Vision.pdf:
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ Vision.tex
+
+${OUTPUT_DIR}/Work_items_list.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Work items list.tex"
 
