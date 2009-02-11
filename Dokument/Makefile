@@ -50,7 +50,9 @@ ${OUTPUT_DIR}/Index_over_dokument.pdf:
 ${OUTPUT_DIR}/Iteration_plan_-_inception.pdf:
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Iteration plan - inception.tex"
 
+# Kompilera denna två gånger för att få med referenser.
 ${OUTPUT_DIR}/Project_plan.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Project plan.tex"
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Project plan.tex"
 
 ${OUTPUT_DIR}/Risk_List.pdf:

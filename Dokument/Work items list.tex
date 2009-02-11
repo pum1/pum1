@@ -1,0 +1,40 @@
+% Standardinkluderingsfil
+\input{standard}
+
+\ifpdf
+  \DeclareGraphicsExtensions{.pdf, .jpg, .tif, .png}
+  \pdfinfo{            
+    /Title  (LaTeX-mall)
+    /Author (PUM-grupp 1)
+  }
+\else
+  \DeclareGraphicsExtensions{.eps, .jpg}
+\fi
+
+\title{LaTeX-mall}
+\author{PUM-grupp 1}
+\date{2008-01-29}
+
+\begin{document}
+
+\maketitle\thispagestyle{empty}
+
+\newpage
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+\section{Inledning}
+
+Vi får kanske komma på några snyggare headers och footers till dokumenten, men det är ju inte så viktigt just nu.
+
+\subsection{Hej}
+
+Det här är en underrubrik.
+
+\subsubsection{Då}
+
+Det här ligger i ytterligare en underrubrik.
+
+\end{document}
