@@ -27,22 +27,14 @@
 
 \subsection{Exempel}
 \begin{itemize}
-	\item Kortfattad beskrivning
-	Kort beskrivning av use-case.
-	\item Aktörer
-	Beskrivning av de aktörer som medverkar.
-	\item Förhandsvillkor
-	Antaganden för att fallet ska kunna genomföras.
-	\item Händelseförlopp
-	Stegvis genomgång av händelseförloppet.
-	\item Alternativt händelseförlopp
-	Andra sätt fallet kan utspela sig på, till exempel att något går fel.
-	\item Huvudscenario
-	Det viktigaste scenariot i fallet.
-	\item Efterhandsvillkor
-	Möjliga utgångar av fallet.
-	\item Speciella krav
-	Speciella krav för fallet.
+	\item Kortfattad beskrivning - Kort beskrivning av use-case.
+	\item Aktörer - Beskrivning av de aktörer som medverkar.
+	\item Förhandsvillkor - Antaganden för att fallet ska kunna genomföras.
+	\item Händelseförlopp - Stegvis genomgång av händelseförloppet.
+	\item Alternativt händelseförlopp - Andra sätt fallet kan utspela sig på, till exempel att något går fel.
+	\item Huvudscenario - Det viktigaste scenariot i fallet.
+	\item Efterhandsvillkor - Möjliga utgångar av fallet.
+	\item Speciella krav - Speciella krav för fallet.
 \end{itemize}
 
 \section{Use-cases} 
@@ -91,7 +83,7 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Aktörer
 	\\Tre användare A, B och C som alla är utan någon större datorvana.
 	\item Förhandsvillkor
-	\\Personerna A, B och C har programmet installerat på sin dator. De har oskcå programmet igång och är anslutna till Internet.
+	\\Personerna A, B och C har programmet installerat på sin dator. De har också programmet igång och är anslutna till Internet.
 	\item Händelseförlopp
 	\begin{enumerate}
 		\item Person A skriver en ny artikel.
@@ -119,7 +111,7 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Kortfattad beskrivning
 	\\En person skall läsa en artikel i sin wiki online.
 	\item Aktörer
-	\\En användare person A utan större datorvana.
+	\\En användare, person A, utan större datorvana.
 	\item Förhandsvillkor
 	\\Person A är online och har programmet installerat på sin dator.
 	\item Händelseförlopp
@@ -149,7 +141,7 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Kortfattad beskrivning
 	\\En person skall skriva en artikel i sin wiki online.
 	\item Aktörer
-	\\En användare person A utan större datorvana.
+	\\En användare, person A, utan större datorvana.
 	\item Förhandsvillkor
 	\\Person A är online och har programmet installerat på sin dator.
 	\item Händelseförlopp
@@ -227,8 +219,8 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Alternativt händelseförlopp
 	\\Efter steg 5:
 	\begin{enumerate}	
-		\item Användaren inte har rättigheter att andra på filerna.
-		\item Användaren kontaktar administratören om hjälp.
+		\item Användaren inte har rättigheter att ändra på filerna.
+		\item Användaren kontaktar administratören för att få hjälp.
 	\end{enumerate}	
 	\item Alternativt händelseförlopp
 	\\Efter steg 5: 
@@ -241,9 +233,9 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	Det viktiga i detta use-case är att visa att man kan sammanfoga olika filer med varandra trots att rättigheter samt kompetens kan ställa till det.
 	\item Efterhandsvillkor	
 		\\Success condition 
-		\\Anvandaren lyckades med att sammanfoga (merge) två eller fler filer.
+		\\Användaren lyckades med att sammanfoga (merge) två eller fler filer.
 		\\Failure condition
-		\\Anvandaren lyckades ej med en sammanfogning.
+		\\Användaren lyckades ej med en sammanfogning.
 		
 	\item Speciella krav
 	\\Användaren ska vara medlem i en speciell wiki-grupp.
@@ -252,24 +244,24 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 \subsection{Rättstavning}
 \begin{itemize}
 	\item Kortfattad beskrivning
-	\\En användare orkar eller vill inte sitta och korrekturläsa hela dokumentet för att hitta stavfel utan vill använda en automatisk rättstavare.
+	\\En användare orkar eller vill inte sitta och korrekturläsa hela artikeln för att hitta stavfel utan vill använda en automatisk rättstavare.
 	\item Aktörer
 	\\En användare, person A, utan direkt datorvana.
 	\item Förhandvillkor
 	\\Person A har programmet installerat på datorn
 	\item Händelseförlopp
 	\begin{enumerate}
-		\item En användare vill eller har inte tid att läsa ett dokument som han vill göra tillgängligt för andra användare.
-		\item Användaren går in på dokumentet.
-		\item Användaren väljer sedan att rättstava dokumentet.
+		\item En användare vill eller har inte tid att läsa en artikel som han vill göra tillgängligt för andra användare.
+		\item Användaren redigerar artikeln.
+		\item Användaren väljer sedan att rättstava artikeln.
 		\item För varje fel som rättstavningskontrollen hittar får användaren en fråga om han vill ändra det befintliga ordet till det som rättstavningskontrollen föreslår.
-		\item När användaren är klar sparar han dokumentet.
+		\item När användaren är klar sparar han artikeln.
 	\end{enumerate}
 	\item Huvudscenario
-	\\Det viktiga delen i det här use-caset är att en användare skall kunna använda automatisk rättstavning för att snabba upp dokumenthanteringen.
+	\\Det viktiga delen i det här use-caset är att en användare skall kunna använda automatisk rättstavning för att granska sin artikel efter stavfel.
 	\item Post-condition
-	\\ Antingen hittar rättstavningskontrollen inga fel och godkänner dokumentet direkt eller så hittar den något som den klagar på och användaren får välja om det ska rättas till.
+	\\ Antingen hittar rättstavningskontrollen inga fel och godkänner artikeln direkt eller så hittar den något som den uppfattar som felstavat och användaren får en rättningsförfrågan.
 	\item Speciella krav
-	\\Användaren skall läs och skriv rättigheter för att kunna göra en rättstavning.
+	\\Användaren måste ha stavningskontrollen installerad.
 \end{itemize}
 \end{document}
