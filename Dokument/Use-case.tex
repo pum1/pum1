@@ -27,35 +27,27 @@
 
 \subsection{Exempel}
 \begin{itemize}
-	\item Brief description
-	
-	Snabb beskrivning av vad som händer under fallet.
-	\item Actors
-	Vilka personer ar med i fallet?
-	
-	\item Preconditions
-	
-	Antaganden för att fallet ska kunna genomföras
-	\item Basic flow of events
-	
-	Gå steg for steg igenom vad som händer i fallet.
-	\item Alternate flow of events
-	
-	Andra satt fallet kan utspela sig på, till exempel att något går fel.
-	\item Key scenarios
-	
+	\item Kortfattad beskrivning
+	Kort beskrivning av use-case.
+	\item Aktörer
+	Beskrivning av de aktörer som medverkar.
+	\item Förhandsvillkor
+	Antaganden för att fallet ska kunna genomföras.
+	\item Händelseförlopp
+	Stegvis genomgång av händelseförloppet.
+	\item Alternativt händelseförlopp
+	Andra sätt fallet kan utspela sig på, till exempel att något går fel.
+	\item Huvudscenario
 	Det viktigaste scenariot i fallet.
-	\item Post-conditions
-	
+	\item Efterhandsvillkor
 	Möjliga utgångar av fallet.
-	\item Special Requirements
-	
-	Speciella krav for fallet.
+	\item Speciella krav
+	Speciella krav för fallet.
 \end{itemize}
 
 \section{Use-cases} 
 
-För att lättare förstå vad användarna ska kunna åstadkomma med vårt system har gruppen satt upp ett antal use-cases för att försöka täcka de olika funktionaliteter som kommer att finnas.
+För att lättare förstå vad användarna ska kunna åstadkomma med vårt system har gruppen satt upp ett antal use-cases för att försöka täcka de olika funktioner som kommer att finnas.
 
 \subsection{Bläddra}
 
@@ -69,24 +61,27 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Händelseförlopp
 	\begin{enumerate}
 		\item Person A startar programmet.
-		\item Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
 		\item Person A skriver in sökord som matchar artikeln han vill söka efter i en sökruta.
 		\item En lista med möjliga artiklar dyker upp och person A väljer en av dem.
 		\item Artikeln visas i ett fönster och person A kan läsa den.
 	\end{enumerate}
 	\item Alternativt händelseförlopp
-	\\Efter steg 2:
 	\begin{enumerate}
+		\item Person A startar programmet.
 		\item Person A navigerar till sin önskade artikel genom länkar från andra artiklar.	
 		\item Artikeln visas i ett fönster och person A kan läsa den.
 	\end{enumerate}	
-	\item Key scenarios
-	\\Den viktigaste delen i detta use-case är att person A kan välja mellan två sätt att finna sin artikel. Antingen hitta den genom länkar från andra artiklar eller genom att söka efter den.
-	\item Post-conditions
-	\\Detta use-case utgår från att användaren är online och får uppdateringar på artiklar men användaren kan bläddra efter artiklar offline.
+	\item Huvudscenario
+	\\Den viktigaste delen i detta use-case är att person A kan välja mellan två sätt att finna sin artikel. Antingen med hjälp av länkar från andra artiklar eller genom en sökfunktion.
+	\item Efterhandsvillkor
+	\begin{itemize}
+	\item Fann önskad artikel
+	\\Användaren fick tag på den artikel som han/hon önskade
+	\item Fann inte önskad artikel
+	\\Användaren fick inte tag på den artikel han/hon önskade, antingen på grund av bristande sökord, felaktiga länkningar eller så kanske inte användarens wiki fått hem alla artiklar från övriga användare i gruppen.
+	\end{itemize}
 	\item Speciella krav
-	\\ Användaren skall kunna vara medlem i en speciell wikigrupp.
-	\\ Användaren skall ha läsrättigheter i wikigruppen (behövs endast för att ta emot nya uppdateringar).
+	\\En startsida på användarens wiki med länkar till andra wiki-sidor krävs för det alternativa händelseförloppet.
 \end{itemize}
 
 \subsection{Allmän distribuering}
@@ -96,25 +91,18 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Aktörer
 	\\Tre användare A, B och C som alla är utan någon större datorvana.
 	\item Förhandsvillkor
-	\\Person A, B och C har programmet installerat på sin dator.
-	\pagebreak 	
+	\\Personerna A, B och C har programmet installerat på sin dator. De har oskcå programmet igång och är anslutna till Internet.
 	\item Händelseförlopp
 	\begin{enumerate}
-		\item Person A startar programmet.
-		\item Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
 		\item Person A skriver en ny artikel.
-		\item Person B kommer online och får uppdateringar innehållande artikeln från person A.
-		\item Person A går offline.
-		\item Person C kommer online och får uppdateringar innehållande artikeln från person B.
-		\item Person B går offline.
+		\item Person B och C får automatiskt artikeln från person A.
+		\item Person B läser artikeln.
 		\item Person C väljer att redigera artikeln.
-		\item Person A kommer online och får uppdateringar innehållande ändringarna i artikeln från person C.
-		\item Person C går offline.
-		\item Person B kommer online och får uppdateringar från person A innehållande ändringarna i artikeln.
+		\item Person A och B får automatiskt ändringarna i artikeln från person C.
 	\end{enumerate}	
-	\item Key scenarios
+	\item Huvudscenario
 	\\Den viktigaste delen i detta use-case är att visa på vilket sätt ändringar sprids i ett distribuerat system.
-	\item Post-conditions
+	\item Efterhandsvillkor
 	\\Detta use-case utgår från att flera användare har programmet och är medlemmar i samma wikigrupp.
 	\item Speciella krav
 	\begin{enumerate}	
@@ -147,9 +135,9 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 		\item Programmet söker efter uppdateringar från andra medlemmar i wikigruppen men finner inga.
 		\item Person A låter programmet stå på i bakgrunden i väntan på nya uppdateringar.	
 	\end{enumerate}	
-	\item Key scenarios
+	\item Huvudscenario
 	\\Den viktigaste delen i use-caset är när programmet synkroniserar artiklarna med de andra medlemmarna
-	\item Post-conditions
+	\item Efterhandsvillkor
 	\\Detta use-case utgår från att användaren är online. Användaren kan lika gärna läsa artiklar offline men inga nya uppdateringar kan då hämtas.
 	\item Speciella krav
 	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
@@ -179,9 +167,9 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 		\item Person A väljer att redigera artikeln och ett redigeringsfönster med artikeln i visas.
 		\item Person A gör de önskvärda ändringarna	och publicerar den nya artikeln	som nu kan hämtas och läsas av de andra medlemmarna i gruppen.
 	\end{enumerate}
-	\item Key scenarios
+	\item Huvudscenario
 	\\De viktigaste delarna i detta use-case är när person A redigerar en artikel i det redigerbara fönstret samt när person A är färdig och publicerar artikeln.
-	\item Post-conditions
+	\item Efterhandsvillkor
 	\\Detta use-case utgår från att användaren är online. Användaren kan lika gärna skriva artiklar offline men inga  andra användare kan då läsa dem innan användaren kopplar upp sig.
 	\item Speciella krav
 	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
@@ -205,9 +193,9 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 		\item Person A väljer att återskapa en äldre version av artikeln och ett fönster med möjliga äldre versioner visas.
 		\item Person A väljer den version av artikeln han vill ha och artikeln återskapas lokalt.
 	\end{enumerate}	
-	\item Key scenarios
+	\item Huvudscenario
 	\\Den viktigaste delen i detta use-case är att person A kan välja vilken version han vill gå tillbaks till.
-	\item Post-conditions
+	\item Efterhandsvillkor
 	\\Detta use-case utgår från att användaren är online och får en uppdatering på en artikel. Dock kan användaren även återskapa äldre versioner av artiklar offline.
 	\item Speciella krav
 	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
@@ -233,14 +221,14 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 		\item Systemet försöker att sammanfoga dokumenten.
 		\item Eftersom olika stycken är ändrade i dokumenten sker en konflikt.
 		\item Användaren får en förfrågan om han vill lösa konflikten.
-		\item Användaren får upp dokumenten brevid varnadra och kan sedan andra det han behagar.
-		\item Till sist sparar användaren dokumentet och kanner sig nöjd.
+		\item Användaren får upp dokumenten bredvid varandra och kan sedan ändra det han behagar.
+		\item Till sist sparar användaren dokumentet och känner sig nöjd.
 	\end{enumerate}
 	\item Alternativt händelseförlopp
 	\\Efter steg 5:
 	\begin{enumerate}	
 		\item Användaren inte har rättigheter att andra på filerna.
-		\item Användaren kontaktar administratören om hjalp.
+		\item Användaren kontaktar administratören om hjälp.
 	\end{enumerate}	
 	\item Alternativt händelseförlopp
 	\\Efter steg 5: 
@@ -248,12 +236,12 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 		\item Användaren inte känner sig tillräckligt säker att ändra på filerna.
 		\item Användaren kontaktar då den/de personer som har skrivit filerna och ber om hjälp.
 	\end{enumerate}
-	\item Key scenarios
+	\item Huvudscenario
 	
 	Det viktiga i detta use-case är att visa att man kan sammanfoga olika filer med varandra trots att rättigheter samt kompetens kan ställa till det.
-	\item Post-conditions	
+	\item Efterhandsvillkor	
 		\\Success condition 
-		\\Anvandaren lyckades med att sammanfoga (merge) tva eller fler filer.
+		\\Anvandaren lyckades med att sammanfoga (merge) två eller fler filer.
 		\\Failure condition
 		\\Anvandaren lyckades ej med en sammanfogning.
 		
@@ -277,7 +265,7 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 		\item För varje fel som rättstavningskontrollen hittar får användaren en fråga om han vill ändra det befintliga ordet till det som rättstavningskontrollen föreslår.
 		\item När användaren är klar sparar han dokumentet.
 	\end{enumerate}
-	\item Key scenarios
+	\item Huvudscenario
 	\\Det viktiga delen i det här use-caset är att en användare skall kunna använda automatisk rättstavning för att snabba upp dokumenthanteringen.
 	\item Post-condition
 	\\ Antingen hittar rättstavningskontrollen inga fel och godkänner dokumentet direkt eller så hittar den något som den klagar på och användaren får välja om det ska rättas till.

@@ -100,9 +100,21 @@ När användaren redigerat klart sparas ändringen till det lokala versionshante
 \subsection{Bläddring}
 Bläddringsmekanismen går ut på att visa wiki-sidor för användaren. Användaren kan använda bläddringsmekanismen för att utforska sin lokala kopia av den distribuerade wikin. När ändringar sker i sidor som är i vy ser bläddringsmekanismen till att uppdateringarna presenteras till användaren på smidigast möjliga sätt.
 \section{Huvudabstraktioner}
+Här definieras de abstraktioner som används för att beskriva systemet.
+\subsection*{Användare}
+En användare är en person i systemet. 
+\subsection*{Klient}
+En klient är en instans av programvaran som körs aktivt på någon plattform. En användare kan inneha en klient.
+\subsection*{Nyckel}
+En datamängd som används för signering eller verifiering av annan data.
 \section{Arkitekturellt ramverk}
+Det arkitekturella ramverket definierar hur systemet är sammansatt. Ramverket definieras bättre under senare delar av projektet.
 \section{Arkitekturella vyer}
-\subsection{Användarfall}
+Här definieras de vyer som används för att beskriva systemarkitekturen.
 \subsection{Logisk vy}
+Den här vyn presenterar systemets funktionalitet genom logiska beskrivningar av händelseförloppen när programvaran används.
+\subsection{Användarfall}
+Den här vyn presenterar systemet ur ett användarperspektiv. För tillfället representeras denna vyn bäst i de framtagna användarfallen. 
 \subsection{Processvy}
+Processvyn presenterar de olika processnoderna som systemet utgör. För närvarande är en klient en process, men det kan komma att utvecklas.
 \end{document}
