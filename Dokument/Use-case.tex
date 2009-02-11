@@ -97,7 +97,8 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\\Tre användare A, B och C som alla är utan någon större datorvana.
 	\item Förhandsvillkor
 	\\Person A, B och C har programmet installerat på sin dator.
-	\item  Händelseförlopp
+	\pagebreak 	
+	\item Händelseförlopp
 	\begin{enumerate}
 		\item Person A startar programmet.
 		\item Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
@@ -260,10 +261,27 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\\Användaren ska vara medlem i en speciell wiki-grupp.
 \end{itemize}
 
-%\subsection{Rättstavning}
-%\begin{itemize}
-%	\item Kortfattad beskrivning
-%	\\En användare orkar eller vill inte sitta och korrekturläsa hela dokumentet för att hitta stavfel utan vill använda en automatisk rättstavare.
-%	\item 
-%\end{itemize}
+\subsection{Rättstavning}
+\begin{itemize}
+	\item Kortfattad beskrivning
+	\\En användare orkar eller vill inte sitta och korrekturläsa hela dokumentet för att hitta stavfel utan vill använda en automatisk rättstavare.
+	\item Aktörer
+	\\En användare, person A, utan direkt datorvana.
+	\item Förhandvillkor
+	\\Person A har programmet installerat på datorn
+	\item Händelseförlopp
+	\begin{enumerate}
+		\item En användare vill eller har inte tid att läsa ett dokument som han vill göra tillgängligt för andra användare.
+		\item Användaren går in på dokumentet.
+		\item Användaren väljer sedan att rättstava dokumentet.
+		\item För varje fel som rättstavningskontrollen hittar får användaren en fråga om han vill ändra det befintliga ordet till det som rättstavningskontrollen föreslår.
+		\item När användaren är klar sparar han dokumentet.
+	\end{enumerate}
+	\item Key scenarios
+	\\Det viktiga delen i det här use-caset är att en användare skall kunna använda automatisk rättstavning för att snabba upp dokumenthanteringen.
+	\item Post-condition
+	\\ Antingen hittar rättstavningskontrollen inga fel och godkänner dokumentet direkt eller så hittar den något som den klagar på och användaren får välja om det ska rättas till.
+	\item Speciella krav
+	\\Användaren skall läs och skriv rättigheter för att kunna göra en rättstavning.
+\end{itemize}
 \end{document}
