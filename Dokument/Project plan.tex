@@ -22,7 +22,7 @@
 \newpage
 
 \section{Inledning}
-Det här dokumentet beskriver hur projektet ska genomföras. Inledningsvis beskrivs projektets bakgrund, dess syfte och mål samt vilka personer som är delaktiga i projektet. Därefter ges en översiktlig beskrivning av projektprocessen OpenUp som används i projektet samt vilka roller som är aktuella för detta projekt. Slutligen beskrivs hur projektet ska levereras och de lärdomar dragits från projektet.
+Det här dokumentet beskriver hur projektet ska genomföras. Inledningsvis beskrivs projektets bakgrund, dess syfte och mål samt vilka personer som är delaktiga i projektet. Därefter ges en översiktlig beskrivning av projektprocessen OpenUP som används i projektet samt vilka roller som är aktuella för detta projekt. Slutligen beskrivs hur projektet ska levereras och de lärdomar dragits från projektet.
 
 \subsection{Bakgrund}
 Detta projekt genomförs som huvudmoment i projektkursen \textit{Programutvecklingsprojekt i ett helhetsperspektiv} (kurskod TDDD09) vid Linköpings universitet. Projektet genomförs under vårterminen 2009.
@@ -33,9 +33,9 @@ Syftet med projektet är att praktisera mjukvaruframställning på projektform s
 Målet med projektet är att ge projektgruppen nödvändiga erfarenheter inom mjukvaruframställning på projektform samt att leverera en mjukvara till kunden som denne är nöjd med och kan dra nytta av.
 
 \section{Projektöversikt}
-Produkten från projektet är tänkt att vara en applikationsplattform byggd på ett distribuerat versionshanteringssystem och peer-to-peer-teknik samt en wiki som är byggd på denna plattform. Synkronseringen av databasen som wikin använder ska ske automatisk och helst ska denna överföring ske via ett krypterat protokoll. Användaren ska kunna bestämma vem han/hon vill dela informationen på wikin med.
+Produkten från projektet är tänkt att vara en applikationsplattform byggd på ett distribuerat versionshanteringssystem och peer-to-peer-teknik samt en wiki som är byggd på denna plattform. Synkroniseringen av databasen som wikin använder ska ske automatiskt och helst ska denna överföring ske via ett krypterat protokoll. Användaren ska kunna bestämma vem han/hon vill dela informationen på wikin med.
 
-Målgruppen är användare med relativt liten datorvana och användargränssnittet för wikin måste därför vara enkelt. Produkten ska släppas som open source och är i första hand tänkt att köras på Linux, men det kan bli aktuellt att även konvertera applikationen till fler operativsystem.
+Målgruppen är användare med relativt liten datorvana och användargränssnittet för wikin måste därför vara enkelt. Produkten ska släppas som open source och är i första hand tänkt att köras på Linux, men det kan bli aktuellt att även släppa applikationen på fler operativsystem.
 
 \section{Projektorganisation}
 Den här delen av dokumentet beskriver hur projektet är organiserat och vem kunden är. Dessutom beskrivs vilka projektmedlemmarna är och vilken roll respektive medlem har.
@@ -44,25 +44,25 @@ Den här delen av dokumentet beskriver hur projektet är organiserat och vem kun
 Nedan följer en beskrivning utav de roller som innehas av medlemmarna i projektgruppen och vem som har vilken roll.
 
 \subsubsection*{Projektledare - Mikael Waernér}
-Projektledaren är den person som har huvudansvaret för planeringen i projektet. Han ser till så att projektgruppen är fokuserad på projektets mål. Projektledaren ser till så att projektgruppen genomför ett projekt med ett resultat som kunden är nöjd med. Att planera och boka möten är även projektledarens uppgift.
+Projektledaren är den person som har huvudansvaret för planeringen av projektet. Han ser till så att projektgruppen är fokuserad på projektets mål. Projektledaren ser till så att projektgruppen genomför ett projekt med ett resultat som kunden är nöjd med. Att planera och boka möten är även projektledarens uppgift.
 
 \subsubsection*{Analytiker - Erik Thorselius}
 Analytikerns jobb är att identifiera kundens och målgruppens behov samt förstå de problem som måste lösas. Tillsammans med kunden skriver han projektets tekniska vision som ligger till grund för mycket arbete inom projektet.
 
 \subsubsection*{Arkitekt - Oskar Holstensson}
-Arkitekten ansvarar för mjukvarans arkitektur, i det ingår att ta tekniska beslut om den övergripande designen och implementationen av systemet. Arkitekten måste kunna balansera kundens behov med tekniska risker för att skapa en design som är genomförbar samt effektiv att följa och validera.
+Arkitekten ansvarar för mjukvarans arkitektur. I det ingår att ta tekniska beslut om den övergripande designen och implementationen av systemet. Arkitekten måste kunna balansera kundens behov med tekniska risker för att skapa en design som är genomförbar samt lätt att följa och validera.
 
 \subsubsection*{Utvecklare - Victor Ortman}
 Utvecklaren ansvarar för att systemet blir utvecklat enligt arkitekturen. I det ingår bland annat att implementera enhetstestning och integrera olika färdiga komponenter.
 
 \subsubsection*{Testare - Martin Pettersson}
-Testaren ansvarar för att identifiera de tester som är nödvändiga för produkten. Han ansvarar också för implementationen och ledandet av dessa tester. Testaren skall också logga testresultaten och förstå innebörden av dessa för systemet.
+Testaren ansvarar för att identifiera de tester som är nödvändiga för produkten. Han ansvarar också för implementationen och ledandet av dessa tester. Testaren skall även logga testresultaten och förstå vad dessa innebär för systemet.
 
 \subsubsection*{Kvalitetssamordnare - Linus Dunkers}
-Kvalitetssamordnaren har som uppgift att se över själva processen och föreslå förbättringar. Det är dessutom hans ansvar att samla ihop data till en erfarenhetsrapport och samla in tidsrapporter från projektmedlemmarna Kvalitetssamordnaren är även dokumentansvarig och tar också hand om eventuella förfrågningar om ändringar i projektet. Han ansvarar även för att det finns en klar definition av projektets kvalitetskrav.
+Kvalitetssamordnaren har som uppgift att se över själva processen och föreslå förbättringar. Det är dessutom hans ansvar att samla ihop data till en erfarenhetsrapport samt samla in tidsrapporter från projektmedlemmarna. Kvalitetssamordnaren är även dokumentansvarig och tar också hand om eventuella förfrågningar om ändringar i projektet. Han ansvarar även för att det finns en klar definition av projektets kvalitetskrav.
 
 \subsection{Kunden}
-Den kund som beställt detta projekt är VISIARC AB. Det finns i dagsläget ingen verksamhet som specifikt har efterfrågat den lösning som projektet erbjuder, utan VISIARC AB har istället tagit initiativet till detta projektförslag. Kunden avser att projektet ska utvecklas som en open source-produkt och kan därmed spridas fritt, dock bör projektet utvecklas på ett sådant sätt att en organisation får upphovsrättigheterna för att underlätta vidareutveckling.
+Den kund som beställt detta projekt är VISIARC AB. Det finns i dagsläget ingen verksamhet som specifikt har efterfrågat den lösning som projektet erbjuder, utan VISIARC AB har istället tagit initiativet till detta projektförslag. Kunden avser att projektet ska utvecklas som en open source-produkt och kan därmed spridas fritt. Dock bör projektet utvecklas så att en organisation får upphovsrättigheterna för att underlätta vidareutveckling.
 
 \section{Projektgenomförande}
 Den process som kommer användas för att utveckla projektet är OpenUP\cite{openup} med vissa tillägg specifika för kursen TDDD09, exempelvis rollen som kvalitetssamordnare\cite{sandahl}. Den här delen av dokumentet beskriver hur projektet ska genomföras och hur statusrapportering ska ske.
@@ -71,20 +71,21 @@ Den process som kommer användas för att utveckla projektet är OpenUP\cite{ope
 Nedan beskrivs de faser som ingår i projektet. Varje iteration kommer att avslutas med en dokumentinlämning till handledaren och ett seminarium där ett antal personer ur projektgruppen presenterar projektstatus samt presenterar projektet genom ett scenario.
 
 \subsubsection*{Inception}
-Inception är den första fasen i projektet. I denna fas så startas projektet och kontakten med kunden inleds. Kunden och projektgruppen kommer överens om projektets omfattning och en projektplan för projektets genomförande skrivs. Idén om den tekniska lösningen skrivs också ner i en vision. Utöver dessa två dokument så skall en work items list och en risklista skrivas. I work items list bryts det som ska göras i projektet ned och i risklistan listas de största riskerna i projektet så dessa kan hanteras i ett tidigt stadie.
+Inception är den första fasen i projektet. I denna fas så startas projektet och kontakten med kunden inleds. Kunden och projektgruppen kommer överens om projektets omfattning och en projektplan för projektets genomförande skrivs. Idén om den tekniska lösningen skrivs också ner i en vision. Utöver dessa två dokument så skall en work items list och en risklista skrivas. I work items list bryts det som ska göras i projektet ned och i risklistan listas de största riskerna i projektet så att dessa kan hanteras i ett tidigt stadie.
 
 \subsubsection*{Elaboration}
 I elaboration identifieras och utvecklas de krav som kunden har på produkten. Ur dessa krav skapas en arkitektur och design för produkten. Även testfall för kundens krav och själva arkitekturen implementeras i elaboration.
 
 \subsubsection*{Construction}
-Utifrån den grund som lades i elaboration i form av arkitektur, design och krav konstrueras resten av produkten i construction-fasen. Den här fasen är tillräckligt stor för att delas upp i minst 2 stycken mindre iterationer, något som övriga faser ej tillåter.
+Utifrån den grund som lades i elaboration i form av arkitektur, design och krav så konstrueras resten av produkten i construction-fasen. Den här fasen är tillräckligt stor för att delas upp i minst två mindre iterationer. % , något som övriga faser ej tillåter. - stämmer väl inte, krisa nämnde att även elaboration kan delas upp i två iterationer.
 
 \subsubsection*{Transition}
-Det sista stadiet i projektet är transition. Det är här som produkten kommer att levereras till kunden genom en överlämning av produkten.
+Det sista stadiet i projektet är transition. Det är här som produkten levereras till kunden genom en överlämning av produkten.
 
 \subsection{Status- och tidrapportering}
-Varje enskild projektmedlem ska rapportera in status på de uppgifter denna för tillfälligt arbetar med. Statusrapporter lämnas via verktyget Redmine som kvalitetssamordnaren satt upp. Dessa sammanställs sedan till en iteration burndown-rapport och en project burndown-rapport. Kvalitetssamordnaren kommer även att ha som uppgift att bedöma om en iteration har fungerat bra eller dåligt.
-Tidsrapportering gör varje enskild projektmedlem och även denna sker via Redmine. Tidsrapporter lämnas in till handledaren vid slutet av varje fas.
+Varje enskild projektmedlem ska rapportera in status på de uppgifter som denna för tillfälligt arbetar med. Statusrapporter lämnas via verktyget Redmine som kvalitetssamordnaren satt upp. Dessa sammanställs sedan till en iteration burndown-rapport och en project burndown-rapport. Kvalitetssamordnaren kommer även att ha som uppgift att bedöma om en iteration har fungerat bra eller dåligt.
+
+Tidsrapportering görs enskilt av projektmedlemmarna och sker via Redmine. Tidsrapporter lämnas in till handledaren vid slutet av varje fas.
 
 \newpage
 
@@ -131,10 +132,12 @@ Nedan följer en förklaring av de olika milstolparna.
 \end{center}
 
 \section{Leverans}
-Mjukvaran kommer paketeras för enkel installation på klientdatorerna. I linux via en paktethanterare och om möjlighet ges så kommer  produkten läggas på en central server för att få enklast möjliga distribution och uppdatering av mjukvaran.
+Mjukvaran kommer paketeras för enkel installation på klientdatorerna. I Linux kommer mjukvaran distribueras via en paktethanterare. Om möjlighet ges så kommer produkten läggas på en central server för att få enklast möjliga distribution och uppdatering av mjukvaran.
 
-\section{Lärdomar}
-Den här delen av dokumentet kommer att fyllas på senare med de lärdomar som dragits från projektet.
+\section{Erfarenheter}
+Den här delen av dokumentet kommer att fyllas på senare med de erfarenheter som projektgruppen erhållit under projektets gång.
+
+\newpage
 
 \begin{thebibliography}{9}
 	\bibitem{openup}
