@@ -1,0 +1,7 @@
+#!/bin/sh
+git pull git://github.com/linusdunkers/pum1.git master
+git pull git://github.com/vicor978/pum1.git master
+git pull git://github.com/regius/pum1.git master
+git pull git://github.com/mikwae/pum1.git master
+git pull git://github.com/marpe737/pum1.git master
+git pull git://github.com/Peppar/pum1.git master
