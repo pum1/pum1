@@ -36,8 +36,8 @@ I denna sektion nämns de antaganden och beroenden som finns och som tillsammans
 \section{Arkitekturellt signifikanta krav}
 Här kommer referenser till krav i andra dokument att finnas.
 \section{Beslut, begrängningar och motiveringar}
+Här kommer en lista med beslut, begränsningar och motiveringar att finnas.
 \begin{itemize}
-\item Beslut eller begränsning med motivering
 \item Beslut eller begränsning med motivering
 \end{itemize}
 \section{Arkitekturella mekanismer}
@@ -53,9 +53,12 @@ Som en del av programvarans specifikation nämns säkerhet mellan klienterna. Kl
 \subsection{Debuggning}
 Programvaran kommer med största sannolikhet behöva debuggas under utvecklingstiden. Debuggning kommer vara relevant i många delar av programvaran.
 
+Debuggning kan ske passivt och aktivt. Aktivt genom att till exempel stega kod under körning. Passivt genom loggning.
+
 Frågor rörande debuggning som kommer utvecklas senare i projektet följer.
 \begin{itemize}
 \item I vilka instanser kommer debuggning vara relevant?
+\item Vilka debuggningssystem skall användas?
 \item Hur stora datamängder behöver loggas?
 \item Hur ska loggning ske utan att användarens integritet kränks?
 \end{itemize}
@@ -70,6 +73,7 @@ Relevanta frågor som rör lagring följer.
 \begin{itemize}
 \item Hur mycket utrymme krävs?
 \item Vad händer om det inte finns mer lokalt utrymme?
+\item Vad händer om en delmängd av datan saknas eller blir korrupt?
 \end{itemize}
 \subsection{Distribuering}
 Distribueringsmekanismen är den som sköter synkroniseringen klienterna emellan. Den ser till att uppdateringar sprider sig över nätverket till så många klienter som möjligt.
@@ -78,7 +82,16 @@ För att möjliggöra distribution håller distributionsmekanismen koll på alla
 
 Relevanta frågor som rör distribuering följer.
 \begin{itemize}
+\item Hur ofta skall synkronisering ske?
 \item Vad händer om en användare bryter en pågående distribution?
+\end{itemize}
+\subsection{Kommunikation}
+Kommunikationsmekanismen är en delmängd av distrubueringsmekanismen. Den ser till att data felfritt kan kommuniceras mellan klienterna.
+
+\begin{itemize}
+\item Vilken kommunikationsmetod skall väljas?
+\item Hur skall felfri kommunikation säkerställas?
+\item Ska kommunikationen ske krypterat?
 \end{itemize}
 \subsection{Redigering}
 Redigeringsmekanismen finns lokalt hos klienten och tillåter användaren att redigera wiki-sidor via ett grafiskt gränssnitt.
