@@ -21,6 +21,23 @@
 
 \newpage
 
+{\centering \Large{Dokumenthistorik\\}}
+
+\vspace{10pt}
+\begin{tabularx}{\textwidth}{ |l|l|X|l|l| }
+  \hline
+    \textbf{version} & \textbf{datum} & \textbf{utförda ändringar} & \textbf{utförda av} & \textbf{granskad} \\
+	\hline 
+  1.0 & 2009-02-12 &  Första versionen klar för inlämning  & Alla & Alla   \\
+  \hline
+\end{tabularx}
+
+\newpage
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
 
 \section{Inledning}
 
@@ -35,7 +52,7 @@ Många av termerna inom detta område som kan vara svåra att förstå och behö
 	\\Ett centraliserat versionshanteringssystem bygger på en central server där allt arbete finns lagrat. När en användare har hämtat ner filer från servern och ändrat på dem kan denne ladda upp filerna till servern igen (se Commit) och ändringarna sparas på servern så att andra användare sedan kan hämta ner dessa.
 	
 	\item \textbf{Commit}
-	\\Varje gång en användare känner att han har gjort ändringar som är värda att spara kan denne "commita" sina ändringar, oftast också med ett litet meddelande om vad ändringarna gäller. Ändringarna skickas då till ett repository där motsvarande filer uppdateras.
+	\\Varje gång en användare känner att han har gjort ändringar som är värda att spara kan används kommandot commit för att registrera ändringarna. Oftast inkluderas också ett litet meddelande om vad ändringarna gäller. Ändringarna skickas då till ett repository där motsvarande filer uppdateras.
 	
 	\item \textbf{Distribuerat versionshanteringssystem}
 	\\Ett distribuerat versionshanteringssystem skiljer från det centraliserade i huvudsak på det sättet att det inte finns någon central server. Istället har varje användare en lokal kopia av projektet och kan sedan hämta nya versioner av filer från varandra.
@@ -44,13 +61,13 @@ Många av termerna inom detta område som kan vara svåra att förstå och behö
 	\\Att skapa en branch från ett projekt kallas ofta för att forka.
 	
 	\item \textbf{Konflikt}
-	\\En konflikt kan ske när två eller fler användare ändrar på samma sak i en fil och sedan försöker någon av dem att hämta hem den andras fil eller en tredje part försöker hämta hem bådas. Versionshanteringssystemet vet då inte vilket version den ska använda och signalerar att en konflikt har skett. Detta måste då lösas av någon.
+	\\Om två eller fler användare ändrat i samma stycke i en fil och använt kommandot commit så uppstår en konflikt när någon användare sedan får hem två av dessa olika versioner av filen. Versionshanteringssystemet vet då inte vilken version den ska använda och signalerar att en konflikt har skett. Detta måste då lösas manuellt via granskning av konflikterande data.
 
 	\item \textbf{Merge}
 	\\Detta sker när en användare försöker hämta ner nya versioner av filer från andra användares repositories. Versionshanteringssystemet försöker då att sammanfoga ändringarna som skett i de olika filerna.
 			
 	\item \textbf{Repository}
-	\\En repository är ett ställe där filerna är sparade. I den centraliserade systemet är detta på servern och på det distrubuerade har varje användare en egen repository.
+	\\En repository är ett ställe där filerna är sparade. I den centraliserade systemet är detta på servern och på det distrubuerade har varje användare en egen repository på den lokala datorn.
 
 	\item \textbf{Resolve}
 	\\Att lösa en konflikt kallas för resolve.

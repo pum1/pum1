@@ -20,18 +20,37 @@
 \maketitle
 
 \thispagestyle{empty}
+
 \newpage
+
+{\centering \Large{Dokumenthistorik\\}}
+
+\vspace{10pt}
+\begin{tabularx}{\textwidth}{ |l|l|X|l|l| }
+  \hline
+    \textbf{version} & \textbf{datum} & \textbf{utförda ändringar} & \textbf{utförda av} & \textbf{granskad} \\
+	\hline 
+  1.0 & 2009-02-12 &  Första versionen klar för inlämning  & Alla & Alla   \\
+  \hline
+\end{tabularx}
+
+\newpage
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
 \section{Syfte}
 Detta dokument syftar till att beskriva de filosofier och motiveringar som står till grund för det arkitekturella ramverket för projektet.
 \section{Arkitekturella mål och filosofi}
-Arkitekturen i projektet drivs till stor del av de krav som har stipulerats.
+Arkitekturen i projektet styrs främst av de krav som har stipulerats.
 \section{Antaganden och beroenden}
 I denna sektion nämns de antaganden och beroenden som finns och som tillsammans bygger upp en bild över hur programvaran kommer byggas.
 \begin{itemize}
-\item Systemet skall fungera på Linux
-\item Systemet skall fungera decentraliserat
-\item Systemet skall kunna kommunicera via nätverk
-\item Systemet skall lokalt lagra data över lång tid
+\item Systemet ska fungera på Linux
+\item Systemet ska fungera decentraliserat
+\item Systemet ska kunna kommunicera via nätverk
+\item Systemet ska lagra data lokalt
 \end{itemize}
 \section{Arkitekturellt signifikanta krav}
 Här kommer referenser till krav i andra dokument att finnas.
@@ -43,42 +62,43 @@ Här kommer en lista med beslut, begränsningar och motiveringar att finnas.
 \section{Arkitekturella mekanismer}
 I denna sektion nämns de olika mekanismerna som driver programvaran. Dessa kommer få mer detaljerade beskrivningar under senare iterationer.
 \subsection{Säkerhet}
-Som en del av programvarans specifikation nämns säkerhet mellan klienterna. Klienterna måste kunna lita på att datan som är överförd verkligen inte är en förfalskning.
+Som en del av programvarans specifikation nämns säkerhet mellan klienterna. Informationens integritet ska vidbehållas, alltså skyddas mot olovlig ändring vid informationsöverföringar samt vid lagring på hårddisk.
 
 \begin{itemize}
 \item Mellan vilka arkitekturella moduler och i vilka instanser är säker kommunikation nödvändig?
 \item Vilken data är relevant att kryptera eller verifiera?
-\item Hur stor del av fokus ska säkerhet få innan övriga delar börjar lida för mycket?
+\item Hur stort fokus ska läggas på datasäkerhet?
+\item Strider åtgärderna för ökad sökerhet mot andra krav såsom tillgänglighet?
 \end{itemize}
-\subsection{Debuggning}
-Programvaran kommer med största sannolikhet behöva debuggas under utvecklingstiden. Debuggning kommer vara relevant i många delar av programvaran.
+\subsection{Felsökning}
+Programvaran kommer med största sannolikhet behöva felsökas under utvecklingstiden. Felsökning kommer vara relevant i många delar av programvaran.
 
-Debuggning kan ske passivt och aktivt. Aktivt genom att till exempel stega kod under körning. Passivt genom loggning.
+Felsökning kan ske passivt och aktivt. Aktivt genom att till exempel stega kod under körning. Passivt genom loggning.
 
-Frågor rörande debuggning som kommer utvecklas senare i projektet följer.
+Frågor rörande felsökning som kommer utvecklas senare i projektet följer nedan.
 \begin{itemize}
-\item I vilka instanser kommer debuggning vara relevant?
-\item Vilka debuggningssystem skall användas?
+\item I vilka instanser kommer felsökning att vara relevant?
+\item Vilka felsökningsmetoder och verktyg skall användas?
 \item Hur stora datamängder behöver loggas?
 \item Hur ska loggning ske utan att användarens integritet kränks?
 \end{itemize}
 \subsection{Lagring}
-Lagringsmekanismen är den mekanism som sköter den lokalt lagrade datan hos alla klienter.
+Lagringsmodulen är den mekanism som sköter den lokalt lagrade datan hos alla klienter.
 
-För en wiki krävs att en viss mängd data lagras om varje artikel. Redigeringshistoria är i många fall essentiell men kan i många fall var ointressant nog att inte automatiskt distribueras.
+För en wiki krävs att en viss mängd data lagras om varje artikel. Artikelhistorik är i vissa fall essentiell men kan vid stora datamängder vara en börda att distribuera.
 
-Lagringsmekanismen tar upp en viss mängd lokalt utrymme på ett icke-flyktigt medium, till exempel på en hårddisk. Lagringsmekanismen kommunicerar med distributionsmekanismen när det blir aktuellt växla data med andra klienter.
+Lagring av Wiki-data tar upp en viss mängd lokalt utrymme på ett lokalt medium, förslagsvis på en hårddisk. När det blir aktuellt att synkronisera data med andra klienter så måste komminikationsmodulen ha tillgång, läsrättigheter och skrivrättigheter till lokalt lagrad Wiki-data.
 
 Relevanta frågor som rör lagring följer.
 \begin{itemize}
-\item Hur mycket utrymme krävs?
-\item Vad händer om det inte finns mer lokalt utrymme?
-\item Vad händer om en delmängd av datan saknas eller blir korrupt?
+\item Hur mycket utrymme krävs på den lokala hårddisken?
+\item Vad händer om hårddiskutrymmer tar slut?
+\item Vad händer om en delmängd av allt data tas bort eller blir korrupt?
 \end{itemize}
 \subsection{Distribuering}
-Distribueringsmekanismen är den som sköter synkroniseringen klienterna emellan. Den ser till att uppdateringar sprider sig över nätverket till så många klienter som möjligt.
+Distribueringsmodulen är den som sköter synkroniseringen klienterna emellan. Den ser till att uppdateringar sprider sig över nätverket till alla andra klienter som arbetar online.
 
-För att möjliggöra distribution håller distributionsmekanismen koll på alla ändringar som skett, tar emot ändringar från andra klienter och skickar iväg lokala sådana. Om en konflikt sker ser distributionsmekanismen till att den ansvarige skribenten blir meddelad om konflikten samtidigt som den gamla, konfliktfria versionen görs tillgänglig för den lokala användaren. Detta för att en tredje part inte ska behöva lägga sig i en redigeringskonflikt mellan två andra.
+För att möjliggöra distribution håller distributionsmodulen koll på alla ändringar som skett, tar emot ändringar från andra klienter och skickar iväg egna ändringar. Om en konflikt sker ser distributionsmodulen till att den ansvarige skribenten blir meddelad om konflikten samtidigt som den gamla, konfliktfria versionen, görs tillgänglig för övriga användare. Detta för att en tredje part inte ska påverkas av en redigeringskonflikt mellan två andra användare.
 
 Relevanta frågor som rör distribuering följer.
 \begin{itemize}
@@ -86,19 +106,19 @@ Relevanta frågor som rör distribuering följer.
 \item Vad händer om en användare bryter en pågående distribution?
 \end{itemize}
 \subsection{Kommunikation}
-Kommunikationsmekanismen är en delmängd av distrubueringsmekanismen. Den ser till att data felfritt kan kommuniceras mellan klienterna.
+Kommunikationsmodulen är en delmängd av distrubueringsmodulen. Den ser till att data felfritt kan kommuniceras mellan klienterna.
 
 \begin{itemize}
 \item Vilken kommunikationsmetod skall väljas?
 \item Hur skall felfri kommunikation säkerställas?
-\item Ska kommunikationen ske krypterat?
+\item Ska kommunikation ske krypterat?
 \end{itemize}
 \subsection{Redigering}
-Redigeringsmekanismen finns lokalt hos klienten och tillåter användaren att redigera wiki-sidor via ett grafiskt gränssnitt.
+Redigeringsmodulen finns lokalt hos klienten och tillåter användaren att redigera wiki-sidor via ett grafiskt gränssnitt.
 
-När användaren redigerat klart sparas ändringen till det lokala versionshanteringssystemet och distributionsmekanismen informeras.
+När användaren redigerat klart sparas ändringen till det lokala versionshanteringssystemet och distributionsmodulen informeras om uppdateringen.
 \subsection{Bläddring}
-Bläddringsmekanismen går ut på att visa wiki-sidor för användaren. Användaren kan använda bläddringsmekanismen för att utforska sin lokala kopia av den distribuerade wikin. När ändringar sker i sidor som är i vy ser bläddringsmekanismen till att uppdateringarna presenteras till användaren på smidigast möjliga sätt.
+Bläddringsmodulen går ut på att visa wiki-sidor för användaren. Användaren kan använda bläddringsmodulen för att utforska sin lokala kopia av den distribuerade wikin. När ändringar sker i sidor som är i vy ser bläddringsmodulen till att uppdateringarna presenteras till användaren på ett enkelt och tydligt sätt.
 \section{Huvudabstraktioner}
 Här definieras de abstraktioner som används för att beskriva systemet.
 \subsection*{Användare}
@@ -106,7 +126,7 @@ En användare är en person i systemet.
 \subsection*{Klient}
 En klient är en instans av programvaran som körs aktivt på någon plattform. En användare kan inneha en klient.
 \subsection*{Nyckel}
-En datamängd som används för signering eller verifiering av annan data.
+En datamängd som används för signering, verifiering och säker kommunikation.
 \section{Arkitekturellt ramverk}
 Det arkitekturella ramverket definierar hur systemet är sammansatt. Ramverket definieras bättre under senare delar av projektet.
 \section{Arkitekturella vyer}
