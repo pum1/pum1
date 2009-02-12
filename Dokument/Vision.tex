@@ -24,8 +24,9 @@
 \section{Inledning}
 En distribuerad wiki är en wiki som istället för att vara en traditionell centraliserad webbapplikation ska vara en wiki som distribueras med en versionhanterare som är distribuerad. Så varje användare har en lokal kopia av hela wikin, med hela historian. Alla ändringar som sker på wikin ska distribueras automatiskt med hjälp av ett peer-to-peer-protokoll till användarna.
 \section{Positionering}
+
 \subsection{Problemformulering}
-\begin{tabular}{|c|m{13 cm}|}
+\begin{tabular}{|c|m{15 cm}|}
 \hline
 Problem: & En centraliserad lösning kräver resurser som bandbredd, servar och underhåll. Centraliseringen gör den sårbar för attacker och påtryckningar. \\
 \hline
@@ -36,8 +37,9 @@ Följderna: & Ideella projekt riskerar sitt oberoende om de tar emot pengar frå
 Lösning: & Med en distribuerad lösning som utnyttjar snabbheten och flexibiliteten i peer-to-peer så skulle även kostnaderna distribueras till kunderna/medlemmarna. Projekten klarar sig på färre donationer och blir mindre beroende. Den distribuerade lösningen skulle även minska risken av dataförluster och skapar ett robust system mot attacker och en kraftig ökning av användare. \\
 \hline
 \end{tabular}
+
 \subsection{Produktens lägesformulering} % vet inte om det här är en bra översättning!
-\begin{tabular}{|c|m{13 cm}|}
+\begin{tabular}{|c|m{15 cm}|}
 \hline
 Målgrupp & Små projektgrupper eller organisationer\\
 \hline
@@ -55,7 +57,7 @@ Vår produkt & Öppnar för ett nytt sätt att samarbeta i molnet \\
 \section{Intressenter}
 Här samlas information om de intressenter (``stakeholders'') som berörs av projektet och dess utveckling.
 \subsection{Sammanfattning av Intressenter}
-\begin{tabular}{|c|m{13 cm}|}
+\begin{tabular}{|c|m{14 cm}|}
 \hline
 PUM-gruppen & Är ansvariga för utveckla systemet, göra projektnära beslut och implementera funktionerna som tillsammans formuleras av gruppen och kunden. PUM-gruppen bör ha nära kontakt med kunden. \\ \hline
 Kunden & VISIARC AB är ansvarig för beställning av systemet. Ska samarbeta med PUM-gruppen för att formulerar krav och funktioner till systemet. \\ \hline
@@ -68,7 +70,7 @@ Wikin ämnar användas till nätverk om 5-10 användare, men om möjligt ska pro
 
 Applikationen riktar sig mot linux med grafiskt gränssnitt men bör vara skrivet så att det kan bli plattformsoberoende. Wikin kommer behöva integreras med någon form av git-teknologi samt ett peer-to-peer-protokoll.
 \section{Produktöversikt}
-\subsection*{Behov och funktoner}
+\subsection*{Behov och funktioner}
 \begin{tabular}{|l|l|l|l|}
 \hline
 Behov & Prioritet & Funktion & Planerad publikation \\
@@ -85,9 +87,13 @@ Distribuerad teknik & Normal & Peer-to-peer & 2 \\
 \hline 
 Bilder & Normal & Lägga till bilder i en artikel & 2 \\
 \hline
-Rättstavning & Låg & Integrera rättstavning i redigeringsverktyget & 3 \\
+Kryptering & Normal & Peer-to-peer trafiken sker krypterat & 3 \\
 \hline
-Signering & Normal & Signering och autenticering av artiklar & 3 \\
+Rättstavning & Låg & Integrera rättstavning i redigeringsverktyget & 3 \\
+\hline	
+Signering & Normal & Signering och autentisering av artiklar & 3 \\
+\hline
+Behörighet & Normal & Behörighet och rättighetsstruktur & 3 \\
 \hline
 \end{tabular}
 \section{Övriga produktbehov}

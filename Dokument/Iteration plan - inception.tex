@@ -3,38 +3,102 @@
 
 \ifpdf
   \DeclareGraphicsExtensions{.pdf, .jpg, .tif, .png}
-  \pdfinfo{            
-    /Title  (LaTeX-mall)
+  \pdfinfo{
+    /Title  (Iterationsplan för inception)
     /Author (PUM-grupp 1)
   }
 \else
   \DeclareGraphicsExtensions{.eps, .jpg}
 \fi
 
-\title{LaTeX-mall}
+\title{Iterationsplan för inception}
 \author{PUM-grupp 1}
-\date{2008-01-29}
+\date{\today}
 
 \begin{document}
 
 \maketitle\thispagestyle{empty}
-
-\newpage
-
-\setcounter{tocdepth}{2}
-\tableofcontents
 \newpage
 
 \section{Inledning}
+Det här dokumentet beskriver vad som ska göras i projektet under fasen inception. Inledningsvis beskrivs fasens milstolpar och övergripande mål. Därefter beskrivs arbetsfördelningen under fasen och de viktigaste ärendena som måste behandlas. Dokumentet avslutas med underlag för utvärdering av fasen samt själva utvärderingen, som fylls i precis innan fasen är över.
 
-Vi får kanske komma på några snyggare headers och footers till dokumenten, men det är ju inte så viktigt just nu.
+\section{Milstolpar}
+I tabellen nedan beskrivs de milstolpar som har satts upp för denna fas, inklusive datum för varje milstolpe.
 
-\subsection{Hej}
+\begin{center}
+	\begin{tabular}{| l | c |}
+	\hline \textbf{Milstolpe} & \textbf{Datum} \\
+	\hline Start & 2009-01-19 \\
+	\hline Upprätta verktyg & 2009-01-30 \\
+	\hline Utbildning inom OpenUP och verktyg & 2009-02-06 \\
+	\hline Seminarium för inception & 2009-02-10 \\
+	\hline Kund och projektgrupp överens om vision & 2009-02-12 \\
+	\hline Stopp och dokumentinlämning & 2009-02-12 \\
+	\hline
+	\end{tabular}
+\end{center}
 
-Det här är en underrubrik.
+\section{Övergripande mål}
+De övergripande målen med iterationen är följande:
 
-\subsubsection{Då}
+\begin{itemize}
+	\item Anordna ett möte med kunden. Informationen från mötet ligger till grund för den tekniska visionen.
+	\item Upprätta verktyg och anordna utbildning kring dessa verktyg för projektmedlemmarna.
+	\item Skriva en teknisk vision som kunden sedan godkänner.
+	\item Skriva en projektplan som hela projektgruppen är överens om.
+	\item Presentera och sälja in projektet på det seminarium som hålls i slutet av fasen.
+\end{itemize}
 
-Det här ligger i ytterligare en underrubrik.
+\section{Arbetsfördelning}
+För arbetsfördelningen, se projektets \textit{work items list}.
+
+\section{Ärenden som måste lösas}
+Den här delen av dokumentet listar de ärenden som fortfarande är oklara och som måste lösas snarast.
+
+\begin{center}
+	\begin{tabular}{| l | l | l |}
+		\hline Ärende & Status & Anteckningar \\
+		\hline \#6 - Git med Cygwin & Löst & Använd Git Bash för git på Windows istället för Cygwin. \\
+		\hline \#5 - Git med Redmine & Löst & Integration mellan GitHub och Redmine ej möjlig. \\
+		\hline \#40 - Linux på lånedator & Öppet & Vänta med att installera Linux till Elaboration. \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\section{Kriterier för utvärdering}
+Här listas de kriterier som ska användas för att utvärdera om de övergripande målen med fasen har uppnåtts.
+
+\begin{itemize}
+	\item Kunden har godkänt den tekniska visionen
+	\item Alla större problem med verktygen som används har utretts
+	\item Projektmedlemmarna anser att de har tillräcklig kunskap för att hantera de vertkyg som upprättats
+	\item Projektmedlemmarna anser att de har tillräcklig kunskap om OpenUP för att använda processen
+	\item Projektplanen har godkänts av hela projektgruppen
+	\item Projektgruppen anser att det gick att sälja in produkten under seminariet
+	\item Alla dokument som ska lämnas in har granskats av projektgruppen och godkänts av alla projektmedlemmar
+	\item Projektet har kommit igång och projektgruppen är redo att gå vidare till elaboration
+\end{itemize}
+
+\section{Bedömning}
+Den här delen av dokumentet kommer att skrivas precis innan det att fasen är slut.
+
+\begin{center}
+	\begin{tabular}{| l | l |}
+		\hline Föremål för bedömning & Inception-fasen \\
+		\hline Datum för bedömning & [Datum] \\
+		\hline Deltagare & [Lista alla deltagare som är med i bedömningen] \\
+		\hline Projektstatus & [Röd, gul eller grön] \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\begin{itemize}
+	\item \textbf{Bedömning gentemot mål}
+	\item \textbf{Work items: planerade jämfört med avklarade}
+	\item \textbf{Bedömning gentemot \textit{kriterier för utvärdering} i iterationsplanen}
+	\item \textbf{Övriga synpunkter och avvikelser}
+\end{itemize}
 
 \end{document}
+
