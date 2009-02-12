@@ -23,7 +23,7 @@
 
 \section{Inledning}
 
-\textsc{\LARGE Use-case}
+%\textsc{\LARGE Use-case}
 
 \subsection{Exempel}
 \begin{itemize}
@@ -73,38 +73,8 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\\Användaren fick inte tag på den artikel han/hon önskade, antingen på grund av bristande sökord, felaktiga länkningar eller så kanske inte användarens wiki fått hem alla artiklar från övriga användare i gruppen.
 	\end{itemize}
 	\item Speciella krav
-	\\En startsida på användarens wiki med länkar till andra wiki-sidor krävs för det alternativa händelseförloppet.
+	\\En startsida på användarens wiki med länkar till andra wiki-sidor krävs för att det alternativa händelseförloppet ska kunna genomföras.
 \end{itemize}
-
-\subsection{Allmän distribuering}
-\begin{itemize}
-	\item Kortfattad beskrivning
-	\\En person skriver en artikel, en annan person läser artikeln och en tredje redigerar den.
-	\item Aktörer
-	\\Tre användare A, B och C som alla är utan någon större datorvana.
-	\item Förhandsvillkor
-	\\Personerna A, B och C har programmet installerat på sin dator. De har också programmet igång och är anslutna till Internet.
-	\item Händelseförlopp
-	\begin{enumerate}
-		\item Person A skriver en ny artikel.
-		\item Person B och C får automatiskt artikeln från person A.
-		\item Person B läser artikeln.
-		\item Person C väljer att redigera artikeln.
-		\item Person A och B får automatiskt ändringarna i artikeln från person C.
-	\end{enumerate}	
-	\item Huvudscenario
-	\\Den viktigaste delen i detta use-case är att visa på vilket sätt ändringar sprids i ett distribuerat system.
-	\item Efterhandsvillkor
-	\\Detta use-case utgår från att flera användare har programmet och är medlemmar i samma wikigrupp.
-	\item Speciella krav
-	\begin{enumerate}	
-		\item Användarna skall kunna vara medlem i en speciell wikigrupp.
-		\item Användare A skall ha skriv och läs-rättigheter i wikigruppen.
-		\item Användare B skall ha läsrättigheter i wikigruppen.
-		\item Användare C skall ha skriv och läs-rättigheter i wikigruppen.
-	\end{enumerate}
-\end{itemize}
-
 
 \subsection{Läsa en artikel}
 \begin{itemize}
@@ -130,7 +100,12 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Huvudscenario
 	\\Den viktigaste delen i use-caset är när programmet synkroniserar artiklarna med de andra medlemmarna
 	\item Efterhandsvillkor
-	\\Detta use-case utgår från att användaren är online. Användaren kan lika gärna läsa artiklar offline men inga nya uppdateringar kan då hämtas.
+	\begin{itemize}
+		\item Avändaren lyckades hitta uppateringar.
+		\\Person A hitta nya uppdateringar från andra användare och synkroniserade automatiskt sina dokument med denna användares.
+		\item Användaren lyckades inte hitta nya uppdateringar.
+		\\Person A lyckades inte hitta nya uppdateringar från några andra användare.
+	\end{itemize}	
 	\item Speciella krav
 	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
 	\\Användaren skall ha läsrättigheter i wikigruppen.
@@ -162,7 +137,12 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Huvudscenario
 	\\De viktigaste delarna i detta use-case är när person A redigerar en artikel i det redigerbara fönstret samt när person A är färdig och publicerar artikeln.
 	\item Efterhandsvillkor
-	\\Detta use-case utgår från att användaren är online. Användaren kan lika gärna skriva artiklar offline men inga  andra användare kan då läsa dem innan användaren kopplar upp sig.
+	\begin{itemize}
+		\item Användaren sparar en artikel
+		\\Person A skriver klart en artikel och anser att den är färdig och sparar dennna på wiki:n så att andra användaren kan komma åt den.
+		\item Användaren avbryter skapandet av en artikel
+		\\Person A börjar skriva en ny artikel men tycker inte att den är bra så han avbryter skapandet och alla ändringar han har gjort försvinner.
+	\end{itemize}	
 	\item Speciella krav
 	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
 	\\Användaren skall ha läsrättigheter i wikigruppen.
@@ -187,8 +167,13 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\end{enumerate}	
 	\item Huvudscenario
 	\\Den viktigaste delen i detta use-case är att person A kan välja vilken version han vill gå tillbaks till.
-	\item Efterhandsvillkor
-	\\Detta use-case utgår från att användaren är online och får en uppdatering på en artikel. Dock kan användaren även återskapa äldre versioner av artiklar offline.
+	\item Efterhandsvillkor	
+	\begin{itemize}
+		\item Lyckades med att återskapa en artikel
+		\\Användaren lyckades att återskapa en gammal version av en artikel.
+		\item Lyckades inte att återskapa en artikel.
+		\\Något gick fel på vägen och artikeln återskapades inte. Den nuvarande versionen finns kvar som innan.
+	\end{itemize}
 	\item Speciella krav
 	\\Användaren skall kunna vara medlem i en speciell wikigrupp.
 	\\Användaren skall ha läsrättigheter i wikigruppen(behövs endast för att ta emot nya uppdateringar).
@@ -231,12 +216,13 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Huvudscenario
 	
 	Det viktiga i detta use-case är att visa att man kan sammanfoga olika filer med varandra trots att rättigheter samt kompetens kan ställa till det.
-	\item Efterhandsvillkor	
-		\\Success condition 
+	\item Efterhandsvillkor
+		\begin{itemize}	
+		\item Lyckad sammanfogning
 		\\Användaren lyckades med att sammanfoga (merge) två eller fler filer.
-		\\Failure condition
+		\item Icke lyckad sammanfogning
 		\\Användaren lyckades ej med en sammanfogning.
-		
+		\end{itemize}
 	\item Speciella krav
 	\\Användaren ska vara medlem i en speciell wiki-grupp.
 \end{itemize}
@@ -260,7 +246,12 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Huvudscenario
 	\\Det viktiga delen i det här use-caset är att en användare skall kunna använda automatisk rättstavning för att granska sin artikel efter stavfel.
 	\item Post-condition
-	\\ Antingen hittar rättstavningskontrollen inga fel och godkänner artikeln direkt eller så hittar den något som den uppfattar som felstavat och användaren får en rättningsförfrågan.
+	\begin{itemize}
+	\item Inga fel
+	\\Rättstavningskontrollen hittar inga fel och godkänner artikeln direkt.
+	\item Fel hittades
+	\\Rättstavningskontrollen hittar något som den uppfattar som felstavat och användaren får en rättningsförfrågan.
+	\end{itemize}	
 	\item Speciella krav
 	\\Användaren måste ha stavningskontrollen installerad.
 \end{itemize}
