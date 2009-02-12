@@ -28,7 +28,7 @@
   \hline
     \textbf{version} & \textbf{datum} & \textbf{utförda ändringar} & \textbf{utförda av} & \textbf{granskad} \\
 	\hline 
-  0.1 & 2009-02-12 &  Dokumentet är påbörjat, all engelsk text kommer från OpenUP    \\
+  0.1 & 2009-02-12 &  Dokumentet är påbörjat, all engelsk text kommer från OpenUP & &   \\
   \hline
 \end{tabularx}
 
@@ -40,13 +40,13 @@
 
 \section{Introduktion}
 
-\section{Systemomfattande Funktionskrav}
+\section{Systemomfattande funktionskrav}
 
 Statement of system-wide functional requirements, not expressed as use cases. Examples include auditing, authentication, printing, reporting.
 
-\section{System Kvaliteter}
+\section{Systemegenskaper}
 \subsection{Användbarhet}
-Användaren ska nå stora delar av systemet på ett fåtal
+Användaren ska nå stora delar av systemet med minsta möjliga ansträngning.
 \subsection{Tillförlitlighet}
 
 Reliability includes the product and/or system's ability to keep running under stress and adverse conditions. Specify requirements for reliability acceptance levels, and how they will be measured and evaluated. Suggested topics are availability, frequency of severity of failures and recoverability.
@@ -68,67 +68,54 @@ Interface Requirements are part of the + in the FURPS+ classification of support
 Describe the user interfaces that are to be implemented by the software. The intention of this section is to state requirements relating to the interface. Interface design may overlap the requirements gathering process.
 
 \subsubsection{Utseende och känsla}
-Applikationen ska kännas som en lättare ordbehandlare. Gränsnittet ska förmedla effektivitet och enkelhet.
+Applikationen ska kännas som en ordbehandlare. Gränssnittet ska upplevas som effektivt och enkelt.
 
-\subsubsection{Layout och navigeringskrav}
-Användaren ska nå stora delar av systemet via ett fåtal navigeringar. 
+\subsubsection{Layout och navigering}
+Användaren ska kunna nå stora delar av systemet med endast ett fåtal navigeringar. 
 
 \subsubsection{Konsekvens}
-
 Consistency in the user interface enables users to predict what will happen. This section states requirements on the use of mechanisms to be employed in the user interface. This applies both within the system and with other systems and can be applied at different levels: navigation controls, screen areas sizes and shapes, placements for entering / presenting data, terminology.
 
-\subsubsection{Användaranpassning och and kundanpassning krav}
-y
+\subsubsection{Användaranpassning och kundanpassning}
 Requirements on content that should automatically displayed to users or available based on user attributes. Sometimes users allowed to customize the content displayed or to personalize displayed content.
 
 \subsection{Interfaces to External Systems or Devices}
-
 Are there any external systems with which this system must interface? Are there any constraints on the nature of the interface between this system and any external system, such as the format of data passed between these systems, and any particular protocol used? Consider both provided and required interfaces.
 
 \subsubsection{Software Interfaces}
-
 This section describes software interfaces to other components of the software system. These may be purchased components, components reused from another application or components being developed for subsystems outside of the scope of this SRS, but with which this software application must interact.
 
 \subsubsection{Hardware Interfaces}
-
 This section defines any hardware interfaces that are to be supported by the software, including logical structure, physical addresses, expected behavior, and so on.
 
 \subsubsection{Communications Interfaces}
-
 Describe any communications interfaces to other systems or devices such as local area networks, remote serial devices, and so on.
 
 \section{Business Rules}
-
 Business rules are statements that define or constrain some aspect of the business. Business rules are often represented as production rules when they are meant to be directly executed by an IT System: a production rule is an independent statement of programming logic that specifies the execution of one or more actions in the case that its conditions are satisfied. Production Rules define the operation semantic for the system in a technologic independent way. They constrain the behavior expressed in system use cases.
 Organize this document on rule classes, a high level grouping of candidate or actual rules about one business concept with a specific kind of logic processing, example: Driver Risk Assessment Rules or Customer Validation Rules.
-
 
 \subsection{Rule class name}
 
 \subsubsection{Rule name and ID}
-
 The description defines the rule. It can be made in natural language typically following a decision table or a pattern like:  if [condition-list] then [action-list], example: 
 If there are at least 3 items of the same type in the customer shopping cart and each item’s value is greater than 30 USD then give to the customer a voucher whose value is 10 percent of the cheapest item.
 
-
 \section{System Constraints}
-
 Constraints are part of the + in the FURPS+ classification of supporting requirements. Describe any design; implementation or deployment constraints on the system being built that have been mandated and must be adhered to. Examples include software implementation languages, prescribed use of developmental tools, third-party components or class libraries, platform support, resource limits and requirements on the shape, size or weight of the resulting hardware housing the system.
 
 \section{System Compliance}
 
 \subsection{Licenskrav}
-Projektet ska släppas i opensource, vilka licenser beror på om vi utnyttjar redan befintlig öppenkällkod. 
+Projektet ska släppas som open source. Vilka licenser vi väljer beror på om vi utnyttjar redan befintlig kod med restriktiva licenser. 
 
 \subsection{Rättsligt, upphovsrätt och andra meddelanden}
-Vi har pratat om att lägga programmet på en idell förening. 
+Det ligger som förslag att lägga programmet på en idell förening. Detta för att förenkla upphovsrättsliga frågor när programmet ska vidareutvecklas. 
 
 \subsection{Applicable Standards}
-
 This section describes by reference any applicable standards and the specific sections of any such standards that apply to the system being described. For example, this could include legal, quality and regulatory standards, industry standards for usability, interoperability, internationalization, operating system compliance, and so forth.
 
 \section{System Documentation}
-
 Describes the requirements, for on-line user documentation, help systems, help about notices, and so on. Set expectations for the documentation and to identify who will be responsible for creating it.
 
 \end{document}
