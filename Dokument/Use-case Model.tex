@@ -27,22 +27,23 @@ För att enklare förstå de olika use-casen i har satt upp och få en överblic
 %Skapa en överblick för systemet, dvs beskriv vad systemet gör och vad desss mål är.
 Systemet i fråga är ett distribuerat versionshanteringssystem. Meningen med detta system är att man på ett enkelt sätt ska kunna hantera dokument i en wiki-miljö samtidigt som man inte ens behöver vara uppkopplad. När användaren sedan kopplar upp sig mot internet kan denne synkronisera sina ändringar med andra användares ändringar.
 \section{Use-case diagram}
-%\includegraphics{use-case-diagram.png}
-Här ska en bild på ett use-case diagram finnas
+ \begin{figure}[H] %  figure placement: here, top, bottom, or page
+  \centering
+  \includegraphics[scale=0.50]{Use-case-diagram.png}
+\end{figure}
+%\includegraphics{Use-case-diagram.png}
 \section{Aktörer}
 %Beskriv alla aktörer som finns med i use-case diagrammet.
 \begin{itemize}
-	\item Användare
-	\\Denna aktör representerar en normal användare inom systemet.
-	\item Git
-	\\Denna aktör ska representera systemet som ligger under wiki.
+	\item Lokal användare
+	\\Denna aktör representerar en normal användare som sitter vid sin dator och ej är uppkopplad mot internet.
+	\item Extern användare
+	\\Denna aktör representerar en användare som sitter uppkopplad mot systemet och internet.
 \end{itemize}
 \section{Use-cases}
 %Rada upp de olika use-cases som finns.
 \subsection{Bläddra}
 Detta use-case beskriver hur man bläddrar bland dokument.
-\subsection{Distribuering}
-Detta use-case beskriver hur man distribuerar dokument till andra användare inom wiki-gruppen.
 \subsection{Läsa artiklar}
 Detta use-case beskriver hur man läser sina egna eller andra användares artiklar.
 \subsection{Skriva en artikel}
