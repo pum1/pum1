@@ -31,9 +31,9 @@ dirs:
 	@mkdir -p ${LOG_DIR}
 
 movelogs:
-	@mv -f ${OUTPUT_DIR}/*.log ${LOG_DIR}/
-	@mv -f ${OUTPUT_DIR}/*.aux ${LOG_DIR}/
-	@mv -f ${OUTPUT_DIR}/*.toc ${LOG_DIR}/
+	@mv ${OUTPUT_DIR}/*.log ${LOG_DIR}/
+	@mv ${OUTPUT_DIR}/*.aux ${LOG_DIR}/
+	@mv ${OUTPUT_DIR}/*.toc ${LOG_DIR}/
 
 ${OUTPUT_DIR}/Architecture_Notebook.pdf:
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Architecture Notebook.tex"
