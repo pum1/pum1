@@ -101,21 +101,21 @@ Organize this document on rule classes, a high level grouping of candidate or ac
 The description defines the rule. It can be made in natural language typically following a decision table or a pattern like:  if [condition-list] then [action-list], example: 
 If there are at least 3 items of the same type in the customer shopping cart and each item’s value is greater than 30 USD then give to the customer a voucher whose value is 10 percent of the cheapest item.
 
-\section{System Constraints}
-Constraints are part of the + in the FURPS+ classification of supporting requirements. Describe any design; implementation or deployment constraints on the system being built that have been mandated and must be adhered to. Examples include software implementation languages, prescribed use of developmental tools, third-party components or class libraries, platform support, resource limits and requirements on the shape, size or weight of the resulting hardware housing the system.
+\section{Systemrestriktioner}
+Systemet ska programmeras i ett högnivåspråk, troligtvis Python, som kan kompileras/interpreteras för de mest använda operativsystemen med fokus på Linux i första hand. Git ska användas för att hantera distributionen av data. Databasen för Wikin ska vara textbaserad (så kallad flat file database). Användargränssnittet ska byggas i ett grafiskt bibliotek, troligtvis wxPython.
 
-\section{System Compliance}
+\section{Systemfoglighet} %system compliance, kan vara dålig översättning
 
 \subsection{Licenskrav}
-Projektet ska släppas som open source. Vilka licenser vi väljer beror på om vi utnyttjar redan befintlig kod med restriktiva licenser. 
+Projektet ska släppas som öppen källkod. Vilka licenser vi väljer beror på om vi utnyttjar befintlig kod med restriktiva licenser. 
 
 \subsection{Rättsligt, upphovsrätt och andra meddelanden}
-Det ligger som förslag att lägga programmet på en idell förening. Detta för att förenkla upphovsrättsliga frågor när programmet ska vidareutvecklas. 
+Det ligger som förslag att lägga programmet på en ideell förening. Detta för att förenkla upphovsrättsliga frågor när programmet ska vidareutvecklas. 
 
 \subsection{Applicable Standards}
 This section describes by reference any applicable standards and the specific sections of any such standards that apply to the system being described. For example, this could include legal, quality and regulatory standards, industry standards for usability, interoperability, internationalization, operating system compliance, and so forth.
 
-\section{System Documentation}
-Describes the requirements, for on-line user documentation, help systems, help about notices, and so on. Set expectations for the documentation and to identify who will be responsible for creating it.
+\section{Dokumentation}
+Kvalitetssamordnaren ansvarar för att en användarmanual samt en installationsmanual produceras. Dessa dokument har väldigt höga krav när det kommer till användarvänlighet. Användarmanualen ska integreras i den färdiga produkten, nåbar via en meny eller knapp i användargränssnittet men ska också finnas tillgänglig som ett samlat dokument för utskrift i pdf-format. Installatationsmanual ska finnas för alla operativsystem som slutprodukten stödjer i form av ett utskrivbart dokument i pdf-format. Båda manualerna skall paketeras tillsammans med installationen av slutprodukten. De ska också kunna laddas hem från projektets hemsida där även samtliga övriga skrivna dokument (av senaste version) ska finnas tillgängliga för nedladdning i pdf-format. Projektets hemsida upprättas på en gratis tjänst liknande Google Code eller SourceForge i samband med att en första release släpps.
 
 \end{document}
