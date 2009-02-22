@@ -58,6 +58,42 @@
 
 För att lättare förstå vad användarna ska kunna åstadkomma med vårt system har gruppen satt upp ett antal användarfall för att försöka täcka de olika funktioner som kommer att finnas.
 
+\subsection{Installera}
+
+\begin{itemize}
+	\item Kortfattad beskrivning
+	\\En person vill installera dwiki på sin dator.
+	\item Aktörer
+	\\En användare, person A, utan mycket datorvana.
+	\item Förhandsvillkor
+	\\Person A har kör linux på sin dator.
+	\item Händelseförlopp
+	\begin{enumerate}
+		\item Person A öppnar terminalen.
+		\item Person A skriver inte kommandot \textit{sudo apt-get install dwiki}
+		\item Pakethanteraren installerar dwiki på datorn.
+	\end{enumerate}
+	\item Alternativt händelseförlopp
+	\begin{enumerate}
+		\item Person A öppnar terminalen.
+		\item Person A skriver inte kommandot \textit{sudo apt-get install dwiki}
+		\item Pakethanterar finner att alla beroenden inte är uppfyllda (exempelsevis att git inte är installerat på datorn).
+		\item Pakethanteraren installerar alla program som saknas för att kunna köra dwiki.
+		\item Pakethanteraren installerar dwiki på datorn.
+	\end{enumerate}	
+	\item Huvudscenario
+	\\Den viktigaste i detta användarfall är att dwiki finns registrerat på en paketserver och går att installera direkt genom pakethanteraren i linux.
+	\item Efterhandsvillkor
+	\begin{itemize}
+	\item Lyckades installera dwiki.
+	\\Användaren fick dwiki installerat med hjälp av pakethanteraren
+	\item Lyckades inte installera dwiki.
+	\\Användaren fick inte dwiki insallerat. Detta kan bero på att användaren inte är uppkopplad mot en paketserver som tillhandahåller dwiki eller att användaren inte är ansluten till internet.
+	\end{itemize}
+	\item Speciella krav
+	\\Användaren använder en linuxdator och är uppkopplad som en paketserver som tillhandahåller dwiki.
+\end{itemize}
+
 \subsection{Bläddra}
 
 \begin{itemize}
@@ -66,17 +102,17 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Aktörer
 	\\En användare, person A, utan större datorvana.
 	\item Förhandsvillkor
-	\\Person A har programmet installerat på sin dator.
+	\\Person A har dwiki installerat på sin dator.
 	\item Händelseförlopp
 	\begin{enumerate}
-		\item Person A startar programmet.
+		\item Person A startar dwiki.
 		\item Person A skriver in sökord som matchar artikeln han vill söka efter i en sökruta.
 		\item En lista med möjliga artiklar dyker upp och person A väljer en av dem.
 		\item Artikeln visas i ett fönster och person A kan läsa den.
 	\end{enumerate}
 	\item Alternativt händelseförlopp
 	\begin{enumerate}
-		\item Person A startar programmet.
+		\item Person A startar dwiki.
 		\item Person A navigerar till sin önskade artikel genom länkar från andra artiklar.	
 		\item Artikeln visas i ett fönster och person A kan läsa den.
 	\end{enumerate}	
@@ -100,22 +136,22 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Aktörer
 	\\En användare, person A, utan större datorvana.
 	\item Förhandsvillkor
-	\\Person A är online och har programmet installerat på sin dator.
+	\\Person A är online och har dwiki installerat på sin dator.
 	\item Händelseförlopp
 	\begin{enumerate}
-		\item Person A startar programmet.
-		\item Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
+		\item Person A startar dwiki.
+		\item dwiki synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
 		\item Person A väljer en uppdaterad artikel han/hon vill läsa.
 		\item Artikeln visas och person A läser den.
 	\end{enumerate}
 	\item Alternativt händelseförlopp
 	\\Efter steg 1:
 	\begin{enumerate}	
-		\item Programmet söker efter uppdateringar från andra medlemmar i wikigruppen men finner inga.
-		\item Person A låter programmet stå på i bakgrunden i väntan på nya uppdateringar.	
+		\item dwiki söker efter uppdateringar från andra medlemmar i wikigruppen men finner inga.
+		\item Person A låter dwiki stå på i bakgrunden i väntan på nya uppdateringar.	
 	\end{enumerate}	
 	\item Huvudscenario
-	\\Den viktigaste delen i användarfallet är när programmet synkroniserar artiklarna med de andra medlemmarna
+	\\Den viktigaste delen i användarfallet är när dwiki synkroniserar artiklarna med de andra medlemmarna
 	\item Efterhandsvillkor
 	\begin{itemize}
 		\item Användaren lyckades hitta uppdateringar.
@@ -135,10 +171,10 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Aktörer
 	\\En användare, person A, utan större datorvana.
 	\item Förhandsvillkor
-	\\Person A är online och har programmet installerat på sin dator.
+	\\Person A är online och har dwiki installerat på sin dator.
 	\item Händelseförlopp
 	\begin{enumerate}
-		\item Person A startar programmet.
+		\item Person A startar dwiki.
 		\item Person A väljer att skapa en ny artikel.
 		\item Ett redigeringsfönster visas och person A skriver sin artikel.
 		\item När person A är färdig väljer han att publicera sin artikel som nu kan hämtas och läsas av de andra medlemmarna i gruppen.
@@ -146,7 +182,7 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Alternativt händelseförlopp
 	\\Efter steg 1:
 	\begin{enumerate}	
-		\item Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
+		\item dwiki synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
 		\item Person A läser en uppdaterad artikel och bestämmer sig för att ändra på den.
 		\item Person A väljer att redigera artikeln och ett redigeringsfönster med artikeln i visas.
 		\item Person A gör de önskvärda ändringarna	och publicerar den nya artikeln	som nu kan hämtas och läsas av de andra medlemmarna i gruppen.
@@ -173,11 +209,11 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Aktörer
 	\\En användare av systemet, person A, utan större datorvana.
 	\item Förhandsvillkor
-	\\Person A är online och har programmet installerat på sin dator.
+	\\Person A är online och har dwiki installerat på sin dator.
 	\item Händelseförlopp
 	\begin{enumerate}
-		\item Person A startar programmet.
-		\item Programmet synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
+		\item Person A startar dwiki.
+		\item dwiki synkroniserar ändringar i artiklar med andra medlemmar som är online i wikigruppen.
 		\item Person A läser en av de uppdaterade artiklarna och ogillar de nya ändringarna.
 		\item Person A väljer att återskapa en äldre version av artikeln och ett fönster med möjliga äldre versioner visas.
 		\item Person A väljer den version av artikeln han vill ha och artikeln återskapas lokalt.
@@ -204,44 +240,34 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\\En användare ska sammanfoga sina dokument eller annat arbete med andra personers arbeten.
 	\item Aktörer
 	\\Tre användare A, B och C som inte har någon större datorvana.
-	\\Administratör för wiki-gruppen med lite mer datorvana.	
 	\item Förhandsvillkor
-	\\Ett distribuerat wiki-system är konfigurerat, satt igång och används.
+	\\Ett dwiki system är konfigurerat, satt igång och används.
 	\item Händelseförlopp
 	\begin{enumerate}
-		\item Person A har arbetat med dokument på sin dator och vill sätta ihop detta med person B:s och person C:s dokument.
-		\item Person A vet inte vad person B och person C har arbetat med men öppnar ändå sin wiki.
-		\item Han går in på sidan för person B samt C:s dokument och därmed synkroniseras hans dokument automatiskt.
-		\item Systemet försöker att sammanfoga dokumenten.
-		\item Eftersom olika stycken är ändrade i dokumenten sker en konflikt.
-		\item Användaren får en förfrågan om han vill lösa konflikten.
-		\item Användaren får upp dokumenten bredvid varandra och kan sedan ändra det han behagar.
-		\item Till sist sparar användaren dokumentet och känner sig nöjd.
+		\item Person A startar dwiki och får in uppdateringar av samma artikel från Person B och person C.
+		\item uppdateringarna kolliderar och Användare A får nu välja om han vill behålla kopian från Person B, kopian från person C, sin egen lokala kopia eller slå samman artiklarna manuellt.
+		\item Person A väljer att behålla kopian från Person C som sparas ned lokalt på hans dator.
 	\end{enumerate}
 	\item Alternativt händelseförlopp
-	\\Efter steg 5:
 	\begin{enumerate}	
-		\item Användaren inte har rättigheter att ändra på filerna.
-		\item Användaren kontaktar administratören för att få hjälp.
+		\item Person A startar dwiki och får in uppdateringar av samma artikel från Person B och person C.
+		\item uppdateringarna kolliderar och Användare A får nu välja om han vill behålla kopian från Person B, kopian från person C, sin egen lokala kopia eller slå samman artiklarna manuellt.
+		\item Person A väljer att slå samman artiklarna manuellt.
+		\item Ett redigeringsfönster dyker nu upp där ändringarna från Person B och Person C är tydligt utmarkerade. Person A kan nu redigera hela artikeln och spara det han vill ha kvar.
+		\item När person A är färdig väljer han att spara ner den redigerade kopian lokalt.
 	\end{enumerate}	
-	\item Alternativt händelseförlopp
-	\\Efter steg 5: 
-	\begin{enumerate}	
-		\item Användaren inte känner sig tillräckligt säker att ändra på filerna.
-		\item Användaren kontaktar då den/de personer som har skrivit filerna och ber om hjälp.
-	\end{enumerate}
 	\item Huvudscenario
 	
-	Det viktiga i detta användarfall är att visa att man kan sammanfoga olika filer med varandra trots att rättigheter samt kompetens kan ställa till det.
+	Det viktiga i detta användarfall är att visa att man kan lösa konflikter i sammanslagning antingen manuellt eller välja att spara en kopia rakt av.
 	\item Efterhandsvillkor
 		\begin{itemize}	
 		\item Lyckad sammanfogning
-		\\Användaren lyckades med att sammanfoga (merge) två eller fler filer.
+		\\Användaren lyckades med att sammanfoga (merge) två artiklar.
 		\item Icke lyckad sammanfogning
-		\\Användaren lyckades ej med en sammanfogning.
+		\\Användaren lyckades ej med en sammanfogning, detta kan bero på att användaren inte var bekväm med att välja vad han vill ha med i sin artikel och inte. Användaren kan då överlåta beslutet till dem som har skrivit ändringarna.
 		\end{itemize}
 	\item Speciella krav
-	\\Användaren ska vara medlem i en speciell wiki-grupp.
+	\\Användaren ska vara medlem i en dwiki-grupp.
 \end{itemize}
 
 \subsection{Rättstavning}
@@ -251,7 +277,7 @@ För att lättare förstå vad användarna ska kunna åstadkomma med vårt syste
 	\item Aktörer
 	\\En användare, person A, utan direkt datorvana.
 	\item Förhandvillkor
-	\\Person A har programmet installerat på datorn
+	\\Person A har dwiki installerat på datorn
 	\item Händelseförlopp
 	\begin{enumerate}
 		\item En användare vill eller har inte tid att läsa en artikel som han vill göra tillgängligt för andra användare.
