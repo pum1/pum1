@@ -47,9 +47,10 @@ Statement of system-wide functional requirements, not expressed as use cases. Ex
 
 \section{Systemegenskaper}
 \subsection{Användbarhet}
-Användaren ska nå stora delar av systemet med minsta möjliga ansträngning. 
+Användaren ska känna att vårat verktyg gör dom effektivare. Det ska mätas och utvärderas med en användargrupp. 
+
 \subsection{Tillförlitlighet} 
-Fokus kommer inte ligga på tillförlitlighet. Vi kan tänka oss att systemets användargränsnitt kan hänga sig två till tre gånger per arbetsdag.
+Applikationens tillförlitlighet ligger i hur datan hanteras. Användaren ska kunna lita på att den data som användaren lägger till kommer vara detsamma efter den kommer ut. Det kan mätas med tester på skillnaden mellan in och utdata. En stor del avansvaret kommer ligga på den versionshanterare som används så därför bör även den testas och utvärderas.
 
 \subsection{Prestanda}
 Systemet är inte prestandakrävande, bandbreddskrävande eller kräver snabba svarstider. Det viktiga är att användaren kan spara till den lokala datorn. Det viktiga är att fel som sker inte stör användarvänligheten. Uppstart av applikationen ska max ta 3 sekunder.
@@ -83,10 +84,11 @@ Are there any external systems with which this system must interface? Are there 
 \subsubsection{Software Interfaces}
 This section describes software interfaces to other components of the software system. These may be purchased components, components reused from another application or components being developed for subsystems outside of the scope of this SRS, but with which this software application must interact.
 
-\subsubsection{Hardware Interfaces}
-This section defines any hardware interfaces that are to be supported by the software, including logical structure, physical addresses, expected behavior, and so on.
+\subsubsection{Hårdvarugränsnitt}
+Inga speciella hårdvarukrav, applikationen ska köra på en standard dator. 
 
-\subsubsection{Communications Interfaces}
+\subsubsection{Kommunikationsgräsnitt}
+%Här kan jag tänka mig en mer avancerad förklaring hur vi har tänkt oss p2p, krypetering osv
 Describe any communications interfaces to other systems or devices such as local area networks, remote serial devices, and so on.
 
 \section{Business Rules}
@@ -105,10 +107,10 @@ Constraints are part of the + in the FURPS+ classification of supporting require
 \section{System Compliance}
 
 \subsection{Licenskrav}
-Projektet ska släppas som open source. Vilka licenser vi väljer beror på om vi utnyttjar redan befintlig kod med restriktiva licenser. 
+Projektet ska släppas som open source. Vilka licenser vi väljer beror på om vi utnyttjar redan befintlig kod med restriktiva licenser.
 
 \subsection{Rättsligt, upphovsrätt och andra meddelanden}
-Det ligger som förslag att lägga programmet på en idell förening. Detta för att förenkla upphovsrättsliga frågor när programmet ska vidareutvecklas. 
+Det ligger som förslag att lägga programmet på en idell förening. Detta för att förenkla upphovsrättsliga frågor när programmet ska vidareutvecklas. Annars kommer det hamna på oss som utvecklare och våran kund. 
 
 \subsection{Applicable Standards}
 This section describes by reference any applicable standards and the specific sections of any such standards that apply to the system being described. For example, this could include legal, quality and regulatory standards, industry standards for usability, interoperability, internationalization, operating system compliance, and so forth.
