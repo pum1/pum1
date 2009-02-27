@@ -13,7 +13,7 @@
 
 \title{System-WideRequirements}
 \author{PUM-grupp 1}
-\date{2009-02-12}
+\date{\today}
 
 \begin{document}
 
@@ -39,25 +39,23 @@
 \newpage
 
 \section{Introduktion}
+En stor del av vårat arbetet för gruppen kommer vara integera och paketera olika programvaror. Så förutom utvecklingen av wiki:n så är det många krav som inte användaren kommer möta direkt.
 
 \section{Systemomfattande funktionskrav}
-
+Här redogörs funktions
 Statement of system-wide functional requirements, not expressed as use cases. Examples include auditing, authentication, printing, reporting.
 
 \section{Systemegenskaper}
 \subsection{Användbarhet}
-Användaren ska nå stora delar av systemet med minsta möjliga ansträngning.
-\subsection{Tillförlitlighet}
-
-Reliability includes the product and/or system's ability to keep running under stress and adverse conditions. Specify requirements for reliability acceptance levels, and how they will be measured and evaluated. Suggested topics are availability, frequency of severity of failures and recoverability.
+Användaren ska nå stora delar av systemet med minsta möjliga ansträngning. 
+\subsection{Tillförlitlighet} 
+Fokus kommer inte ligga på tillförlitlighet. Vi kan tänka oss att systemets användargränsnitt kan hänga sig två till tre gånger per arbetsdag.
 
 \subsection{Prestanda}
-
-The performance characteristics of the system should be outlined in this section. Examples are response time, throughput, capacity and startup or shutdown times.
+Systemet är inte prestandakrävande, bandbreddskrävande eller kräver snabba svarstider. Det viktiga är att användaren kan spara till den lokala datorn. Det viktiga är att fel som sker inte stör användarvänligheten. Uppstart av applikationen ska max ta 3 sekunder.
 
 \subsection{Supportability}
-
-This section indicates any requirements that will enhance the supportability or maintainability of the system being built, including adaptability and upgrading, compatibility, configurability, scalability and requirements regarding system installation, level of support and maintenance.
+Hur skalbart systemet This section indicates any requirements that will enhance the supportability or maintainability of the system being built, including adaptability and upgrading, compatibility, configurability, scalability and requirements regarding system installation, level of support and maintenance.
 
 \section{Systemgränssnitt}
 
@@ -101,21 +99,21 @@ Organize this document on rule classes, a high level grouping of candidate or ac
 The description defines the rule. It can be made in natural language typically following a decision table or a pattern like:  if [condition-list] then [action-list], example: 
 If there are at least 3 items of the same type in the customer shopping cart and each item’s value is greater than 30 USD then give to the customer a voucher whose value is 10 percent of the cheapest item.
 
-\section{Systemrestriktioner}
-Systemet ska programmeras i ett högnivåspråk, troligtvis Python, som kan kompileras/interpreteras för de mest använda operativsystemen med fokus på Linux i första hand. Git ska användas för att hantera distributionen av data. Databasen för Wikin ska vara textbaserad (så kallad flat file database). Användargränssnittet ska byggas i ett grafiskt bibliotek, troligtvis wxPython.
+\section{System Constraints}
+Constraints are part of the + in the FURPS+ classification of supporting requirements. Describe any design; implementation or deployment constraints on the system being built that have been mandated and must be adhered to. Examples include software implementation languages, prescribed use of developmental tools, third-party components or class libraries, platform support, resource limits and requirements on the shape, size or weight of the resulting hardware housing the system.
 
-\section{Systemfoglighet} %system compliance, kan vara dålig översättning
+\section{System Compliance}
 
 \subsection{Licenskrav}
-Projektet ska släppas som öppen källkod. Vilka licenser vi väljer beror på om vi utnyttjar befintlig kod med restriktiva licenser. 
+Projektet ska släppas som open source. Vilka licenser vi väljer beror på om vi utnyttjar redan befintlig kod med restriktiva licenser. 
 
 \subsection{Rättsligt, upphovsrätt och andra meddelanden}
-Det ligger som förslag att lägga programmet på en ideell förening. Detta för att förenkla upphovsrättsliga frågor när programmet ska vidareutvecklas. 
+Det ligger som förslag att lägga programmet på en idell förening. Detta för att förenkla upphovsrättsliga frågor när programmet ska vidareutvecklas. 
 
 \subsection{Applicable Standards}
 This section describes by reference any applicable standards and the specific sections of any such standards that apply to the system being described. For example, this could include legal, quality and regulatory standards, industry standards for usability, interoperability, internationalization, operating system compliance, and so forth.
 
-\section{Dokumentation}
-Kvalitetssamordnaren ansvarar för att en användarmanual samt en installationsmanual produceras. Dessa dokument har väldigt höga krav när det kommer till användarvänlighet. Användarmanualen ska integreras i den färdiga produkten, nåbar via en meny eller knapp i användargränssnittet men ska också finnas tillgänglig som ett samlat dokument för utskrift i pdf-format. Installatationsmanual ska finnas för alla operativsystem som slutprodukten stödjer i form av ett utskrivbart dokument i pdf-format. Båda manualerna skall paketeras tillsammans med installationen av slutprodukten. De ska också kunna laddas hem från projektets hemsida där även samtliga övriga skrivna dokument (av senaste version) ska finnas tillgängliga för nedladdning i pdf-format. Projektets hemsida upprättas på en gratis tjänst liknande Google Code eller SourceForge i samband med att en första release släpps.
+\section{System Documentation}
+Describes the requirements, for on-line user documentation, help systems, help about notices, and so on. Set expectations for the documentation and to identify who will be responsible for creating it.
 
 \end{document}
