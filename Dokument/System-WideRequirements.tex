@@ -75,23 +75,31 @@ Applikationen ska i redigeringsläget kännas som en ordbehandlare. Gränssnitte
 Användaren ska kunna nå stora delar av systemet med endast ett fåtal navigeringar. Navigeringen ska vara intuitiv och efterlikna operativsystemet som programmet körs på. Beteendemönster ska kännas igen från andra textredigeringsprogram och Webbläsare. Applikationen har främst två lägen, ett för visning och ett för redigering och från varje visningssida som man har rätt att redigera ska man enkelt kunna byta till redigeringsläge. När man redigerat klart och godkänner ändringarna så återvänder man till visningssläget.
 
 \subsubsection{Följdriktighet} %Consistency
-Consistency in the user interface enables users to predict what will happen. This section states requirements on the use of mechanisms to be employed in the user interface. This applies both within the system and with other systems and can be applied at different levels: navigation controls, screen areas sizes and shapes, placements for entering / presenting data, terminology.
+%Consistency in the user interface enables users to predict what will happen. This section states requirements on the use of mechanisms to be employed in the user interface. This applies both within the system and with other systems and can be applied at different levels: navigation controls, screen areas sizes and shapes, placements for entering / presenting data, terminology.
 
 \subsubsection{Användaranpassning och kundanpassning}
 Requirements on content that should automatically displayed to users or available based on user attributes. Sometimes users allowed to customize the content displayed or to personalize displayed content.
 
-\subsection{Interfaces to External Systems or Devices}
-Are there any external systems with which this system must interface? Are there any constraints on the nature of the interface between this system and any external system, such as the format of data passed between these systems, and any particular protocol used? Consider both provided and required interfaces.
+\subsection{Gränssnitt mot externa system}
+Inga externa system finns som kräver gränssnitt, förutom kommunikationen två klienter emellan.
 
-\subsubsection{Software Interfaces}
-This section describes software interfaces to other components of the software system. These may be purchased components, components reused from another application or components being developed for subsystems outside of the scope of this SRS, but with which this software application must interact.
+\subsubsection{Mjukvarugränssnitt}
+För extern kommunikation distributionssystemet Bazaar att användas. Bazaar tillhandahåller en komplett uppsättning funktioner för styrning av systemet. Bazaar är skrivet i Python och är därför särskilt enkel att integrera.
+
+För användargränssnitt kommer wxPython att användas. wxPython är ett bibliotek för att tillhandahålla grafiska användargränssnitt till Pythonprogram och kan anpassa sig till flera operativsystem, bland annat det som vi utvecklar till.
 
 \subsubsection{Hårdvarugränsnitt}
-Inga speciella hårdvarukrav, applikationen ska köra på en standard dator. 
+I begränsningen av systemet ingår att vi ska kunna använda det operativsystemet som vi utvecklar mot, varför vi antar full funktionalitet mot systemfunktioner så som filhantering. Python tillhandahåller abstraktioner för den grundläggande operativsystemsfunktionaliteten.
 
 \subsubsection{Kommunikationsgräsnitt}
 %Här kan jag tänka mig en mer avancerad förklaring hur vi har tänkt oss p2p, krypetering osv
-Describe any communications interfaces to other systems or devices such as local area networks, remote serial devices, and so on.
+Kommunikation mellan klienter sker med hjälp av TLS över TCP/IP. För detta krävs tillgång till ett nätverksgrässnitt på det lokala systemet samt en Python-specifik kommunikationsmodul som tillhandahåller TLS över TCP/IP. All form av binär data kan skickas som en ström över TLS.
+
+För att underlätta kommunikationen mellan två klienters distributionssystem kommer vi tunnla datatrafiken dem emellan genom vår TLS-länk. Detta är särskilt lämpligt om en användare ligger bakom en brandvägg, där distributionssystemet i normala fall endast skulle kunna verka enkelriktat.
+
+Klienter kommunicerar över nätverket med ett gränssnitt som möjliggör automatisk och komplett propagering av ändringar, administration av medlemsskap i nätverket och autenticering av medlemmar.
+
+%Describe any communications interfaces to other systems or devices such as local area networks, remote serial devices, and so on.
 
 \section{Business Rules}
 Business rules are statements that define or constrain some aspect of the business. Business rules are often represented as production rules when they are meant to be directly executed by an IT System: a production rule is an independent statement of programming logic that specifies the execution of one or more actions in the case that its conditions are satisfied. Production Rules define the operation semantic for the system in a technologic independent way. They constrain the behavior expressed in system use cases.

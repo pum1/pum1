@@ -55,10 +55,28 @@ I denna sektion nämns de antaganden och beroenden som finns och som tillsammans
 \section{Arkitekturellt signifikanta krav}
 Här kommer referenser till krav i andra dokument att finnas.
 \section{Beslut, begränsningar och motiveringar}
-Här kommer en lista med beslut, begränsningar och motiveringar att finnas.
+Här är en lista med beslut, begränsningar och tillhörande motiveringar.
 \begin{itemize}
-\item Beslut eller begränsning med motivering
+\item Bazaar används som distributionssystem, eftersom det är lätt att integrera.
 \end{itemize}
+\section{Arkitekturen}
+I den här sektionen beskrivs arkitekturen övergripande, med mer detaljerade beskrivningar i respektive moduls sektion.
+
+Kommunikationsmodulen är central i systemet, och tillhandahåller kommunikationsmöjligheter mellan klienten, distribueringsundersystemet, redigeringsverktyget och andra klienter.
+
+För kommunikation klienter emellan används TLS över TCP/IP. En av klienterna ansluter till den andra och TLS-handskakning och autenticering genomförs.
+
+Det underliggande distributionssystemet som vi använder är Bazaar. För att kunna slå ihop två personers repositorier kommunicerar den ena klientens Bazaar-klient med den andras Bazaar-server över TLS-anslutningen via kommunikationsmodulen.
+
+En filhanterare agerar som lager mellan redigeringsverktyget och kommunikationsmodulen. Denna tillhandahåller en modell för att hålla filhanteraren och kommunikationsmodulen underrättade om händelser i andra delar av systemet. Filhanteraren arbetar också mot arbetsmappen och tillhandahåller metoder för att modifiera filer mot denna. Kommunikationsmodulen via distributionssystemet tillhandahåller metoder för att distribuera modifieringar som sker i arbetsmappen.
+\subsection{Kommunikationsmodulen}
+Kommunikationsmodulens uppgift består i att upprätta kommunikation mellan klienter och att arbeta som ett mellanled mot distributionstekniken.
+
+För att möjliggöra distribution över TLS-anslutningen tillhandahåller kommunikationsmodulen emulerade portar, som från den lokala datorn går via TLS-anslutningen till mottagarklienten. Detta innebär att distribueringen kan ske dubbelriktat även om den ena av klienterna ligger bakom en brandvägg.
+
+
+\subsection{Redigeringsmodulen}
+Redigeringsmodulen tillhandahåller ett användargränssnitt som kan användas för att visa och redigera sidor. 
 \section{Arkitekturella mekanismer}
 I denna sektion nämns de olika mekanismerna som driver programvaran. Dessa kommer få mer detaljerade beskrivningar under senare iterationer.
 \subsection{Säkerhet}
@@ -129,12 +147,4 @@ En klient är en instans av programvaran som körs aktivt på någon plattform. 
 En datamängd som används för signering, verifiering och säker kommunikation.
 \section{Arkitekturellt ramverk}
 Det arkitekturella ramverket definierar hur systemet är sammansatt. Ramverket definieras bättre under senare delar av projektet.
-\section{Arkitekturella vyer}
-Här definieras de vyer som används för att beskriva systemarkitekturen.
-\subsection{Logisk vy}
-Den här vyn presenterar systemets funktionalitet genom logiska beskrivningar av händelseförloppen när programvaran används.
-\subsection{Användarfall}
-Den här vyn presenterar systemet ur ett användarperspektiv. För tillfället representeras denna vyn bäst i de framtagna användarfallen. 
-\subsection{Processvy}
-Processvyn presenterar de olika processnoderna som systemet utgör. För närvarande är en klient en process, men det kan komma att utvecklas.
 \end{document}
