@@ -1,0 +1,44 @@
+% Standardinkluderingsfil
+\input{standard}
+
+\ifpdf
+  \DeclareGraphicsExtensions{.pdf, .jpg, .tif, .png}
+  \pdfinfo{
+    /Title  (Kvalitetsplan)
+    /Author (PUM-grupp 1)
+  }
+\else
+  \DeclareGraphicsExtensions{.eps, .jpg}
+\fi
+
+\title{Kvalitetsplan}
+\author{PUM-grupp 1}
+\date{\today}
+
+\begin{document}
+
+\maketitle\thispagestyle{empty}
+\newpage
+
+{\centering \Large{Dokumenthistorik\\}}
+
+\vspace{10pt}
+\begin{tabularx}{\textwidth}{ |l|l|X|l|l| }
+  \hline
+    \textbf{version} & \textbf{datum} & \textbf{utförda ändringar} & \textbf{utförda av} & \textbf{granskad} \\
+	\hline 
+  0.1 & 2009-02-28 &  Ett första utkast  & Linus & Alla \\
+  \hline
+\end{tabularx}
+
+\newpage
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+\section{Rubrik 1}
+
+\subsection{Underrubrik 1}
+
+\end{document}
