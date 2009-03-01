@@ -27,7 +27,7 @@
   \hline
     \textbf{version} & \textbf{datum} & \textbf{utförda ändringar} & \textbf{utförda av} & \textbf{granskad} \\
 	\hline 
-  0.1 & 2009-02-28 &  Ett första utkast  & Linus & Alla \\
+  1.0 & 2009-03-01 &  Första versionen för opposition  & Linus & INGEN \\
   \hline
 \end{tabularx}
 
@@ -182,48 +182,42 @@ Kvalitetssamordnaren är ansvarig för insamling och dokumentering av begäran o
 Efter att beslut fattats angående vilka verktyg som ska användas så är det kvalitetssamordnarens uppgift att se till att samtliga gruppmedlemmar får tillgång till dessa verktyg och utbildning om det behövs. Detta stycke beskriver de verktyg som har använts under projektets gång.
 
 \subsection{OpenUP}
+OpenUP är den projektmodell som vi använder oss av. Men det är också ett verktyg på så sätt att universitetet försett oss med ett webb-baserat verktyg med mallar för OpenUP. Det är en databas av information om de olika faserna, rollerna, dokumenten och uppgifterna. Det finns även mallar och exempel att läsa och ladda hem.
+
 \subsection{Redmine}
+Redmine är ett kraftfullt webb-baserat verktyg som vi använder för ett flertal viktiga funktioner.
+
 \subsubsection{Wiki}
+Vi har en välfylld wiki med projektrelaterad information. Det är bl.a. här vi sparar mötesprotokoll.
+
 \subsubsection{Ärendehantering}
+Alla uppgifter registreras som ärenden i Redmine. De kan tilldelas en viss person, man anger även uppskattad tidsåtgång och start- och sluttid.
+
 \subsubsection{Tidrapportering}
+En annan funktion är möjligheten att logga tid på ärenden eller på projektet i sin helhet. Vi använder denna funktion för tidrapportering vilket har stöd för att automatiskt generera rapporter, gantchart och kalender.
+
 \subsubsection{Burndowns}
+Det finns ingen färdig funktion för att göra burndown-diagram i redmine men vi använder fältet uppskattad tidsåtgång som ett point-system. När ett ärende markerats som avslutat så sjunker kurvan och detta ger oss vårt burndown-diagram.
+
 \subsection{Git och GitHub}
+Under de två första faserna (inception och elaboration) så användes Git som versionshanteringssystem. Då inte alla har sina datorer igång dygnet runt så använde vi oss också av konton på GitHub dit vi tankade upp ändringarna så att alla andra i gruppen kunde ta hem ändringarna.
+
 \subsection{Bazaar}
+Under elaboration-fasen så framgick det att vårt tidigare val av distribuerat versionshanterinssystem inte var anpassat efter våra behov och vi valde att gå över till att använda Bazaar. Då vi ändå skulle vara tvugna att sätta oss in i hur Bazaar fungerar så var det lika bra att gå över helt till det systemet och sluta använda Git och GitHub från construction-fasen och vidare.
+
 \subsection{Eclipse och PyDev}
+Som programmeringsmiljö testade vi först Code::Blocks under en kort tid men insåg snabbt att valet av språk, Python, gjorde Eclipse med tillägget PyDev till en mycket trevligare programmeringsmiljö och vi beslutade därför under elaboration-fasen att det var detta vi skulle använda.
 
 \section{Media}
-\begin{itemize}
-\item Skall systemet levereras på någon speceill media? (ex cd, USB)
-\item Vad finns för rutiner för att skydda media  för obehörig åtkomst?
-\item Hur kan man skapa nya media vid förlust eller skada?
-\end{itemize}
-
-\section{Leverantörshantering}
-\begin{itemize}
-\item Knappast tillämpbart i ett studentprojekt, såvida ni inte har del av kundens leverantörshantering.
-\end{itemize}
+Då projektet är tänkt att resultera i en slutprodukt som ska släppas som öppen källkod så kommer vi paketera slutprodukten och distribuera den fritt via SourceForge eller Google Code eller motsvarande. Eftersom programmet samt källkoden kommer att vara fritt att använda för vem som helst så behöver inga åtgärder göras för att skydda källkoden eller förhindra olovlig kopiering.
 
 \section{Dokumenthantering}
-\begin{itemize}
-\item Hur lagras och skyddas dokument?
-\item Hur kan man få backup vid förlust?
-\end{itemize}
+Då dokumenthanteringen skötts av versionshanteringssystemen Git och Bazaar så har det hela tiden varit öppet för vem som helst att läsa dokumentation och källkod. Det har också alltid funnits kopior på alla dokument på samtliga gruppmedlemmars privata datorer samt på allas GitHub-konton. Detta har gjort att ingen backuplösning behövts sättas upp.
 
 \section{Utbildning}
-\begin{itemize}
-\item Vilka studie- och utbildningsinsatser för projektmedlemmarna planeras? (ex nytt programspråk)
-\end{itemize}
+I samband med att verktygen bestämts så har tid avsatts för att gruppmedlemmarna ska ha tid att sätta sig in i verktyget och hinna fråga om det är något som är oklart. Programmeringsspråket Python hade alla arbetat med tidigare mer eller mindre detsamma gäller för Eclipse. Git och Redmine är det som var ganska nytt för alla och tog mest tid för utbildning. Under Construction så kommer vissa delar såsom autentisering, kryptering och signering att ta extra lång tid med avseende på utbildning eftersom ingen i projektgruppen arbeta med detta tidigare. Inga gränser är satta på hur mycket tid man får lägga på utbildning, målet är både att få något körbart, väldokumenterat innan deadline men också att gruppmedlemmarna ska ha lärt sig mycket nya kunskaper om att arbeta i projekt samt sakkunskaper om t.ex. programmering i Python, distribuerade versionshanteringssystem såsom Git och Bazaar samt säkerhetsteknikerna som nämndes tidigare i detta stycke.
 
 \section{Riskhantering}
-\begin{itemize}
-\item Hur Hanterar ni risker? (identifikation, bedömning, hantering)
-\end{itemize}
-
-\section{SQA termer}
-\begin{itemize}
-\item Använder ni några speciella termer för att beskriva kvalitetsplanen?
-\end{itemize}
-
-\section{Ändringshistorik för SQA-rutiner}
+Identifikation, bedömning och hantering av risker tas upp i ett eget dokument, Risklist.
 
 \end{document}
