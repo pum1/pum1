@@ -13,7 +13,7 @@
 
 \title{System-WideRequirements}
 \author{PUM-grupp 1}
-\date{2009-02-12}
+\date{\today}
 
 \begin{document}
 
@@ -39,25 +39,26 @@
 \newpage
 
 \section{Introduktion}
+En stor del av vårat arbetet för gruppen kommer vara integera och paketera olika programvaror. Så förutom utvecklingen av wiki:n så är det många krav som inte användaren kommer möta direkt.
 
 \section{Systemomfattande funktionskrav}
-
+Här redogörs funktions
 Statement of system-wide functional requirements, not expressed as use cases. Examples include auditing, authentication, printing, reporting.
 
 \section{Systemegenskaper}
 \subsection{Användbarhet}
-Användaren ska nå stora delar av systemet med minsta möjliga ansträngning.
-\subsection{Tillförlitlighet}
+Användaren ska känna att vårat verktyg gör dom effektivare. Det ska mätas och utvärderas med en användargrupp. 
 
-Reliability includes the product and/or system's ability to keep running under stress and adverse conditions. Specify requirements for reliability acceptance levels, and how they will be measured and evaluated. Suggested topics are availability, frequency of severity of failures and recoverability.
+\subsection{Tillförlitlighet} 
+Applikationens tillförlitlighet ligger i hur datan hanteras. Användaren ska kunna lita på att den data som användaren lägger till kommer vara detsamma efter den kommer ut. Det kan mätas med tester på skillnaden mellan in och utdata. En stor del avansvaret kommer ligga på den versionshanterare som används så därför bör även den testas och utvärderas.
 
 \subsection{Prestanda}
+Systemet är inte prestandakrävande, bandbreddskrävande eller kräver snabba svarstider. Det viktiga är att användaren kan spara till den lokala datorn. Det viktiga är att fel som sker inte stör användarvänligheten. Uppstart av applikationen ska max ta 3 sekunder.
 
-The performance characteristics of the system should be outlined in this section. Examples are response time, throughput, capacity and startup or shutdown times.
+\subsection{Supportability} %Behöver hjälp med översätta rubriken
+Applikationen ska byggas modulbaserat. Det är viktigt att olika delar kan uppdateras försig just för att våran applikation bygger på flera olika program. Systeminstallationen ska gå via en pakethanterar i linux.  Hur det sker på andra plattformar är en senare fråga.
 
-\subsection{Supportability}
-
-This section indicates any requirements that will enhance the supportability or maintainability of the system being built, including adaptability and upgrading, compatibility, configurability, scalability and requirements regarding system installation, level of support and maintenance.
+%This section indicates any requirements that will enhance the supportability or maintainability of the system being built, including adaptability and upgrading, compatibility, configurability, scalability and requirements regarding system installation, level of support and maintenance.
 
 \section{Systemgränssnitt}
 
@@ -71,25 +72,34 @@ I detta avsnitt behandlas krav rörande användargränssnittet.
 Applikationen ska i redigeringsläget kännas som en ordbehandlare. Gränssnittet ska upplevas som effektivt och enkelt. Hämtning av data och synkronisering mot andra användare ska ske i bakgrunden utan att påverka användarens arbete.
 
 \subsubsection{Layout och navigering}
-Användaren ska kunna nå stora delar av systemet med endast ett fåtal navigeringar. Navigeringen ska vara intuitiv och efterlikna operativsystemet som programmet körs på. Beteendemönster ska kännas igen från andra textredigeringsprogram och Internetläsare. Applikationen har främst två lägen, ett för visning och ett för redigering och från varje visningssida som man har rätt att redigera ska man enkelt kunna byta till redigeringsläge. När man redigerat klart och godkänner ändringarna så återvänder man till visningssläget.
+Användaren ska kunna nå stora delar av systemet med endast ett fåtal navigeringar. Navigeringen ska vara intuitiv och efterlikna operativsystemet som programmet körs på. Beteendemönster ska kännas igen från andra textredigeringsprogram och Webbläsare. Applikationen har främst två lägen, ett för visning och ett för redigering och från varje visningssida som man har rätt att redigera ska man enkelt kunna byta till redigeringsläge. När man redigerat klart och godkänner ändringarna så återvänder man till visningssläget.
 
 \subsubsection{Följdriktighet} %Consistency
-Consistency in the user interface enables users to predict what will happen. This section states requirements on the use of mechanisms to be employed in the user interface. This applies both within the system and with other systems and can be applied at different levels: navigation controls, screen areas sizes and shapes, placements for entering / presenting data, terminology.
+%Consistency in the user interface enables users to predict what will happen. This section states requirements on the use of mechanisms to be employed in the user interface. This applies both within the system and with other systems and can be applied at different levels: navigation controls, screen areas sizes and shapes, placements for entering / presenting data, terminology.
 
 \subsubsection{Användaranpassning och kundanpassning}
 Requirements on content that should automatically displayed to users or available based on user attributes. Sometimes users allowed to customize the content displayed or to personalize displayed content.
 
-\subsection{Interfaces to External Systems or Devices}
-Are there any external systems with which this system must interface? Are there any constraints on the nature of the interface between this system and any external system, such as the format of data passed between these systems, and any particular protocol used? Consider both provided and required interfaces.
+\subsection{Gränssnitt mot externa system}
+Inga externa system finns som kräver gränssnitt, förutom kommunikationen två klienter emellan.
 
-\subsubsection{Software Interfaces}
-This section describes software interfaces to other components of the software system. These may be purchased components, components reused from another application or components being developed for subsystems outside of the scope of this SRS, but with which this software application must interact.
+\subsubsection{Mjukvarugränssnitt}
+För extern kommunikation distributionssystemet Bazaar att användas. Bazaar tillhandahåller en komplett uppsättning funktioner för styrning av systemet. Bazaar är skrivet i Python och är därför särskilt enkel att integrera.
 
-\subsubsection{Hardware Interfaces}
-This section defines any hardware interfaces that are to be supported by the software, including logical structure, physical addresses, expected behavior, and so on.
+För användargränssnitt kommer wxPython att användas. wxPython är ett bibliotek för att tillhandahålla grafiska användargränssnitt till Pythonprogram och kan anpassa sig till flera operativsystem, bland annat det som vi utvecklar till.
 
-\subsubsection{Communications Interfaces}
-Describe any communications interfaces to other systems or devices such as local area networks, remote serial devices, and so on.
+\subsubsection{Hårdvarugränsnitt}
+I begränsningen av systemet ingår att vi ska kunna använda det operativsystemet som vi utvecklar mot, varför vi antar full funktionalitet mot systemfunktioner så som filhantering. Python tillhandahåller abstraktioner för den grundläggande operativsystemsfunktionaliteten.
+
+\subsubsection{Kommunikationsgräsnitt}
+%Här kan jag tänka mig en mer avancerad förklaring hur vi har tänkt oss p2p, krypetering osv
+Kommunikation mellan klienter sker med hjälp av TLS över TCP/IP. För detta krävs tillgång till ett nätverksgrässnitt på det lokala systemet samt en Python-specifik kommunikationsmodul som tillhandahåller TLS över TCP/IP. All form av binär data kan skickas som en ström över TLS.
+
+För att underlätta kommunikationen mellan två klienters distributionssystem kommer vi tunnla datatrafiken dem emellan genom vår TLS-länk. Detta är särskilt lämpligt om en användare ligger bakom en brandvägg, där distributionssystemet i normala fall endast skulle kunna verka enkelriktat.
+
+Klienter kommunicerar över nätverket med ett gränssnitt som möjliggör automatisk och komplett propagering av ändringar, administration av medlemsskap i nätverket och autenticering av medlemmar.
+
+%Describe any communications interfaces to other systems or devices such as local area networks, remote serial devices, and so on.
 
 \section{Business Rules}
 Business rules are statements that define or constrain some aspect of the business. Business rules are often represented as production rules when they are meant to be directly executed by an IT System: a production rule is an independent statement of programming logic that specifies the execution of one or more actions in the case that its conditions are satisfied. Production Rules define the operation semantic for the system in a technologic independent way. They constrain the behavior expressed in system use cases.
@@ -101,21 +111,23 @@ Organize this document on rule classes, a high level grouping of candidate or ac
 The description defines the rule. It can be made in natural language typically following a decision table or a pattern like:  if [condition-list] then [action-list], example: 
 If there are at least 3 items of the same type in the customer shopping cart and each item’s value is greater than 30 USD then give to the customer a voucher whose value is 10 percent of the cheapest item.
 
-\section{Systemrestriktioner}
-Systemet ska programmeras i ett högnivåspråk, troligtvis Python, som kan kompileras/interpreteras för de mest använda operativsystemen med fokus på Linux i första hand. Git ska användas för att hantera distributionen av data. Databasen för Wikin ska vara textbaserad (så kallad flat file database). Användargränssnittet ska byggas i ett grafiskt bibliotek, troligtvis wxPython.
+\section{System Constraints}
 
-\section{Systemfoglighet} %system compliance, kan vara dålig översättning
+Constraints are part of the + in the FURPS+ classification of supporting requirements. Describe any design; implementation or deployment constraints on the system being built that have been mandated and must be adhered to. Examples include software implementation languages, prescribed use of developmental tools, third-party components or class libraries, platform support, resource limits and requirements on the shape, size or weight of the resulting hardware housing the system.
+
+\section{System Compliance}
 
 \subsection{Licenskrav}
-Projektet ska släppas som öppen källkod. Vilka licenser vi väljer beror på om vi utnyttjar befintlig kod med restriktiva licenser. 
+Projektet ska släppas som open source. Vilka licenser vi väljer beror på om vi utnyttjar redan befintlig kod med restriktiva licenser.
 
 \subsection{Rättsligt, upphovsrätt och andra meddelanden}
-Det ligger som förslag att lägga programmet på en ideell förening. Detta för att förenkla upphovsrättsliga frågor när programmet ska vidareutvecklas. 
+Det ligger som förslag att lägga programmet på en idell förening. Detta för att förenkla upphovsrättsliga frågor när programmet ska vidareutvecklas. Annars kommer det hamna på oss som utvecklare och våran kund. 
 
 \subsection{Applicable Standards}
 This section describes by reference any applicable standards and the specific sections of any such standards that apply to the system being described. For example, this could include legal, quality and regulatory standards, industry standards for usability, interoperability, internationalization, operating system compliance, and so forth.
 
-\section{Dokumentation}
-Kvalitetssamordnaren ansvarar för att en användarmanual samt en installationsmanual produceras. Dessa dokument har väldigt höga krav när det kommer till användarvänlighet. Användarmanualen ska integreras i den färdiga produkten, nåbar via en meny eller knapp i användargränssnittet men ska också finnas tillgänglig som ett samlat dokument för utskrift i pdf-format. Installatationsmanual ska finnas för alla operativsystem som slutprodukten stödjer i form av ett utskrivbart dokument i pdf-format. Båda manualerna skall paketeras tillsammans med installationen av slutprodukten. De ska också kunna laddas hem från projektets hemsida där även samtliga övriga skrivna dokument (av senaste version) ska finnas tillgängliga för nedladdning i pdf-format. Projektets hemsida upprättas på en gratis tjänst liknande Google Code eller SourceForge i samband med att en första release släpps.
+\section{System Dokumentation}
+%Här föreslår jag att vi gör som dom flesta andra opensource manualer idag. Vi har en wiki på projektets hemsida. Sen dokumentation för utvecklare är nog en annan historia. 
+Describes the requirements, for on-line user documentation, help systems, help about notices, and so on. Set expectations for the documentation and to identify who will be responsible for creating it.
 
 \end{document}
