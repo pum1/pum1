@@ -61,7 +61,7 @@ Applikationen ska byggas modulbaserat. Det är viktigt att olika delar kan uppda
 %This section indicates any requirements that will enhance the supportability or maintainability of the system being built, including adaptability and upgrading, compatibility, configurability, scalability and requirements regarding system installation, level of support and maintenance.
 
 \section{Systemgränssnitt}
-
+% Jag vet inte om det borde stå 
 Interface Requirements are part of the + in the FURPS+ classification of supporting requirements. Define the interfaces that must be supported by the application. It should contain adequate specificity, protocols, ports and logical addresses, and so forth, so that the software can be developed and verified against the interface requirements.
 
 \subsection{Användargränsnitt}
@@ -74,11 +74,11 @@ Applikationen ska i redigeringsläget kännas som en ordbehandlare. Gränssnitte
 \subsubsection{Layout och navigering}
 Användaren ska kunna nå stora delar av systemet med endast ett fåtal navigeringar. Navigeringen ska vara intuitiv och efterlikna operativsystemet som programmet körs på. Beteendemönster ska kännas igen från andra textredigeringsprogram och Webbläsare. Applikationen har främst två lägen, ett för visning och ett för redigering och från varje visningssida som man har rätt att redigera ska man enkelt kunna byta till redigeringsläge. När man redigerat klart och godkänner ändringarna så återvänder man till visningssläget.
 
-\subsubsection{Följdriktighet} %Consistency
+%\subsubsection{Följdriktighet} %Consistency
 %Consistency in the user interface enables users to predict what will happen. This section states requirements on the use of mechanisms to be employed in the user interface. This applies both within the system and with other systems and can be applied at different levels: navigation controls, screen areas sizes and shapes, placements for entering / presenting data, terminology.
 
 \subsubsection{Användaranpassning och kundanpassning}
-Requirements on content that should automatically displayed to users or available based on user attributes. Sometimes users allowed to customize the content displayed or to personalize displayed content.
+Vi kommer använda det bästa verktyget för kundapassning, open source. Koden är öppen så att det är fritt för kunden att göra förändringar och förbättringar.
 
 \subsection{Gränssnitt mot externa system}
 Inga externa system finns som kräver gränssnitt, förutom kommunikationen två klienter emellan.
