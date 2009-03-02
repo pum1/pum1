@@ -61,8 +61,6 @@ Applikationen ska byggas modulbaserat. Det är viktigt att olika delar kan uppda
 %This section indicates any requirements that will enhance the supportability or maintainability of the system being built, including adaptability and upgrading, compatibility, configurability, scalability and requirements regarding system installation, level of support and maintenance.
 
 \section{Systemgränssnitt}
-% Jag vet inte om det borde stå 
-Interface Requirements are part of the + in the FURPS+ classification of supporting requirements. Define the interfaces that must be supported by the application. It should contain adequate specificity, protocols, ports and logical addresses, and so forth, so that the software can be developed and verified against the interface requirements.
 
 \subsection{Användargränsnitt}
 
@@ -101,16 +99,6 @@ Klienter kommunicerar över nätverket med ett gränssnitt som möjliggör autom
 
 %Describe any communications interfaces to other systems or devices such as local area networks, remote serial devices, and so on.
 
-\section{Business Rules}
-Business rules are statements that define or constrain some aspect of the business. Business rules are often represented as production rules when they are meant to be directly executed by an IT System: a production rule is an independent statement of programming logic that specifies the execution of one or more actions in the case that its conditions are satisfied. Production Rules define the operation semantic for the system in a technologic independent way. They constrain the behavior expressed in system use cases.
-Organize this document on rule classes, a high level grouping of candidate or actual rules about one business concept with a specific kind of logic processing, example: Driver Risk Assessment Rules or Customer Validation Rules.
-
-\subsection{Rule class name}
-
-\subsubsection{Rule name and ID}
-The description defines the rule. It can be made in natural language typically following a decision table or a pattern like:  if [condition-list] then [action-list], example: 
-If there are at least 3 items of the same type in the customer shopping cart and each item’s value is greater than 30 USD then give to the customer a voucher whose value is 10 percent of the cheapest item.
-
 \section{System Constraints}
 
 Constraints are part of the + in the FURPS+ classification of supporting requirements. Describe any design; implementation or deployment constraints on the system being built that have been mandated and must be adhered to. Examples include software implementation languages, prescribed use of developmental tools, third-party components or class libraries, platform support, resource limits and requirements on the shape, size or weight of the resulting hardware housing the system.
@@ -127,7 +115,6 @@ Det ligger som förslag att lägga programmet på en idell förening. Detta för
 This section describes by reference any applicable standards and the specific sections of any such standards that apply to the system being described. For example, this could include legal, quality and regulatory standards, industry standards for usability, interoperability, internationalization, operating system compliance, and so forth.
 
 \section{System Dokumentation}
-%Här föreslår jag att vi gör som dom flesta andra opensource manualer idag. Vi har en wiki på projektets hemsida. Sen dokumentation för utvecklare är nog en annan historia. 
-Describes the requirements, for on-line user documentation, help systems, help about notices, and so on. Set expectations for the documentation and to identify who will be responsible for creating it.
+System dokumentationen kommer finnas på projektets hemsida i form av en wiki där användarna kan medverka. Dokumentering av kod och övrig dokumentation för utvecklarna bör följa med koden. Användarmanuler kommer följa med när man installerar programmet via en paktethanterare. % Vem är ansvarig för punken?
 
 \end{document}
