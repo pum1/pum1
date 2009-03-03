@@ -30,6 +30,8 @@
 	\hline 
   0.1 & 2009-02-12 &  Dokumentet är påbörjat, all engelsk text kommer från OpenUP & &   \\
   \hline
+  1.0 & 2009-03-03 & Dokumentet är klart & & \\
+  \hline
 \end{tabularx}
 
 \newpage
@@ -39,24 +41,23 @@
 \newpage
 
 \section{Introduktion}
-En stor del av vårat arbetet för gruppen kommer vara integera och paketera olika programvaror. Så förutom utvecklingen av wiki:n så är det många krav som inte användaren kommer möta direkt.
+En stor del av vårt arbetet för gruppen kommer vara integrera och paketera olika programvaror. Så förutom utvecklingen av wiki:n så är det många krav som inte användaren kommer möta direkt.
 
 \section{Systemomfattande funktionskrav}
-Här redogörs funktions
-Statement of system-wide functional requirements, not expressed as use cases. Examples include auditing, authentication, printing, reporting.
+Här redogörs funktionskrav som är systemomfattande. Krav som inte fångas upp i användarfallen. Det kan röra protokoll och arkitektur 
 
 \section{Systemegenskaper}
 \subsection{Användbarhet}
-Användaren ska känna att vårat verktyg gör dom effektivare. Det ska mätas och utvärderas med en användargrupp. 
+Användaren ska känna att vårt verktyg gör dom effektivare. Det ska mätas och utvärderas med en användargrupp. 
 
 \subsection{Tillförlitlighet} 
-Applikationens tillförlitlighet ligger i hur datan hanteras. Användaren ska kunna lita på att den data som användaren lägger till kommer vara detsamma efter den kommer ut. Det kan mätas med tester på skillnaden mellan in och utdata. En stor del avansvaret kommer ligga på den versionshanterare som används så därför bör även den testas och utvärderas.
+Applikationens tillförlitlighet ligger i hur datan hanteras. Användaren ska kunna lita på att den data som användaren lägger till kommer vara detsamma efter den kommer ut. Det kan mätas med tester på skillnaden mellan in och utdata. En stor del ansvaret kommer ligga på den versionshanterare som används så därför bör även den testas och utvärderas.
 
 \subsection{Prestanda}
 Systemet är inte prestandakrävande, bandbreddskrävande eller kräver snabba svarstider. Det viktiga är att användaren kan spara till den lokala datorn. Det viktiga är att fel som sker inte stör användarvänligheten. Uppstart av applikationen ska max ta 3 sekunder.
 
-\subsection{Supportability} %Behöver hjälp med översätta rubriken
-Applikationen ska byggas modulbaserat. Det är viktigt att olika delar kan uppdateras försig just för att våran applikation bygger på flera olika program. Systeminstallationen ska gå via en pakethanterar i linux.  Hur det sker på andra plattformar är en senare fråga.
+\subsection{Support och påbyggnadsmöjligheter} %Behöver hjälp med översätta rubriken
+Applikationen ska byggas modulbaserat. Det är viktigt att olika delar kan uppdateras försig just för att vårt applikation bygger på flera olika program. Systeminstallationen ska gå via en pakethanterar i linux.  Hur det sker på andra plattformar är en senare fråga.
 
 %This section indicates any requirements that will enhance the supportability or maintainability of the system being built, including adaptability and upgrading, compatibility, configurability, scalability and requirements regarding system installation, level of support and maintenance.
 
@@ -76,7 +77,7 @@ Användaren ska kunna nå stora delar av systemet med endast ett fåtal navigeri
 %Consistency in the user interface enables users to predict what will happen. This section states requirements on the use of mechanisms to be employed in the user interface. This applies both within the system and with other systems and can be applied at different levels: navigation controls, screen areas sizes and shapes, placements for entering / presenting data, terminology.
 
 \subsubsection{Användaranpassning och kundanpassning}
-Vi kommer använda det bästa verktyget för kundapassning, open source. Koden är öppen så att det är fritt för kunden att göra förändringar och förbättringar.
+Vi kommer använda det bästa verktyget för kundanpassning, open source. Koden är öppen så att det är fritt för kunden att göra förändringar och förbättringar.
 
 \subsection{Gränssnitt mot externa system}
 Inga externa system finns som kräver gränssnitt, förutom kommunikationen två klienter emellan.
@@ -99,20 +100,19 @@ Klienter kommunicerar över nätverket med ett gränssnitt som möjliggör autom
 
 %Describe any communications interfaces to other systems or devices such as local area networks, remote serial devices, and so on.
 
-\section{System Constraints}
+\section{System begränsningar}
+Applikationen kommer skrivas i python. Det finns flera tredjeparts delar bland annat Bazaar och wxPython. Applikationen kommer släppas på linux till att börja med men troligtvis kommer en konvertering till flera system vara möjligt.
 
-Constraints are part of the + in the FURPS+ classification of supporting requirements. Describe any design; implementation or deployment constraints on the system being built that have been mandated and must be adhered to. Examples include software implementation languages, prescribed use of developmental tools, third-party components or class libraries, platform support, resource limits and requirements on the shape, size or weight of the resulting hardware housing the system.
-
-\section{System Compliance}
+\section{Övrig systeminformation} %Vet inte om det finns en bätte översättning
 
 \subsection{Licenskrav}
 Projektet ska släppas som open source. Vilka licenser vi väljer beror på om vi utnyttjar redan befintlig kod med restriktiva licenser.
 
 \subsection{Rättsligt, upphovsrätt och andra meddelanden}
-Det ligger som förslag att lägga programmet på en idell förening. Detta för att förenkla upphovsrättsliga frågor när programmet ska vidareutvecklas. Annars kommer det hamna på oss som utvecklare och våran kund. 
+Det ligger som förslag att lägga programmet på en idell förening. Detta för att förenkla upphovsrättsliga frågor när programmet ska vidareutvecklas. Annars kommer det hamna på oss som utvecklare och vår kund. 
 
-\subsection{Applicable Standards}
-This section describes by reference any applicable standards and the specific sections of any such standards that apply to the system being described. For example, this could include legal, quality and regulatory standards, industry standards for usability, interoperability, internationalization, operating system compliance, and so forth.
+%\subsection{Applicable Standards}
+%This section describes by reference any applicable standards and the specific sections of any such standards that apply to the system being described. For example, this could include legal, quality and regulatory standards, industry standards for usability, interoperability, internationalization, operating system compliance, and so forth.
 
 \section{System Dokumentation}
 System dokumentationen kommer finnas på projektets hemsida i form av en wiki där användarna kan medverka. Dokumentering av kod och övrig dokumentation för utvecklarna bör följa med koden. Användarmanuler kommer följa med när man installerar programmet via en paktethanterare. % Vem är ansvarig för punken?
