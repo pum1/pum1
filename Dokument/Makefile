@@ -20,6 +20,7 @@ build: \
 	${OUTPUT_DIR}/Iteration_plan_-_inception.pdf \
 	${OUTPUT_DIR}/Project_plan.pdf \
 	${OUTPUT_DIR}/Quality_plan.pdf \
+	${OUTPUT_DIR}/Requirements.pdf \
 	${OUTPUT_DIR}/Risk_List.pdf \
 	${OUTPUT_DIR}/System-WideRequirements.pdf \
 	${OUTPUT_DIR}/Use-case_Model.pdf \
@@ -69,6 +70,10 @@ ${OUTPUT_DIR}/Project_plan.pdf:
 ${OUTPUT_DIR}/Quality_plan.pdf:
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Quality plan.tex"
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Quality plan.tex" > /dev/null
+
+${OUTPUT_DIR}/Requirements.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ Requirements.tex
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ Requirements.tex > /dev/null
 
 ${OUTPUT_DIR}/Risk_List.pdf:
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Risk List.tex"
