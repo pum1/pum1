@@ -1,0 +1,93 @@
+% Standardinkluderingsfil
+\input{standard}
+
+\ifpdf
+  \DeclareGraphicsExtensions{.pdf, .jpg, .tif, .png}
+  \pdfinfo{
+    /Title  (Kravlista)
+    /Author (PUM-grupp 1)
+  }
+\else
+  \DeclareGraphicsExtensions{.eps, .jpg}
+\fi
+
+\title{Kravlista}
+\author{PUM-grupp 1}
+\date{\today}
+
+\begin{document}
+
+\maketitle\thispagestyle{empty}
+
+\newpage
+
+{\centering \Large{Dokumenthistorik\\}}
+
+\vspace{10pt}
+\begin{tabularx}{\textwidth}{ |l|l|X|l|l| }
+  \hline
+    \textbf{version} & \textbf{datum} & \textbf{utförda ändringar} & \textbf{utförda av} & \textbf{granskad} \\
+	\hline 
+  0.1 & 2009-03-03 &  Ett första utkast  & Mikael & INGEN \\
+  \hline
+\end{tabularx}
+
+\newpage
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+\section{Inledning}
++ Siteinstallation
+    Installera på dator
+    Avinstallera från dator
+    + Programmet
+        Starta programmet (huvudsida visas? välj wiki?)
+        Avsluta programmet (fråga om ändringar ska sparas?)
+        + Wiki
+            Skapa wiki (om man är inblandad i flera projekt så borde man kunna skapa en wiki för varje)
+            Ändra wikinamn? (varje wiki bör ju ha ett namn att identifieras med)
+            Välj wiki? (om man har flera, kan lösas på annat sätt kanske)
+            Ta bort wiki
+            Visa artikelindex (lista över alla artiklar på wikin)
+            Skriv in artikelnamn (direkt åtkomst till artikel)
+            Sök artikel/text?
+            + Hjälpfunktionalitet
+                Visa hjälp/manual (viktigt för nybörjare)
+            + Användare (kompisar/kollegor)
+                Tillåt användare att läsa min wiki (lägger till nyckeln)
+                Tillåt användare att redigara min wiki (lägger till nyckeln)
+                Ta bort användare från min wiki (ta bort nyckeln från databasen)
+                ...?
+            + Artikel
+                Skapa
+                Ändra namn
+                Ta bort
+                Skriva
+                    "Outline" (jag är inte helt säker vad detta är, men han ville ju ha det)
+                    Formatera text
+                        Länka artikel (även länka till rubrik i artikel?)
+                        Formatera stycke (fet, kursiv, understruken, genomstruken)
+                        Rubriker (antal nivåer?)
+                        Skapa/ta bort listor (punkter och ordnade)
+                        Öka/minska indrag av text
+                        Förformaterad text (HTML: <pre>, MYCKET användbart om vi använder ett eget wikispråk)
+                        Kopiera/klipp ut/klistra in (rätt självklart, men gränssnittet borde ha knappar för detta också)
+                        Färg/bakgrundsfärg för text?
+                    Bilder
+                        Lägg in
+                        Ta bort
+                    Signera
+                    Avbryta redigering
+                    Förhandsgranska (?, om vi kör med wikispråk utan WYSIWYG)
+                    Kommentera/diskutera artikel?
+                Läsa
+                    Skriva ut?
+                    Följa länk
+                Historik
+                    Läsa
+                    Jämföra (?, egentligen bara en enkel "diff")
+                    Ändra tillbaka artikel till gammal version
+
+\end{document}
