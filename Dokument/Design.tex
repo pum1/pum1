@@ -87,22 +87,22 @@ Filehandler är kopplinen mellan artikelfilerna och resten av systemet. Filhante
 \hline
 \multicolumn{2}{|c|}{\textbf{Filehandler}} \\
 \hline
-\multicolumn{2}{|c|}{Directory:string}
+\multicolumn{2}{|c|}{Directory:string} \\
 \multicolumn{2}{|c|}{Listeners:list} \\
 \multicolumn{2}{|c|}{Objects:list} \\
 \hline
 \_\_init\_\_(directory) &konstruktor\\
-new_object(filename:string) : object & skapar och returnerar ett nytt object\\
-new_file(filename:string) & informerar filhanteraren om att det ilkommit en fil\\
-update_file(filename:string) & informerar filhanteraren om att en fil blivit uppdaterad\\\\
-remove_file(filename:string) & informerar filhanteraren om att en fil blivit borttagen\\
+new\_object(filename:string) : object & skapar och returnerar ett nytt object\\
+new\_file(filename:string) & informerar filhanteraren om att det ilkommit en fil\\
+update\_file(filename:string) & informerar filhanteraren om att en fil blivit uppdaterad\\\\
+remove\_file(filename:string) & informerar filhanteraren om att en fil blivit borttagen\\
 delete(o:object) & tar bort ett object\\
 close(o:object) & stänger ett object\\
 collition(filename:string\\)
 reg\_listener(object) & lägger till en listener \\
 unreg\_listener(object) & tar bort en listener \\
 notify\_listeners(event:string,argument:string) & uppmärksammar lyssnare på en händelse\\
-get_dir_list(): list & returnerar en lista med innehållet i katalogen\\
+get\_dir\_list(): list & returnerar en lista med innehållet i katalogen\\
 \hline
 \end{tabular}
 
