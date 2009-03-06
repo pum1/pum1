@@ -13,6 +13,7 @@ clean:
 build: \
 	dirs \
 	${OUTPUT_DIR}/Architecture_Notebook.pdf \
+	${OUTPUT_DIR}/Design.pdf \
 	${OUTPUT_DIR}/Develop_Technical_Vision.pdf \
 	${OUTPUT_DIR}/Glossary.pdf \
 	${OUTPUT_DIR}/Index_over_dokument.pdf \
@@ -45,6 +46,10 @@ ${OUTPUT_DIR}/Architecture_Notebook.pdf:
 ${OUTPUT_DIR}/Develop_Technical_Vision.pdf:
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Develop Technical Vision.tex"
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Develop Technical Vision.tex" > /dev/null
+
+${OUTPUT_DIR}/Design.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ Design.tex
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ Design.tex > /dev/null
 
 ${OUTPUT_DIR}/Glossary.pdf:
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ Glossary.tex
