@@ -39,55 +39,221 @@
 \newpage
 
 \section{Inledning}
-+ Siteinstallation
-    Installera på dator
-    Avinstallera från dator
-    + Programmet
-        Starta programmet (huvudsida visas? välj wiki?)
-        Avsluta programmet (fråga om ändringar ska sparas?)
-        + Wiki
-            Skapa wiki (om man är inblandad i flera projekt så borde man kunna skapa en wiki för varje)
-            Ändra wikinamn? (varje wiki bör ju ha ett namn att identifieras med)
-            Välj wiki? (om man har flera, kan lösas på annat sätt kanske)
-            Ta bort wiki
-            Visa artikelindex (lista över alla artiklar på wikin)
-            Skriv in artikelnamn (direkt åtkomst till artikel)
-            Sök artikel/text?
-            + Hjälpfunktionalitet
-                Visa hjälp/manual (viktigt för nybörjare)
-            + Användare (kompisar/kollegor)
-                Tillåt användare att läsa min wiki (lägger till nyckeln)
-                Tillåt användare att redigara min wiki (lägger till nyckeln)
-                Ta bort användare från min wiki (ta bort nyckeln från databasen)
-                ...?
-            + Artikel
-                Skapa
-                Ändra namn
-                Ta bort
-                Skriva
-                    "Outline" (jag är inte helt säker vad detta är, men han ville ju ha det)
-                    Formatera text
-                        Länka artikel (även länka till rubrik i artikel?)
-                        Formatera stycke (fet, kursiv, understruken, genomstruken)
-                        Rubriker (antal nivåer?)
-                        Skapa/ta bort listor (punkter och ordnade)
-                        Öka/minska indrag av text
-                        Förformaterad text (HTML: <pre>, MYCKET användbart om vi använder ett eget wikispråk)
-                        Kopiera/klipp ut/klistra in (rätt självklart, men gränssnittet borde ha knappar för detta också)
-                        Färg/bakgrundsfärg för text?
-                    Bilder
-                        Lägg in
-                        Ta bort
-                    Signera
-                    Avbryta redigering
-                    Förhandsgranska (?, om vi kör med wikispråk utan WYSIWYG)
-                    Kommentera/diskutera artikel?
-                Läsa
-                    Skriva ut?
-                    Följa länk
-                Historik
-                    Läsa
-                    Jämföra (?, egentligen bara en enkel "diff")
-                    Ändra tillbaka artikel till gammal version
+Det här dokumentet beskriver de krav som kunden ställer på den produkt som projektgruppen ska leverera. Dokumentet innehåller först och främst funktionella krav på produkten, men även vissa icke-funktionella krav beskrivs häruti. Kraven delas upp i olika kravnivåer, där lägre nivå betyder högre prioritet.
+
+\section{Programmet}
+Dessa krav är allmänna krav som ställs på produkten som helhet.
+
+\subsection{Kravnivå 1}
+\begin{description}
+\item[P1-1] Användaren ska kunna installera programmet på en dator via den standard för att installera program på den plattform som användaren använder.
+\item[P1-2] Användaren ska kunna avinstallera programmet från en dator via den standard för att avinstallera program på den plattform som användaren använder.
+\item[P1-3] När användaren vill avsluta programmet utan att först ha sparat den sida som användaren redigerar, ska användaren tillfrågas om sidan ska sparas eller ej.
+\end{description}
+
+\subsection{Kravnivå 2}
+\begin{description}
+\item[P2-1] När programmet startat ska programmets huvudsida visas där användaren kan välja wiki att arbeta på. 
+\end{description}
+
+\section{Wiki}
+Detta avsnitt innehåller krav som behandlar krav som ställs på en wiki i programmet. Eftersom en användare kan vara aktiv i flera projekt samtidigt så bör det finnas en möjlighet att i programmet ha flera olika wikis.
+
+\subsection{Kravnivå 1}
+\begin{description}
+\item[W1-1] Användaren ska kunna se en lista över alla artiklar i en wiki.
+\item[W1-2] Användaren ska kunna skriva in ett artikelnamn för att direkt gå till den artikeln.
+\item[W1-3] Användarmanual och hjälptexter ska finnas lättillgängligt i användargränssnittet, vilket innebär att användaren ska kunna nå denna dokumentation genom maximalt två musklick.
+\end{description}
+
+\subsection{Kravnivå 2}
+\begin{description}
+\item[W2-1] Användaren ska kunna skapa en ny wiki. När en ny wiki skapas måste användaren ange namnet på den nya wikin. Om en wiki med samma namn redan existerar så visas ett felmeddelande.
+\item[W2-2] Användaren ska kunna byta det namn med vilken en wiki identifieras med.
+\item[W2-3] Användaren ska kunna välja wiki att arbeta på även efter det att användaren valt wiki på programmets startsida.
+\item[W2-4] Användaren ska kunna ta bort en wiki. När detta sker ska användaren först tillfrågas om denne verkligen vill göra detta och om alla filer relaterade till den wikin också ska tas bort.
+\item[W2-5] Användaren ska kunna söka efter artiklar baserat på artikelnamn.
+\item[W2-6] Användaren ska kunna söka efter artiklar som innehåller en särskild textsträng.
+\end{description}
+
+\subsection{Kravnivå 3}
+\begin{description}
+\item[W3-1] Användaren ska kunna sammanfoga två artiklar till en artikel.
+\end{description}
+
+\section{Artikel}
+Kraven i den här delen av dokumentet beskriver krav som ställs på artiklarna i en wiki.
+
+\subsection{Kravnivå 1}
+\begin{description}
+\item[A1-1] Användaren ska kunna skapa en ny artikel via användargränssnitet. När en ny artikel skapas måste användaren ange namnet på den nya artikeln. Om en artikel med samma namn redan existerar så visas ett felmeddelande.
+\item[A1-2] Användaren ska kunna ta bort en artikel från en wiki.
+\end{description}
+
+\subsection{Kravnivå 2}
+\begin{description}
+\item[A2-1] Användaren ska kunna skapa en ny artikel genom att först skapa en länk till en icke-existerande artikel genom en existerande artikel och därefter klicka på denna länk.
+\item[A2-2] Användaren ska kunna byta det namn som identifierar en artikel i en wiki. Om en artikel med samma namn redan finns så ska ett felmeddelande visas för användaren och namnändringen inte gå igenom.
+\end{description}
+
+\section{Redigering}
+Den här delen av dokumentet beskriver de krav som ställs på redigeringen av en artikel i en wiki.
+
+\subsection{Allmänna krav}
+Här beskrivs allmänna krav som ställs på redigeringen av en artikel.
+
+\subsubsection{Kravnivå 1}
+\begin{description}
+\item[R1-1] Användaren ska kunna avbryta en redigering av en artikel.
+\end{description}
+
+\subsubsection{Kravnivå 2}
+\begin{description}
+\item[R2-1] Användaren ska kunna skriva en kommentar som sparas tillsammans med artikeln då användaren slutför en redigering.
+\item[R2-2] Användaren ska kunna signera en artikel med sin publika nyckel så att det är möjligt att verifiera att just han/hon gjorde den ändringen i artikeln.
+\item[R2-3] Användaren ska kunna verifiera att andra användares ändringar i en artikel inte har modifierats.
+\end{description}
+
+\subsubsection{Kravnivå 3}
+\begin{description}
+\item[R3-1] Användaren ska kunna kontrollera rättstavningen i ett valt textstycke.
+\item[R3-2] Användaren ska kunna kontrollera rättstavningen i hela artikeln.
+\end{description}
+
+\subsection{Outline-läget}
+Outline-läget är ett redigeringsläge som kunden önskar att produkten ska innehålla, men detta är inget som kommer att prioriteras till en början.
+
+\subsubsection{Kravnivå 1}
+Inga krav för outline-läget är inte aktuella som förstanivå-krav.
+
+\subsubsection{Kravnivå 2}
+\begin{description}
+\item[O2-1] Användaren ska kunna växla mellan ett outline-läge och det vanliga redigeringsläget.
+\item[O2-2] I outline-läget ska enbart rubrikerna i dokumentet visas, men i mindre textstorlek för enklare översikt.
+\item[O2-3] Med hjälp av en knapp bredvid varje rubrik i outline-läget ska den text som finns under denna rubrik visas om den är dold och döljas om den är synlig.
+\end{description}
+
+\subsubsection{Kravnivå 3}
+\begin{description}
+\item[O3-1] I outline-läget ska användaren kunna flytta runt rubrikerna genom att dra rubrikerna till den plats som användaren vill ha dem på. Alla underrubriker och text under dessa rubriker ska följa med då en rubrik flyttas.
+\item[O3-2] Om en rubrik tas bort då användaren är i outline-läget ska alla underrubriker och all text under dessa rubriker också tas bort.
+\item[O3-3] Om en rubrik kopieras i outline-läget så ska all text och underrubriker under denna rubrik också kopieras.
+\item[O3-4] Om en rubrik klipps ut i outline-läget så ska all text och underrubriker under denna rubrik också klippas ut.
+\item[O3-5] Om text och rubriker klistras in i outline-läget så ska all text döljas om texten inte klistras in under en rubrik som för närvarande är synlig.
+\end{description}
+
+\subsection{Textformatering}
+Här beskrivs krav som relaterar till formatering av text i en artikel.
+
+\subsubsection{Kravnivå 1}
+\begin{description}
+\item[T1-1] Användaren ska kunna formatera ett textstycke så att det länkar till en annan artikel inom samma wiki.
+\item[T1-2] Användaren ska kunna formatera ett textstycke så att det länkar till en URL utanför wikin.
+\item[T1-3] Användaren ska kunna formatera ett valt textstycke som fetstilt eller icke-fetstilt.
+\item[T1-4] Användaren ska kunna formatera ett valt textstycke som kursivt eller icke-kursivt.
+\item[T1-5] Användaren ska kunna formatera ett valt textstycke som understruket eller ej understruket.
+\item[T1-6] Användaren ska kunna formatera ett valt textstycke som genomstruket eller ej genomstruket.
+\item[T1-7] Användaren ska kunna skapa rubriker på fyra olika nivåer.
+\item[T1-8] Användaren ska kunna klippa ut texten ur ett valt textstycke.
+\item[T1-9] Användaren ska kunna kopiera text ur ett valt textstycke.
+\item[T1-10] Användaren ska kunna klistra in text i en artikel.
+\end{description}
+
+\subsubsection{Kravnivå 2}
+\begin{description}
+\item[T2-1] Användaren ska kunna formatera ett textstycke så att det länkar till en rubrik inom samma artikel.
+\item[T2-2] Användaren ska kunna formatera ett textstycke så att det länkar till en specifik rubrik i en annan artikel.
+\item[T2-3] Användaren ska kunna formatera ett valt textstycke som en punktlista eller ta bort en existerande punktlista.
+\item[T2-4] Användaren ska kunna formatera ett valt textstycke som en ordnad lista eller ta bort en existerande ordnad lista.
+\item[T2-5] Användaren ska kunna formatera ett valt textstycke som förformaterad text eller ej förformaterad text.
+\item[T2-6] Användaren ska kunna välja textstorlek för ett valt textstycke.
+\item[T2-7] Användaren ska kunna välja teckensnittsfamilj för ett valt textstycke. De teckensnittsfamiljer som stöds är desamma som i CSS: serif, sans-serif, monospace, cursive och fantasy. Detta är för att bibehålla maximal kompatibilitet mellan de plattformar som programmet stödjer.
+\end{description}
+
+\subsubsection{Kravnivå 3}
+\begin{description}
+\item[T3-1] Användaren ska kunna formatera ett textstycke så att det länkar till en äldre version av en artikel.
+\item[T3-2] Användaren ska kunna formatera ett textstycke så att det länkar till en rubrik i en äldre version av en artikel.
+\item[T3-3] Användaren ska kunna öka indraget för ett valt textstycke.
+\item[T3-4] Användaren ska kunna minska indraget för ett valt textstycke.
+\item[T3-5] Användaren ska kunna välja textfärg för ett valt textstycke.
+\item[T3-6] Användaren ska kunna välja bakgrundsfärg för ett valt textstycke.
+\end{description}
+
+\subsection{Bilder}
+Här beskrivs krav som relaterar till bilder i en artikel. Bilder är något som inte kommer att prioriteras vid kravimplementeringen.
+
+\subsubsection{Kravnivå 1}
+Bilder i artiklar är inte aktuellt för den här kravnivån.
+
+\subsubsection{Kravnivå 2}
+Bilder i artiklar är inte aktuellt för den här kravnivån.
+
+\subsubsection{Kravnivå 3}
+\begin{description}
+\item[B1-1] Användaren ska kunna lägga in en bild i en artikel.
+\item[B1-2] Användaren ska kunna ta bort en bild ifrån en artikel.
+\item[B1-3] Användaren ska kunna skriva en bildtext till en bild i en artikel.
+\end{description}
+
+\section{Läsning}
+Den här delen av dokumentet behandlar krav som handlar om läsning av artiklar i en wiki.
+
+\subsection{Kravnivå 1}
+\begin{description}
+\item[L1-1] Användaren ska kunna följa länkar till andra artiklar inom samma wiki.
+\item[L1-2] Användaren ska kunna följa länkar till andra URL:er utanför wikin.
+\end{description}
+
+\subsection{Kravnivå 2}
+\begin{description}
+\item[L2-1] Användaren ska kunna följa länkar till rubriker inom samma artikel.
+\item[L2-2] Användaren ska kunna följa länkar till rubriker i andra artiklar inom samma wiki.
+\end{description}
+
+\subsection{Kravnivå 3}
+\begin{description}
+\item[L3-1] Användaren ska kunna följa länkar till en äldre version av en artikel.
+\item[L3-2] Användaren ska kunna följa länkar till en rubrik i en äldre version av en artikel.
+\item[L3-3] Användaren ska kunna skriva ut en artikel från en wiki.
+\item[L3-4] De dialogrutor för utskrift och utskriftsinställningar som finns i det operativsystem som användaren kör wikiprogrammet på ska användas för att konfigurera en utskrift.
+\end{description}
+
+\section{Historik}
+I den här delen beskrivs krav som relaterar till historiken, vilken visar ändringar som har gjorts inom en artikel.
+
+\subsection{Kravnivå 1}
+Artikelhistorik är inte aktuellt för denna kravnivå.
+
+\subsection{Kravnivå 2}
+\begin{description}
+\item[H1-1] Användaren ska kunna se en lista över alla tidigare versioner av en artikel.
+\item[H1-2] Användaren ska kunna läsa en särskild version av en artikel.
+\end{description}
+
+\subsection{Kravnivå 3}
+\begin{description}
+\item[H2-1] Användaren ska kunna jämföra olika versioner av en artikel.
+\item[H2-2] Användaren ska kunna ändra tillbaka en artikel till en tidigare version av samma artikel.
+\end{description}
+
+\section{Behörigheter}
+I den här delen av dokumentet beskrivs krav som handlar om behörigheter som användare har. Behörigheter gäller för en wiki, olika wikis kan ha olika behörigheter.
+
+\subsection{Kravnivå 1}
+\begin{description}
+\item[I1-1] Om en användare inte finns på behörighetslistan har denne inte möjlighet att överhuvudtaget komma åt wikin.
+\item[I1-2] En användare som har behörigheten \emph{läsa} kan läsa en wiki.
+\item[I1-3] En användare som har behörigheten \emph{skriva} kan läsa och skriva i en wiki.
+\end{description}
+
+\subsection{Kravnivå 2}
+\begin{description}
+\item[I2-1] När användaren skapar en ny wiki får denne automatiskt behörigheten \emph{administrera} för den wikin.
+\item[I2-2] En användare som har behörigheten \emph{administrera} har behörighet att lägga till användare från behörighetslistan.
+\item[I2-3] En användare som har behörigheten \emph{administrera} har behörighet att ta bort användare från behörighetslistan.
+\item[I2-4] En användare som har behörigheten \emph{administrera} har behörighet att ändra andra användares behörigheter.
+\end{description}
 
 \end{document}
+
