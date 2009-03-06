@@ -93,12 +93,12 @@ Filehandler är kopplinen mellan artikelfilerna och resten av systemet. Filhante
 \hline
 \_\_init\_\_(directory) &konstruktor\\
 new\_object(filename:string) : object & skapar och returnerar ett nytt object\\
-new\_file(filename:string) & informerar filhanteraren om att det ilkommit en fil\\
-update\_file(filename:string) & informerar filhanteraren om att en fil blivit uppdaterad\\\\
+new\_file(filename:string) & informerar filhanteraren om att det tillkommit en fil\\
+update\_file(filename:string) & informerar filhanteraren om att en fil blivit uppdaterad\\
 remove\_file(filename:string) & informerar filhanteraren om att en fil blivit borttagen\\
 delete(o:object) & tar bort ett object\\
 close(o:object) & stänger ett object\\
-collition(filename:string\\)
+collition(filename:string) &\\
 reg\_listener(object) & lägger till en listener \\
 unreg\_listener(object) & tar bort en listener \\
 notify\_listeners(event:string,argument:string) & uppmärksammar lyssnare på en händelse\\
@@ -118,7 +118,8 @@ Object är den klassen som kommer att representera alla aktiva artiklar. Ett obj
 \multicolumn{2}{|c|}{path: string} \\
 \multicolumn{2}{|c|}{f:filehandler} \\
 \hline
-\_\_init\_\_(f: filehandlerdirectory,status:string,path:string,filename:string) &Konstruktor, ställer in filehandler,status,path och filnamn\\
+\_\_init\_\_(f: filehandlerdirectory,status:string, &\\
+path:string,filename:string) &Konstruktor, ställer in filehandler,status,path och filnamn\\
 load(): filehandle & Returnerar handtaget till artikeln \\
 save() & sparar ner information i filen \\
 close() & stänger artikelfilen\\
@@ -135,7 +136,8 @@ InternKomm är gränsnittet mellan filhanteraren, Bazaar och den externa kommuni
 \hline
 \hline
 \_\_init\_\_() &Konstruktor\\
-notify(event:string)\\
+notify(event:string) &Test\\
 \hline
+
 \end{tabular}
 \end{document}
