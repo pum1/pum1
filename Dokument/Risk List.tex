@@ -27,7 +27,9 @@
 \begin{tabularx}{\textwidth}{ |l|l|X|l|l| }
   \hline
     \textbf{version} & \textbf{datum} & \textbf{utförda ändringar} & \textbf{utförda av} & \textbf{granskad} \\
-	\hline 0.1 & 2009-02-17 & Ett första utkast & Alla & Alla \\
+	\hline 0.1 & 2009-02-10 & Ett första utkast & Martin & INGEN \\
+	\hline 1.0 & 2009-02-12 & Granskad version färdig för inlämning & Alla & Alla \\
+	\hline 1.1 & 2009-03-07 & Tekniska risker tillagda & Mikael & INGEN \\
   \hline
 \end{tabularx}
 
@@ -45,42 +47,6 @@ Det här dokumentet beskriver tänkbara risker som är aktuella i projektet. Det
 
 \section{Risker}
 Nedan följer de risker som är aktuella i projektet. Riskernas sannolikhet att inträffa samt inverkan har graderats på en skala 1-4, där ett lägre värde innebär lägre sannolikhet att risken slår in respektive mindre inverkan på projektet. Magnituden beräknas som produkten av sannolikheten och inverkan och får därför en skala på 1-16, även här är ett lägre värde bättre. Tänkbara metoder för att undvika en risk eller mildra dess effekter kan läsas under punkten lösning för varje risk.
-
-\subsection{Requirements / Krav}
-\begin{itemize}
-\item \textbf{Risk}: Kraven på projektet är ouppnåeliga på grund av tidsbrist.
-
-\begin{tabular}{ | l | l | l |}
-	\hline
-	Sannolikhet: 3 & Inverkan: 2 & Magnitud: 6 \\ \hline
-\end{tabular}
-
-\textbf{Lösning}: Förklara för kunden vad vi tror att vi kan och inte kan slutföra under detta projekt samt att vid behov skriva om kravlistan.
-\end{itemize}
-
-\subsection{Usability / Användbarhet}
-\begin{itemize}
-\item \textbf{Risk}: Produkten blir inte så användbar som det var tänkt från början.
-
-\begin{tabular}{ | l | l | l |}
-	\hline
-	Sannolikhet: 3 & Inverkan: 3 & Magnitud: 9 \\ \hline
-\end{tabular}
-
-\textbf{Lösning}: Iterera fram bättre och bättre grafiska användargränssnitt och gör användartester mellan varje iteration. Arbeta med en erkänd metod för att förbättra det grafiska gränsnittet.
-\end{itemize}
-
-\subsection{Testability / Tester}
-\begin{itemize}
-\item \textbf{Risk}: Testning kan inte ske innan implementationen av programvaran är färdig.
-
-\begin{tabular}{ | l | l | l |}
-	\hline
-	Sannolikhet: 2 & Inverkan: 3 & Magnitud: 6 \\ \hline
-\end{tabular}
-
-\textbf{Lösning}: Läs på om gränssnitt, protokoll och dokumentation. Försök att använda drivers eller att testa mindre delar åt gången.
-\end{itemize}
 
 \subsection{Generella risker}
 \begin{itemize}
@@ -108,6 +74,62 @@ Nedan följer de risker som är aktuella i projektet. Riskernas sannolikhet att 
 \end{tabular}
 
 \textbf{Lösning}: Arbeta vidare mot kraven så gott som det går och fortsätt söka kunden.
+\end{itemize}
+
+\subsection{Requirements / Krav}
+\begin{itemize}
+\item \textbf{Risk}: Kraven på projektet är ouppnåeliga på grund av tidsbrist.
+
+\begin{tabular}{ | l | l | l |}
+	\hline
+	Sannolikhet: 3 & Inverkan: 2 & Magnitud: 6 \\ \hline
+\end{tabular}
+
+\textbf{Lösning}: Förklara för kunden vad vi tror att vi kan och inte kan slutföra under detta projekt samt att vid behov skriva om kravlistan.
+\end{itemize}
+
+\subsection{Usability / Användbarhet}
+\begin{itemize}
+\item \textbf{Risk}: Produkten blir inte så användbar som det var tänkt från början.
+
+\begin{tabular}{ | l | l | l |}
+	\hline
+	Sannolikhet: 3 & Inverkan: 3 & Magnitud: 9 \\ \hline
+\end{tabular}
+
+\textbf{Lösning}: Iterera fram bättre och bättre grafiska användargränssnitt och gör användartester mellan varje iteration. Arbeta med en erkänd metod för att förbättra det grafiska gränssnittet
+\end{itemize}
+
+\subsection{Testability / Tester}
+\begin{itemize}
+\item \textbf{Risk}: Testning kan inte ske innan implementationen av programvaran är färdig.
+
+\begin{tabular}{ | l | l | l |}
+	\hline
+	Sannolikhet: 2 & Inverkan: 3 & Magnitud: 6 \\ \hline
+\end{tabular}
+
+\textbf{Lösning}: Läs på om gränssnitt, protokoll och dokumentation. Försök att använda drivers eller att testa mindre delar åt gången.
+\end{itemize}
+
+\subsection{Tekniska risker}
+\begin{itemize}
+\item \textbf{Risk}: Det går inte att använda SSL i Python för att skapa säkra anslutningar mellan klienter.
+
+\begin{tabular}{ | l | l | l |}
+	\hline
+	Sannolikhet: 2 & Inverkan: 2 & Magnitud: 4 \\ \hline
+\end{tabular}
+
+\textbf{Lösning}: Undersök om SSL i Python är möjligt mycket tidigt i construction-fasen. Om det inte är det, arbeta fram en lösning parallellt med utvecklingen av resten av systemet.
+\item \textbf{Risk}: Det går inte att använda HTML-kontrollen i wxPython på det sätt som vi vill.
+
+\begin{tabular}{ | l | l | l |}
+	\hline
+	Sannolikhet: 2 & Inverkan: 3 & Magnitud: 6 \\ \hline
+\end{tabular}
+
+\textbf{Lösning}: Undersök om HTML-kontrollen i wxPython är tillräcklig mycket tidigt i construction-fasen. Om den inte är det, arbeta fram en lösning parallellt med utvecklingen av resten av systemet.
 \end{itemize}
 
 \end{document}
