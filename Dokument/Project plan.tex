@@ -27,7 +27,9 @@
 \begin{tabularx}{\textwidth}{ |l|l|X|l|l| }
   \hline
     \textbf{version} & \textbf{datum} & \textbf{utförda ändringar} & \textbf{utförda av} & \textbf{granskad} \\
-	\hline 0.1 & 2009-02-17 & Ett första utkast & Alla & Alla \\
+	\hline 0.1 & 2009-02-09 & Ett första utkast & Victor & INGEN \\
+	\hline 1.0 & 2009-02-12 & Granskat dokument redo för inlämning & Alla & Alla \\
+	\hline 1.1 & 2009-03-07 & Uppdaterad information om milstolpar & Mikael & INGEN \\
   \hline
 \end{tabularx}
 
@@ -99,7 +101,21 @@ Utifrån den grund som lades i elaboration i form av arkitektur, design och krav
 Det sista stadiet i projektet är transition. Det är här som produkten levereras till kunden genom en överlämning av produkten.
 
 \subsection{Status- och tidrapportering}
-Varje enskild projektmedlem ska rapportera in status på de uppgifter som denna för tillfälligt arbetar med. Statusrapporter lämnas via verktyget Redmine som kvalitetssamordnaren satt upp. Dessa sammanställs sedan till en iteration burndown-rapport och en project burndown-rapport. Kvalitetssamordnaren kommer även att ha som uppgift att bedöma om en iteration har fungerat bra eller dåligt.
+Varje enskild projektmedlem ska rapportera in status på de uppgifter som denna för tillfälligt arbetar med. Statusrapporter lämnas via verktyget Redmine som kvalitetssamordnaren satt upp. Dessa sammanställs sedan till en iteration burndown-rapport och en project burndown-rapport. Kvalitetssamordnaren kommer även att ha som uppgift att bedöma om en iteration har fungerat bra eller dåligt. Som helhet kommer en iteration och projektets status vid det tillfället att bedömmas enligt skalan nedan:
+
+\begin{center}
+	\begin{tabular}{| c | c |}
+		\hline
+		\textbf{Värde} & \textbf{Betydelse} \\
+		\hline
+		Röd & Projektet har stora svårigheter och har mer eller mindre kört fast. \\
+		\hline
+		Gul & Projektet går framåt, men några större problem har påträffats. \\
+		\hline
+		Grön & Projektet flyter på och projektgruppen ser inga större problem för tillfället. \\
+		\hline
+	\end{tabular}
+\end{center}
 
 Tidsrapportering görs enskilt av projektmedlemmarna och sker via Redmine. Tidsrapporter lämnas in till handledaren vid slutet av varje fas.
 
@@ -115,11 +131,11 @@ Den här delen av dokumentet beskriver de olika milstolparna inom projektet.
 		\hline
 		Inception & M0 & \begin{enumerate} \item Starta projektet \item Upprätta en vision \item Identifiera primära krav \end{enumerate} & 2009-01-26 2009-02-12 \\
 		\hline
-		Elaboration & M1 & \begin{enumerate} \item Identifiera krav \item Skapa en arkitektur \item Skapa tester för krav \end{enumerate} & 2009-02-13 2009-03-06 \\
+		Elaboration & M1 & \begin{enumerate} \item Identifiera krav \item Skapa en arkitektur \item Skapa tester för krav \end{enumerate} & 2009-02-13 2009-03-09 \\
 		\hline
-		Construction & M2 & \begin{enumerate} \item Utveckling och test av produkten \end{enumerate} & 2009-03-07 2009-04-10 \\
+		Construction & M2 & \begin{enumerate} \item Implementera alla nivå 1-krav som kunden ställt på produkten \item Påbörja användarhandledning\end{enumerate} & 2009-03-10 2009-04-12 \\
 		\hline
-		Construction & M3 & \begin{enumerate} \item Utveckling och test av produkten \end{enumerate} & 2009-04-11 2008-05-12 \\
+		Construction & M3 & \begin{enumerate} \item Implementera alla nivå 2-krav som kunden ställt på produkten \end{enumerate} & 2009-04-13 2008-05-12 \\
 		\hline
 		Transition & M4 & \begin{enumerate} \item Leverera produkten till kunden \item Slutför projektet \end{enumerate} & 2008-05-13 2008-05-21 \\
 		\hline
@@ -134,15 +150,15 @@ Nedan följer en förklaring av de olika milstolparna.
 		\hline
 		Beteckning & Milstolpe \\
 		\hline
-		M0 & Lifecycle Objectives Milestone \\
+		M0 & Projektets mål färdigställda \\
 		\hline
-		M1 & Lifecycle Architecture Milestone \\
+		M1 & Krav identifierade och arkitektur påbörjad \\
 		\hline
-		M2 & (Ej bestämd ännu) \\
+		M2 & Nivå 1-krav uppfyllda \\
 		\hline
-		M3 & Initial Operational Capability Milestone \\
+		M3 & Nivå 2-krav uppfyllda \\
 		\hline
-		M4 & Product Release Milestone \\
+		M4 & Leverans av produkt till kund \\
 		\hline
 	\end{tabular}
 \end{center}
