@@ -10,7 +10,7 @@
   \DeclareGraphicsExtensions{.eps, .jpg}
 \fi
 
-\title{Distribuerad wiki \\ Design}
+\title{Design \\ Version 1.0}
 \author{PUM-grupp 1}
 \date{\today}
 
@@ -31,14 +31,14 @@
 	\hline 
   0.1 & 2009-02-12 &  Ett första utkast  & Alla & Alla   \\
 	\hline	
-  1.0 & 2009-03-09 & Alla klassdiagram ritade & Victor & Victor\\
+  1.0 & 2009-03-09 & Alla klassdiagram ritade & Victor & Linus\\
 
   \hline
 \end{tabularx}
 
 \newpage
 
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 \tableofcontents
 \newpage
 
@@ -55,7 +55,7 @@ Programvaran består av följande delsystem som beskrivs mer i detalj senare i d
 \item Model
 \item Viewer
 \end{itemize}
-\subsubsection{klasser}
+\subsubsection{Klasser}
 \begin{itemize}
 \item Ett huvudfönster som är gränsnittet mot användaren.
 \item En filhanterare som hanterar de filer och objekt systemet i huvudsak jobbar mot.
@@ -119,7 +119,7 @@ GUI är systemets gränsnitt mot användaren. Den består av en texteditor och k
 \hline
 \multicolumn{2}{|c|}{current\_file:Filehandle} \\
 \hline
-\_\_init\_\_(f:filehandler,g:GroupManager) &konstruktor\\
+\_\_init\_\_(f:filehandler,g:GroupManager) & Konstruktor\\
 OnNew(filename) & Metod för att skapa en ny artikel\\
 OnOpen() & Metod för att ladda in och läsa en artikel \\ 
 OnSave() & Metod för att spara en artikel \\
@@ -143,14 +143,14 @@ Filehandler är kopplinen mellan artikelfilerna och resten av systemet. Filhante
 \multicolumn{2}{|c|}{Objects:list} \\
 \hline
 \_\_init\_\_(directory) &konstruktor\\
-new\_object(filename:string) : object & skapar och returnerar ett nytt object\\
-new\_file(filename:string) & informerar filhanteraren om att det tillkommit en fil\\
-update\_file(filename:string) & informerar filhanteraren om att en fil blivit uppdaterad\\
-remove\_file(filename:string) & informerar filhanteraren om att en fil blivit borttagen\\
-delete(o:object) & tar bort ett object\\
-close(o:object) & stänger ett object\\
-collition(filename:string) & informerar filhanteraren om en kollition\\
-get\_dir\_list(): list & returnerar en lista med innehållet i katalogen\\
+new\_object(filename:string) : object & Skapar och returnerar ett nytt object\\
+new\_file(filename:string) & Informerar filhanteraren om att det tillkommit en fil\\
+update\_file(filename:string) & Informerar filhanteraren om att en fil blivit uppdaterad\\
+remove\_file(filename:string) & Informerar filhanteraren om att en fil blivit borttagen\\
+delete(o:object) & Tar bort ett object\\
+close(o:object) & Stänger ett object\\
+collition(filename:string) & Informerar filhanteraren om en kollition\\
+get\_dir\_list(): list & Returnerar en lista med innehållet i katalogen\\
 \hline
 \end{tabular}
 
@@ -167,10 +167,10 @@ Object är den klassen som kommer att representera alla aktiva artiklar. Ett obj
 \multicolumn{2}{|c|}{f:filehandler} \\
 \hline
 \_\_init\_\_(f: filehandlerdirectory,status:string, &\\
-path:string,filename:string) &Konstruktor, ställer in filehandler,status,path och filnamn\\
+path:string,filename:string) & Konstruktor, ställer in filehandler,status,path och filnamn\\
 load(): filehandle & Returnerar handtaget till artikeln \\
-save() & sparar ner information i filen \\
-close() & stänger artikelfilen\\
+save() & Sparar ner information i filen \\
+close() & Stänger artikelfilen\\
 get\_status(): string & Returnerar status för objektet \\
 \hline
 \end{tabular}
@@ -199,10 +199,10 @@ Externkomm sköter den externa kommunikationen. Den skickar iväg meddelanden ti
 \hline
 \multicolumn{2}{|c|}{active\_users:list} \\
 \hline
-\_\_init\_\_() &Konstruktor\\
-announce\_update()& tillkännager användare om nya uppdateringar\\
-send\_msg() & skickar ett meddelande till annan användare\\
-recieve\_msg() & tar emot ett meddelande från annan användare\\
+\_\_init\_\_() & Konstruktor\\
+announce\_update()& Tillkännager användare om nya uppdateringar\\
+send\_msg() & Skickar ett meddelande till annan användare\\
+recieve\_msg() & Tar emot ett meddelande från annan användare\\
 \hline
 
 \end{tabular}
@@ -217,10 +217,10 @@ Groupmanager hanterar den gruppen som wikin är medlem i. Den håller reda på v
 \hline
 \multicolumn{2}{|c|}{keylist:list} \\
 \hline
-\_\_init\_\_(e:Externkomm) &Konstruktor\\
+\_\_init\_\_(e:Externkomm) & Konstruktor\\
 add\_key(key:string)& Lägger till en användares nyckel i gruppen\\
 remove\_key(key:string)& Tar bort en användares nyckel ur gruppen\\
-check\_key(key:string):boolean& kollar om en användares nyckel finns med i gruppen\\
+check\_key(key:string):boolean& Kollar om en användares nyckel finns med i gruppen\\
 \hline
 
 \end{tabular}
