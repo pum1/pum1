@@ -11,7 +11,8 @@
   \DeclareGraphicsExtensions{.eps, .jpg}
 \fi
 
-\title{Glossary}
+\title{Distribuerad wiki \\ Glossary \\ Version 1.1 }
+
 \author{PUM-grupp 1}
 \date{\today}
 
@@ -27,8 +28,8 @@
 \begin{tabularx}{\textwidth}{ |l|l|X|l|l| }
   \hline
     \textbf{version} & \textbf{datum} & \textbf{utförda ändringar} & \textbf{utförda av} & \textbf{granskad} \\
-	\hline 
-  1.0 & 2009-02-12 &  Första versionen klar för inlämning  & Alla & Alla   \\
+	\hline 1.0 & 2009-02-12 &  Första versionen klar för inlämning  & Alla & Alla   \\
+  \hline 1.1 & 2009-03-09 & Fler termer inlagda. & Martin & Erik\\
   \hline
 \end{tabularx}
 
@@ -47,7 +48,6 @@ Många av termerna inom detta område som kan vara svåra att förstå och behö
 \begin{itemize}
         \item \textbf{Bazaar}
         \\Bazaar är det distribueringssystem som används för att distribuera filer mellan olika klienter i nätverket.
-
 	\item \textbf{Branch}
 	\\I ett projekt vill man oftast att olika personer ska kunna arbeta på samma filer samtidigt. För att inte behöva vänta på att andra personer ska arbeta klart på filen kan man skapa en kopia av hela projektet så att modifikationer kan ske parallellt. Detta kallas för en branch.
 	
@@ -63,11 +63,18 @@ Många av termerna inom detta område som kan vara svåra att förstå och behö
 	\item \textbf{Fork}
 	\\Att skapa en branch från ett projekt kallas ofta för att forka.
 	
+	\item \textbf{Klient}
+	\\En klient är en instans av programvaran som körs aktivt på någon
+plattform.	
+	
 	\item \textbf{Konflikt}
 	\\Om två eller fler användare ändrat i samma stycke i en fil och använt kommandot commit så uppstår en konflikt när någon användare sedan får hem två av dessa olika versioner av filen. Versionshanteringssystemet vet då inte vilken version den ska använda och signalerar att en konflikt har skett. Detta måste då lösas manuellt via granskning av konflikterande data.
 
 	\item \textbf{Merge}
 	\\Detta sker när en användare försöker hämta ner nya versioner av filer från andra användares repositories. Versionshanteringssystemet försöker då att sammanfoga ändringarna som skett i de olika filerna.
+
+	\item \textbf{Nyckel}
+	\\En datamängd som används för signering, verifiering och säker kommunikation.
 			
 	\item \textbf{Repository}
 	\\En repository är ett ställe där filerna är sparade. I den centraliserade systemet är detta på servern och på det distrubuerade har varje användare en egen repository på den lokala datorn.

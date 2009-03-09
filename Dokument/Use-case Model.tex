@@ -11,7 +11,7 @@
   \DeclareGraphicsExtensions{.eps, .jpg}
 \fi
 
-\title{Use-case model}
+\title{Distribuerad wiki \\ Use-case model \\ Version 1.1}
 \author{PUM-grupp 1}
 \date{\today}
 
@@ -28,6 +28,7 @@
     \textbf{version} & \textbf{datum} & \textbf{utförda ändringar} & \textbf{utförda av} & \textbf{granskad} \\
 	\hline 
   1.0 & 2009-02-12 &  Första versionen klar för inlämning  & Alla & Alla   \\
+  \hline 1.1 & 2009-03-09 & Reviderad version & Martin & INGEN\\
   \hline
 \end{tabularx}
 
@@ -41,10 +42,10 @@ För att enklare förstå de olika användarfallen vi identifierat och skapa en 
 \section{Överblick}
 %Skapa en överblick för systemet, dvs beskriv vad systemet gör och vad desss mål är.
 Systemet i fråga är ett distribuerat versionshanteringssystem. Meningen med detta system är att man på ett enkelt sätt ska kunna hantera dokument i en wiki-miljö samtidigt som man inte ens behöver vara uppkopplad. När användaren sedan kopplar upp sig mot internet kan denne synkronisera sina ändringar med andra användares ändringar.
-\section{Användarfalls diagram}
+\section{Användarfallsdiagram}
  \begin{figure}[H] %  figure placement: here, top, bottom, or page
   \centering
-  \includegraphics[scale=0.50]{Use-case-diagram.png}
+  \includegraphics[scale=0.50]{use-case-diagram.png}
 \end{figure}
 %\includegraphics{Use-case-diagram.png}
 \section{Aktörer}
@@ -55,8 +56,11 @@ Systemet i fråga är ett distribuerat versionshanteringssystem. Meningen med de
 	\item Extern användare
 	\\Denna aktör representerar en användare som sitter uppkopplad mot systemet och internet.
 \end{itemize}
+\newpage
 \section{Användarfall}
 %Rada upp de olika use-cases som finns.
+\subsection{Installation}
+Detta användarfall beskriver hur man installerar systemet.
 \subsection{Bläddra}
 Detta användarfall beskriver hur man bläddrar bland dokument.
 \subsection{Läsa artiklar}
