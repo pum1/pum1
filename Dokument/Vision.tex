@@ -40,6 +40,11 @@
 \newpage
 
 \section{Inledning}
+
+\subsection{Syfte}
+Syftet med detta dokument är att ge kunden och projektgruppen samma uppfattning om vad det är som skall framställas.
+
+\subsection{Produkten}
 En distribuerad wiki är en wiki som istället för att vara en traditionell centraliserad webbapplikation ska vara en wiki som distribueras med en versionhanterare som är distribuerad. Så varje användare har en lokal kopia av hela wikin, med hela historiken. Alla ändringar som sker på wikin ska distribueras automatiskt med hjälp av ett peer-to-peer-protokoll till användarna.
 \section{Positionering}
 
@@ -69,7 +74,7 @@ Fördelar & Distribuerad, tillförlitlig, kostnadeffektiv och snabb \\
 \hline
 Olikt & Centraliserad lösning som är kostsam och resurskrävande \\
 \hline
-Vår produkt & Öppnar för ett nytt sätt att samarbeta i molnet \\
+Vår produkt & Öppnar för ett nytt sätt att samarbeta över internet \\
 \hline
 \end{tabular}
 \section{Intressenter}
@@ -86,34 +91,35 @@ Ny personal & Om det tillkommer utvecklare eller annat folk till gemenskapen så
 \subsection{Användarmiljö}
 Wikin ämnar användas till nätverk om 5-10 användare, men om möjligt ska programmet gå att skala upp till fler. Användarna kommer jobba via ett webbgränssnitt eller en lokal applikation där de kan läsa och redigera wikin. Detta kommer ske som nuvarande wiki-implementationer där de olika aktiviteterna oftast sträcker sig från några enstaka sekunder (bläddring) till några minuter (redigering). Synkroniseringen mellan användarna sker i bakgrunden och ska till stor del vara osynlig.
 
-Applikationen riktar sig mot linux med grafiskt gränssnitt men bör vara skrivet så att det kan bli plattformsoberoende. Wikin kommer behöva integreras med någon form av git-teknologi samt ett peer-to-peer-protokoll.
+Applikationen riktar sig mot linux med grafiskt gränssnitt men bör vara skrivet så att det kan bli plattformsoberoende. Wikin kommer behöva integreras med någon form av Bazaar-teknologi samt ett peer-to-peer-protokoll.
 \section{Produktöversikt}
+Nedan listas de behov och fuktioner kunden och projektgruppen kommit överens om. Behoven är rangordnade efter prioritetsnivå där hög prioritet är det som kunden och projektgruppen bedömmer som viktigast i en fungerande slutprodukt. Dessa är inte krav utan bara riklinjer för att sammanställa krav. För konkreta krav hänvisar vi till vår kravlista.
 \subsection*{Behov och funktioner}
 \begin{tabular}{|l|l|l|l|}
 \hline
-Behov & Prioritet & Funktion & Planerad publikation \\
+Behov & Prioritet & Funktion\\
 \hline
-Läsa och bläddra i wikin & Hög & Läsare med länkfunktion och historik & 1 \\
+Läsa och bläddra i wikin & Hög & Läsare med länkfunktion och historik\\
 \hline
-Redigera wikin & Hög & Redigeringsverktyg & 1 \\
+Redigera wikin & Hög & Redigeringsverktyg\\
 \hline
-Installera programmet & Hög & Integrera med en paktethanterare & 1 \\
+Installera programmet & Hög & Integrera med en paktethanterare\\
 \hline
-Autentisering & Normal & Autentiserade användare & 2 \\
+Autentisering & Normal & Autentiserade användare\\
 \hline
-Distribuerad teknik & Normal & Distribueringen sker via peer-to-peer & 2 \\
+Distribuerad teknik & Normal & Distribueringen sker via peer-to-peer\\
 \hline 
-Kryptering & Normal & Peer-to-peer trafiken sker krypterat & 2 \\
+Kryptering & Normal & Peer-to-peer trafiken sker krypterat\\
 \hline
-Bilder & Låg & Lägga till bilder i en artikel & 2 \\
+Bilder & Låg & Lägga till bilder i en artikel\\
 \hline
-Rättstavning & Låg & Integrera rättstavning i redigeringsverktyget & 3 \\
+Rättstavning & Låg & Integrera rättstavning i redigeringsverktyget\\
 \hline	
-Signering & Normal & Signering av artiklar & 3 \\
+Signering & Normal & Signering av artiklar\\
 \hline
-Spåra ändringar & Normal & Visa skillnader mellan versioner & 3 \\
+Spåra ändringar & Normal & Visa skillnader mellan versioner\\
 \hline
-Behörighet & Normal & Behörighet och rättighetsstruktur & 3 \\
+Behörighet & Normal & Behörighet och rättighetsstruktur\\
 \hline
 \end{tabular}
 \section{Övriga produktbehov}
