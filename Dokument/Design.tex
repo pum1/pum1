@@ -3,7 +3,7 @@
 \ifpdf
   \DeclareGraphicsExtensions{.pdf, .jpg, .tif, .png}
   \pdfinfo{            
-    /Title  (Design)
+    /Title  (Architecture Notebook)
     /Author (PUM-grupp 1)
   }
 \else
@@ -44,11 +44,17 @@
 \section{Systemet}
 Nedan följer designen för det färdiga systemet.
 \subsection{Överblick över systemet}
-Systemet består av följande delsystem. 
+Systemet består av följande delsystem.
+\subsubsection{Interface}
 \begin{itemize}
-\item Ett huvudfönster(GUI) som är gränsnittet mot användaren.
-\item En filhanterare(Filehandler) som hanterar de filer och objekt systemet i huvudsak jobbar mot.
-\item En objekttyp(Object) som är den datatypen filhanteraren och GUI:t jobbar emot.
+\item Model
+\item Viewer
+\end{itemize}
+\subsubsection{klasser}
+\begin{itemize}
+\item Ett huvudfönster som är gränsnittet mot användaren.
+\item En filhanterare som hanterar de filer och objekt systemet i huvudsak jobbar mot.
+\item En objekttyp som är den datatypen filhanteraren och GUI:t jobbar emot.
 \item Ett delsystem för att hantera den interna kommunikationen.
 \item Ett delsysyem för att hantera den externa kommunikationen. 
 \item Ett grupphanteringssystem som administrerar grupperna.
@@ -56,20 +62,58 @@ Systemet består av följande delsystem.
 \item Ett distruberat filhanteringssystem Bazaar.
 \end{itemize}
 Nedan följer en överskådlig bild på systemet.
-BILDBILDBILDBILDBILDBILDBILDBILDBILDBILDBILDBILDBILDBILDBILDBILDBILDBILDBILDBILD
+ 
+\begin{figure}[ht]
+  \includegraphics[width=160mm]{klassdiagram.png}
+  \caption{Klassdiagram över systemet}
+  \label{fig1}
+\end{figure}
+\clearpage
 \subsection{Delsystem}
 Nedan följer en mer detaljerad beskrivning över de olika delsystemen.
+
+\subsubsection{Model}
+Interfacet model är en del i Observer designmönstret. En model låter en viewer registrera sig så att den kan bli uppmärksammad  på viktiga händelser av modellen.
+
+
+\begin{tabular}{|l|p{10 cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Model}} \\
+\hline
+\multicolumn{2}{|c|}{viewers:list} \\
+\hline
+register\_viewer(v:viewer) & Metod för att registrera en viewer\\
+unregister\_viewer(v:viewer) & Metod för att avregistrera en viewer\\
+notify\_viewers(event:string, argument:string) & Metod för att uppmärksamma alla registrerade
+viewers om en händelse\\
+\hline
+\end{tabular}
+
+\subsubsection{Viewer}
+Interfacet viewer är en del i Observer designmönstret. En viewer kan registrera sig hos en model och på så sätt bli uppmärksammad om viktiga händelser som modellen fått kännedom om.
+
+
+\begin{tabular}{|l|p{10 cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Viewer}} \\
+\hline
+\hline
+notify(event:string, argument:string) & Metod för att bli uppmärksammad om en händelse\\
+\hline
+\end{tabular}
+
 \subsubsection{GUI}
 GUI är systemets gränsnitt mot användaren. Den består av en texteditor och knappar för att interagera med resten av systemet.
 
 
-\begin{tabular}{|l|l|}
+\begin{tabular}{|l|p{10 cm}|}
 \hline
 \multicolumn{2}{|c|}{\textbf{GUI}} \\
+\multicolumn{2}{|c|}{extends Viewer} \\
 \hline
 \multicolumn{2}{|c|}{current\_file:Filehandle} \\
 \hline
-\_\_init\_\_(f:filehandler) &konstruktor\\
+\_\_init\_\_(f:filehandler,g:GroupManager) &konstruktor\\
 OnNew(filename) & Metod för att skapa en ny artikel\\
 OnOpen() & Metod för att ladda in och läsa en artikel \\ 
 OnSave() & Metod för att spara en artikel \\
@@ -83,9 +127,10 @@ notify(event:string) & Metod för att uppmärksamma en händelse\\
 \subsubsection{Filehandler}
 Filehandler är kopplinen mellan artikelfilerna och resten av systemet. Filhanteraren ser till så att nödvändiga parter blir informerade när en ändring eller en uppdatering på en fil har skett. 
 
-\begin{tabular}{|l|l|}
+\begin{tabular}{|l|p{10 cm}|}
 \hline
 \multicolumn{2}{|c|}{\textbf{Filehandler}} \\
+\multicolumn{2}{|c|}{extends Model} \\
 \hline
 \multicolumn{2}{|c|}{Directory:string} \\
 \multicolumn{2}{|c|}{Listeners:list} \\
@@ -98,10 +143,7 @@ update\_file(filename:string) & informerar filhanteraren om att en fil blivit up
 remove\_file(filename:string) & informerar filhanteraren om att en fil blivit borttagen\\
 delete(o:object) & tar bort ett object\\
 close(o:object) & stänger ett object\\
-collition(filename:string) &\\
-reg\_listener(object) & lägger till en listener \\
-unreg\_listener(object) & tar bort en listener \\
-notify\_listeners(event:string,argument:string) & uppmärksammar lyssnare på en händelse\\
+collition(filename:string) & informerar filhanteraren om en kollition\\
 get\_dir\_list(): list & returnerar en lista med innehållet i katalogen\\
 \hline
 \end{tabular}
@@ -109,7 +151,7 @@ get\_dir\_list(): list & returnerar en lista med innehållet i katalogen\\
 \subsubsection{Objekt}
 Object är den klassen som kommer att representera alla aktiva artiklar. Ett objekt håller koll på statuset av artikeln och kan anropas med operationer på en artikel.
 
-\begin{tabular}{|l|l|}
+\begin{tabular}{|l|p{10 cm}|}
 \hline
 \multicolumn{2}{|c|}{\textbf{Object}} \\
 \hline
@@ -128,15 +170,51 @@ get\_status(): string & Returnerar status för objektet \\
 \end{tabular}
 
 \subsubsection{Interna kommunikationen}
-InternKomm är gränsnittet mellan filhanteraren, Bazaar och den externa kommunikationen. InternKomm låter filhanteraren veta om någon fil blivit uppdaterad av Bazaar. Likaså låter han Bazaar och den externa kommunikationen veta om någon fil uppdaterats i filhanteraren.
+InternKomm är gränsnittet mellan filhanteraren, Bazaar och den externa kommunikationen. InternKomm låter filhanteraren veta om någon fil blivit uppdaterad av Bazaar. Likaså låter den Bazaar och den externa kommunikationen veta om någon fil uppdaterats av filhanteraren.
 
-\begin{tabular}{|l|l|}
+\begin{tabular}{|l|p{10 cm}|}
 \hline
-\multicolumn{2}{|c|}{\textbf{InternKomm}} \\
+\multicolumn{2}{|c|}{\textbf{Internkomm}} \\
+\multicolumn{2}{|c|}{extends Viewer} \\
 \hline
+\hline
+\_\_init\_\_(f:Filehandler,e:Externkomm) &Konstruktor\\
+\hline
+
+\end{tabular}
+
+\subsubsection{Externa kommunikationen}
+Externkomm sköter den externa kommunikationen. Den skickar iväg meddelanden till andra användare om te.x uppdaterade filer eller nya användare i gruppen. Den hanterar också alla aktiva anslutningar.
+
+\begin{tabular}{|l|p{10 cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Externkomm}} \\
+\multicolumn{2}{|c|}{extends Model} \\
+\hline
+\multicolumn{2}{|c|}{active\_users:list} \\
 \hline
 \_\_init\_\_() &Konstruktor\\
-notify(event:string) &Test\\
+announce\_update()& tillkännager användare om nya uppdateringar\\
+send\_msg() & skickar ett meddelande till annan användare\\
+recieve\_msg() & tar emot ett meddelande från annan användare\\
+\hline
+
+\end{tabular}
+
+\subsubsection{Grupphantering}
+Groupmanager hanterar den gruppen som wikin är medlem i. Den håller reda på vilka medlemmar som ingår i gruppen och låter administratörer lägga till eller ta bort användare ur gruppen genom att lägga till eller ta bort deras publika nycklar.
+
+\begin{tabular}{|l|p{10 cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Groupmanager}} \\
+\multicolumn{2}{|c|}{extends Viewer} \\
+\hline
+\multicolumn{2}{|c|}{keylist:list} \\
+\hline
+\_\_init\_\_(e:Externkomm) &Konstruktor\\
+add\_key(key:string)& Lägger till en användares nyckel i gruppen\\
+remove\_key(key:string)& Tar bort en användares nyckel ur gruppen\\
+check\_key(key:string):boolean& kollar om en användares nyckel finns med i gruppen\\
 \hline
 
 \end{tabular}
