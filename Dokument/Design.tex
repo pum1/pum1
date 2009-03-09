@@ -10,7 +10,7 @@
   \DeclareGraphicsExtensions{.eps, .jpg}
 \fi
 
-\title{Design \\ Version 1.0}
+\title{Distribuerad Wiki \\ Design \\ Version 1.0}
 \author{PUM-grupp 1}
 \date{\today}
 
@@ -56,15 +56,16 @@ Programvaran består av följande delsystem som beskrivs mer i detalj senare i d
 \item Viewer
 \end{itemize}
 \subsubsection{Klasser}
+Här följer en lista på de klasser som ingår i systemet. Alla klasser och deras relation till varandra kan ses i figuren på nästa sida.
 \begin{itemize}
-\item Ett huvudfönster som är gränsnittet mot användaren.
-\item En filhanterare som hanterar de filer och objekt systemet i huvudsak jobbar mot.
-\item En objekttyp som är den datatypen filhanteraren och GUI:t jobbar emot.
-\item Ett delsystem för att hantera den interna kommunikationen.
-\item Ett delsysyem för att hantera den externa kommunikationen. 
-\item Ett grupphanteringssystem som administrerar grupperna.
-\item En krypterad socket som garanterar säker kommunikation.
-\item Ett distruberat filhanteringssystem Bazaar.
+\item Ett huvudfönster - (GUI) som är gränsnittet mot användaren.
+\item En filhanterare - (Filehandler) som hanterar de filer och objekt systemet i huvudsak jobbar mot.
+\item En objekttyp - (Object) som är den datatypen filhanteraren och GUI:t jobbar emot.
+\item Ett delsystem för att hantera den interna kommunikationen - (Internkomm).
+\item Ett delsysyem för att hantera den externa kommunikationen - (Externkomm). 
+\item Ett grupphanteringssystem - (Groupmanager) som administrerar grupperna.
+\item En krypterad socket - (Krypterad Socket) som garanterar säker kommunikation.
+\item Ett distruberat filhanteringssystem Bazaar - (Bazaar).
 \end{itemize}
 Nedan följer en överskådlig bild på systemet.
  
