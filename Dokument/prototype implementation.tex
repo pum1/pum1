@@ -1,0 +1,724 @@
+\input{standard.tex}
+
+\ifpdf
+  \DeclareGraphicsExtensions{.pdf, .jpg, .tif, .png}
+  \pdfinfo{            
+    /Title  (Prototyp Implementation)
+    /Author (PUM-grupp 1)
+  }
+\else
+  \DeclareGraphicsExtensions{.eps, .jpg}
+\fi
+
+\title{Distribuerad Wiki \\ Prototyp Implementation \\ Version 1.0}
+\author{PUM-grupp 1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\newpage
+
+{\centering \Large{Dokumenthistorik\\}}
+
+\vspace{10pt}
+\begin{tabularx}{\textwidth}{ |l|l|X|l|l| }
+  \hline
+    \textbf{version} & \textbf{datum} & \textbf{utförda ändringar} & \textbf{utförda av} & \textbf{granskad} \\
+	\hline 
+  1.0 & 2009-02-12 &  En första version  & Oskar & Ingen   \\
+  \hline
+\end{tabularx}
+
+\newpage
+
+\setcounter{tocdepth}{3}
+\tableofcontents
+\newpage
+\section{Inledning}
+Nedan följer källkoden till första versionen av vår prototyp för Dwiki. 
+\section{externkomm.py}
+import os
+import socket
+import sys
+import thread
+import struct
+import sys
+
+
+class ExternKomm():
+    """The external communication manager handles the messages passed through
+    the connection manager and configures the connection manager.
+    """
+    #_message_id_length = struct.calcsize('l')
+
+    def __init__(self, server_port, pull_port, remote_port):
+        self._message_types = {
+            0001 : ('Connect', '', self.msg_connect),
+            0002 : ('Disconnect', '', self.msg_disconnect),
+            0003 : ('Open serve channel', '', self.msg_serve),
+            0004 : ('Close serve channel', '', self.msg_stop_serve),
+            0005 : ('Authenticate', '', self.msg_auth)
+            }
+
+        self._clients     = list()
+        self._server_port = server_port
+        self._pull_port   = pull_port
+        self._pull_forward = None
+        self._serve_forwards = {}
+        self._connection_handler = ConnectionHandler(remote_port)
+        self._connection_handler.set_global_channel_reader(
+            1, self._global_message_reader)
+        self._connection_handler.set_viewer(self)
+        self._init_fake_server(pull_port)
+#        self._repo_dir = repo_dir
+#        self._setup_server(repo_dir)
+
+    def _init_fake_server(self, local_port, timeout = None):
+        self._listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self._listen_socket.settimeout(timeout)
+        self._listen_socket.bind(('127.0.0.1', local_port))
+        self._listen_socket.listen(0)
+
+    def send_msg(self, connection, id, *args):
+        message_type = self._message_types[id]
+        pack_args = ('l'+message_type[1],id)+args
+        msg = struct.pack(*pack_args)
+        print 'Send message:'
+        print len(msg)
+        print pack_args
+        connection.send_channel(1, msg)
+
+    def onconnect(self, connection):
+        self._clients.append(connection)
+
+    def get_clients(self):
+        return self._clients
+
+    def start(self):
+        self._connection_handler.begin_listen()
+
+    def stop(self):
+        self._listen_socket.close()
+        self._connection_handler.close()
+
+#    def send_msg(self, message_id, *args):
+#        #self._connetion_handler.send
+
+    def _global_message_reader(self, connection, msg):
+        print 'Receive message:'
+        print len(msg)
+        print msg
+        if len(msg) >= 4:
+            message_id = struct.unpack_from('l', msg)[0]
+            print message_id
+            message_type = self._message_types[message_id]
+            if message_type:
+                print message_type[0]
+                if message_type[2]:
+                    args = (connection,)+struct.unpack_from(
+                        message_type[1],msg[4:]);
+                    message_type[2](*args)
+                else:
+                    print('Callback for message '+message_type[0]+
+                          ' not defined')
+            else:
+                print('Message id '+message_id+' not defined')
+
+    def open_pull_forward(self, connection):
+        self.send_msg(connection, 0003)
+        self._pull_forward = self._connection_handler.create_outgoing_forward(self._listen_socket, 3, connection)
+
+    def close_pull_forward(self, connection):
+        self._connection_handler.close_forward(self._pull_forward)
+        self.send_msg(connection, 0004)
+
+
+#    def pull(self, connection):
+#        self.open_pull_channel(connection)
+        
+    def msg_connect(self, connection):
+        print('msg_connect')
+
+    def msg_disconnect(self, connection):
+        print('msg_disconnect')
+
+    def msg_serve(self, connection):
+        print 'msg_serve!'
+        print connection
+        self._serve_forwards[connection] = self._connection_handler.create_incoming_forward(self._server_port, 3, connection)
+
+    def msg_stop_serve(self, connection):
+        self._connection_handler.close_forward(self._serve_forwards[connection])
+
+    def msg_auth(self, connection, id):
+        pass
+
+
+class ConnectionHandler():
+    """Handles all the remote connections.
+    """
+    def __init__(self, remote_listen_port):
+        #, local_client_port, local_server_port
+        self._connections = list()
+        #self._last_id    = 0
+        self._global_reader = {}
+        self._forwards      = list()
+        #self._forwards        = {}
+        #self._last_forward_id = 0
+        #self._server_port = local_server_port
+        #thread.start_new_thread(self._local_listener, (local_client_port,))
+        self._remote_listen_port = remote_listen_port
+
+    def create_outgoing_forward(self, pull_port, channel, connection):
+        forward = OutgoingForwarder(
+            pull_port, channel,
+            connection)
+        self._forwards.append(forward)
+        return forward
+
+    def create_incoming_forward(self, local_port, channel, connection):
+        forward = IncomingForwarder(
+            local_port, channel,
+            connection)
+        self._forwards.append(forward)
+        return forward
+
+    def close_forward(self, forward):
+        forward.close()
+        self._forwards.remove(forward)
+
+    def set_viewer(self, viewer):
+        self._viewer = viewer
+
+    def set_global_channel_reader(self, channel, reader):
+        """Sets the global reader of a specified channel. Global readers
+        also take the connection as an argument.
+
+        global_channel_reader(connection, msg)
+        """
+        self._global_reader[channel] = reader
+        for connection in self._connections:
+            connection.set_channel_reader(channel, lambda msg:
+                                              reader(connection, msg))
+
+    def GET_FIRST_CONNECTION(self):
+        for conn in self._connections:
+            return conn
+
+    def begin_listen(self):
+        thread.start_new_thread(
+            self._remote_listener, (self._remote_listen_port,))
+
+    def _add_connection(self, socket):
+        """Add a connection to the connection table.
+        """
+        #self._last_id += 1
+        #id = self._last_id
+        connection = RemoteConnection(socket)
+        self._connections.append(connection)
+        for channel in self._global_reader:
+            connection.set_channel_reader(
+                channel, lambda msg:
+                    self._global_reader[channel](connection, msg))
+        self._viewer.onconnect(connection)
+        return connection
+
+    def _remote_listener(self, listen_port):
+        """Listens to connections from remote clients
+        """
+        self._dock_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self._dock_socket.bind(('', listen_port))
+        self._dock_socket.listen(5)
+        while True:
+            remote_socket = self._dock_socket.accept()[0]
+            self._add_connection(remote_socket)
+
+
+
+    #def end_forward(self, forward_id):
+    #    None
+                
+#     def _tunnel_forwarder(self, local_socket, channel, connection):
+#         """Forwards data from the local Bazaar client to the remote connection.
+#         """
+#         string = ' '
+#         while string:
+#             string = socket.recv(1024)
+#             if string:
+#                 connection.send_channel(channel, string)
+#             else:
+#                 source.shutdown(socket.SHUT_RD)
+#                 destination.shutdown(socket.SHUT_WR)
+
+    def connect(self, address):
+        """Try to connect to the specified TCP/IP address of type tuple
+        (ip-adress, tcp-socket).
+        """
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.connect(address)
+        return self._add_connection(sock)
+
+#     def set_out_tunnel_connection_id(self, out_tunnel_connection_id):
+#         """Sets the local tunnel destination.
+#         """
+#         self._out_tunnel_connection_id = out_tunnel_connection_id
+
+    def close(self):
+        """Terminates all connections.
+        """
+        for forward in self._forwards:
+            forward.close()
+        for connection in self._connections:
+            connection.close()
+        if self._dock_socket is not None:
+            self._dock_socket.close()
+
+class Forwarder():
+    def close(self):
+        pass
+
+    def _socket_forwarder(self, local_socket, channel, connection):
+        connection.set_channel_reader(channel,
+                                      lambda msg:
+                                          local_socket.sendall(msg))
+        string = ' '
+        print 'Forwarding...'
+        while string:
+            string = local_socket.recv(1024)
+            if string:
+                connection.send_channel(channel, string)
+            else:
+                connection.set_channel_reader(channel, None)
+                source.shutdown(socket.SHUT_RD)
+                destination.shutdown(socket.SHUT_WR)
+
+class IncomingForwarder(Forwarder):
+    def __init__(self, local_port, channel, connection, timeout = None):
+        """Connects to the local port and forwards the communication between
+        it and the specified channel in the connection.
+        """
+        thread.start_new_thread(self._incoming_forward_connect,
+                                (local_port, channel, connection, timeout))
+        print 'Forwarding IN from port'
+        print local_port
+
+    def _incoming_forward_connect(self, local_port, channel,
+                                  connection, timeout):
+        self._local_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self._local_socket.settimeout(timeout)
+        self._local_socket.connect(('127.0.0.1', local_port))
+        print 'Connected!'
+        self._socket_forwarder(self._local_socket, channel, connection)
+
+    def close(self):
+        if self._local_socket is not None:
+            self._local_socket.close()
+            self._local_socket = None
+
+
+class OutgoingForwarder(Forwarder):
+    def __init__(self, listen_socket, channel, connection, timeout = None):
+        """Listens to connections made locally to listen_port and then
+        forwards the data communication to the specified channel.
+        """
+        thread.start_new_thread(self._outgoing_forward_listen,
+                                (listen_socket, channel, connection, timeout))
+        print 'Forwarding OUT'
+
+    def _outgoing_forward_listen(self, listen_socket, channel,
+                                 connection, timeout):
+        self._local_socket = listen_socket.accept()[0]
+        self._socket_forwarder(self._local_socket, channel, connection)
+
+    def close(self):
+        if self._local_socket is not None:
+            self._local_socket.close()
+            self._local_socket = None
+
+
+
+class RemoteConnection():
+    """A connection to a remote client.
+    """
+    #_header_length = struct.calcsize('ll')
+    
+    def __init__(self, socket):
+        self._socket = socket
+        self._reader = {}
+        self._quantifier = StreamQuantifier()
+        thread.start_new_thread(self._listen, ())
+
+    def _listen(self):
+        string = ' '
+        while string:
+            string = self._socket.recv(1024)
+            if string:
+                self._quantifier.append(string)
+                msg = self._quantifier.read()
+                print '_listened to message:'
+                while msg:
+                    print len(msg)
+                    if len(msg) >= 4:#RemoteConnection._header_length:
+                        channel = (struct.unpack_from('l', msg)[0])
+                        if self._reader[channel]:#socket.ntohl
+                            self._reader[channel](
+                                msg[4:])
+                    msg = self._quantifier.read()
+
+            else:
+                self._socket.shutdown(socket.SHUT_RD)
+
+    def send_channel(self, channel, msg):
+        """Sends a message to the remote connection through the specified
+        channel.
+        """
+        _header_length = struct.calcsize('ll')
+        packed_message = struct.pack(
+            'll',
+            (len(msg) + 8), #socket.htonl#RemoteConnection._header_length
+            (channel)) + msg#socket.htonl
+        print 'send_channel:'
+        print len(packed_message)
+        self._socket.sendall(packed_message)
+
+    def set_channel_reader(self, channel, reader):
+        """Sets the function that will recieve the messages sent to the
+        specified channel.
+
+        channel_reader(msg)
+        """
+        self._reader[channel] = reader
+
+    def close(self):
+        """Terminates the connection.
+        """
+        self._socket.close()
+
+
+class StreamQuantifier():
+    """Converts a stream of characters into packets of variable length.
+    """
+    _header_length = struct.calcsize('l')
+
+    def __init__(self):
+        self._buff = ''
+
+    def read(self):
+        if len(self._buff) >= StreamQuantifier._header_length:
+            msg_length = struct.unpack_from('l', self._buff)[0]
+            print 'Quantifying:'
+            print msg_length
+            if len(self._buff) >= msg_length:
+                msg = self._buff[StreamQuantifier._header_length:msg_length]
+                self._buff = self._buff[msg_length:]
+                return msg
+        return None
+
+    def append(self, data):
+        self._buff += data
+
+\section{internkomm.py}
+import os
+import socket
+import sys
+import thread
+import struct
+import sys
+from bzrlib import workingtree
+from bzrlib.smart.server import SmartTCPServer
+import bzrlib
+import bzrlib.smart
+from bzrlib.transport.remote import RemoteTCPTransport
+
+from externkomm import ExternKomm
+
+
+class InternKomm():
+    def __init__(self, pull_port):
+        self._pull_port = pull_port
+
+    def set_repo(self, repo):
+        self._repository = repo
+
+    def set_external_comm(self, ext_comm):
+        self._external_comm = ext_comm
+
+    def pull_all(self):
+        for connection in self._external_comm.get_clients():
+            self._external_comm.open_pull_forward(connection)
+            self._repository.pull(self._pull_port)
+            self._external_comm.close_pull_forward(connection)
+
+class Repository():
+    def __init__(self, directory = None, server_port = 10128):
+        self._initialize_bazaar(directory, server_port)
+
+    def _initialize_bazaar(self, directory, server_port):
+        self._server_port = server_port
+        if directory is None:
+            directory = os.getcwd()
+        self._working_tree = workingtree.WorkingTree.open(directory)
+        self._initialize_bazaar_server(directory, server_port)
+
+    def _initialize_bazaar_server(self, directory, server_port):
+        from bzrlib import urlutils
+        from bzrlib.transport import get_transport
+        from bzrlib.transport.chroot import ChrootServer
+        url = urlutils.local_path_to_url(directory)
+        url = 'readonly+' + url
+        print url
+        chroot_server = ChrootServer(get_transport(url))
+        chroot_server.setUp()
+        t = get_transport(chroot_server.get_url())
+        print chroot_server.get_url()
+        self._bazaar_server = SmartTCPServer(
+            t, 'localhost', server_port)
+        self._bazaar_server.start_background_thread()
+
+    def close(self):
+        self._bazaar_server.stop_background_thread()
+
+    def pull(self, pull_port):
+        from bzrlib.branch import Branch
+        other_branch = Branch.open(
+            'bzr://localhost:'+str(pull_port)+'/')
+        self._working_tree.merge_from_branch(other_branch)
+        changes = self._working_tree.changes_from(
+            self._working_tree.basis_tree())
+        print "%s files modified, %s added, %s removed" % (
+            len(changes.modified), len(changes.added), len(changes.removed))
+
+
+
+
+class ConsoleTest():
+    def __init__(self, args):
+        self._remote_port       = 10126
+        self._local_client_port = 10127
+        self._local_server_port = 10128
+        self._dir = None
+        for arg in sys.argv:
+            if arg[0:1] == '-':
+                cc = arg[1:2]
+                if cc == 'c':
+                    self._local_client_port = int(arg[2:])
+                elif cc == 's':
+                    self._local_server_port = int(arg[2:])
+                elif cc == 'r':
+                    self._remote_port = int(arg[2:])
+                elif cc == 'd':
+                    self._dir = arg[2:]
+        self._extern_comm = ExternKomm(
+            self._local_server_port, self._local_client_port,
+            self._remote_port)
+        self._intern_comm = InternKomm(
+            self._local_client_port)
+        self._repository = Repository(self._dir, self._local_server_port)
+        self._intern_comm.set_repo(self._repository)
+        self._intern_comm.set_external_comm(self._extern_comm)
+        self._extern_comm.start()
+
+    def cmd_loop(self):
+        while True:
+            s = raw_input(">")
+            cmd = s.split()
+            if(cmd):
+                if(cmd[0] == 'connect'):
+                    self._extern_comm._connection_handler.connect(
+                        (cmd[1], int(cmd[2])))
+                elif(cmd[0] == 'who'):
+                    print self._extern_comm.get_clients()
+                elif(cmd[0] == 'tunnel'):
+#                    self._extern_comm._connection_handler.set_out_tunnel_connection_id(
+ #                       int(cmd[1]))
+                    pass
+                elif(cmd[0] == 'start'):
+                    self._extern_comm.start()
+                elif(cmd[0] == 'stop'):
+                    self._extern_comm.stop()
+                    break
+                elif(cmd[0] == 'send'):
+                    self._extern_comm._connection_handler._connection[
+                        int(cmd[1])].send_channel(int(cmd[2]), cmd[3])
+                elif(cmd[0] == 'pull'):
+                    self._intern_comm.pull_all()
+                else:
+                    print 'Unknown command.'
+
+
+
+
+#connection_handler = ConnectionHandler(remote_port, local_client_port, local_server_port)
+#comm = Comm(remote_port, local_client_port, local_server_port)
+ca = ConsoleTest(sys.argv)
+ca.cmd_loop()
+
+\section{texteditor.py}
+# -*- coding: utf-8 -*-
+# Get the GUI stuff
+import wx
+
+# We're going to be handling files and directories
+import os
+
+#Importera codecs för filhantering med utf-8
+import codecs
+
+# Set up some button numbers for the menu
+
+ID_ABOUT=101
+ID_OPEN=102
+ID_SAVE=103
+ID_EXIT=200
+ID_CLEAR=400
+
+class MainWindow(wx.Frame):
+    def __init__(self,parent,title):
+        # based on a frame, so set up the frame
+        wx.Frame.__init__(self,parent,wx.ID_ANY, title, size=(650, 550))
+
+        # Add a text editor and a status bar
+        # Each of these is within the current instance
+        # so that we can refer to them later.
+        self.control = wx.TextCtrl(self, 1, style=wx.TE_MULTILINE)
+        self.CreateStatusBar() # A Statusbar in the bottom of the window
+
+        # Setting up the menu. filemenu is a local variable at this stage.
+        filemenu= wx.Menu()
+        editmenu = wx.Menu()
+        # use ID_ for future easy reference - much better that "48", "404" etc
+        # The & character indicates the short cut key
+        editmenu.Append(ID_CLEAR, "&Clear", "Clears all text written")
+        filemenu.Append(ID_OPEN, "&Open"," Open a file to edit")
+        filemenu.Append(ID_SAVE, "&Save"," Save file")
+        filemenu.AppendSeparator()
+        filemenu.Append(ID_ABOUT, "&About"," Information about this program")
+        filemenu.AppendSeparator()
+        filemenu.Append(ID_EXIT,"E&xit"," Terminate the program")
+
+        # Creating the menubar.
+        menuBar = wx.MenuBar()
+        menuBar.Append(filemenu,"&File") # Adding the "filemenu" to the MenuBar
+        menuBar.Append(editmenu,"&Edit")
+        self.SetMenuBar(menuBar)  # Adding the MenuBar to the Frame content.
+        # Note - previous line stores the whole of the menu into the current object
+        
+        
+        # Define the code to be run when a menu option is selected
+        wx.EVT_MENU(self, ID_ABOUT, self.OnAbout)
+        wx.EVT_MENU(self, ID_EXIT, self.OnExit)
+        wx.EVT_MENU(self, ID_OPEN, self.OnOpen)
+        wx.EVT_MENU(self, ID_SAVE, self.OnSave); # just "pass" in our demo
+        wx.EVT_MENU(self, ID_CLEAR, self.OnClear)
+
+        # Set up the overall frame verically - text edit window
+        # We want to arrange the buttons vertically below the text edit window
+        self.sizer=wx.BoxSizer(wx.VERTICAL)
+        self.sizer.Add(self.control,1,wx.EXPAND)
+
+        #Kommenterade ut denna bit för den gjorde rutan skitliten
+        #Antagligen för att den då automagiskt väljer storlek istället för
+        #den som jag har satt i wxFrame.__init__
+        # Tell it which sizer is to be used for main frame
+        # It may lay out automatically and be altered to fit window
+        #self.SetSizer(self.sizer)
+        #self.SetAutoLayout(1)
+        #self.sizer.Fit(self)
+
+        # Show it !!!
+        self.Show(1)
+        # Put the window in the middle of the screen
+        self.Centre()
+
+        # Define widgets early even if they're not going to be seen
+        # so that they can come up FAST when someone clicks for them!
+        self.aboutme = wx.MessageDialog( self, " A sample editor \n"
+                            " in wxPython","About Sample Editor", wx.OK)
+        #La till unicode(string, 'utf-8') för att åäö skulle fungera korrekt
+        #Kanske finns något smidigare sätt.
+        self.doiexit = wx.MessageDialog( self, unicode(" Är du säker på att du vill \n"
+                                         "avsluta denna awesome editerare?", 'utf-8'),
+                        "GOING away ...", wx.YES_NO)
+
+        # dirname is an APPLICATION variable that we're choosing to store
+        # in with the frame - it's the parent directory for any file we
+        # choose to edit in this frame
+        self.dirname = ''
+
+    def OnAbout(self,e):
+        # A modal show will lock out the other windows until it has
+        # been dealt with. Very useful in some programming tasks to
+        # ensure that things happen in an order that  the programmer
+        # expects, but can be very frustrating to the user if it is
+        # used to excess!
+        self.aboutme.ShowModal() # Shows it
+        # widget / frame defined earlier so it can come up fast when needed
+
+    #Test att ta bort all text som finns i editeringsrutan.
+    #Verkar funka fint
+    def OnClear(self, e):
+        self.control.SetValue('')
+        
+    def OnExit(self,e):
+        # A modal with an "are you sure" check - we don't want to exit
+        # unless the user confirms the selection in this case ;-)
+        igot = self.doiexit.ShowModal() # Shows it
+        if igot == wx.ID_YES:
+            self.Close(True)  # Closes out this simple application
+
+    def OnOpen(self,e):
+        # In this case, the dialog is created within the method because
+        # the directory name, etc, may be changed during the running of the
+        # application. In theory, you could create one earlier, store it in
+        # your frame object and change it when it was called to reflect
+        # current parameters / values
+        dlg = wx.FileDialog(self, "Choose a file kthnx. ", self.dirname, "", "*.*", wx.OPEN)
+        if dlg.ShowModal() == wx.ID_OK:
+            self.filename=dlg.GetFilename()
+            self.dirname=dlg.GetDirectory()
+
+            # Open the file, read the contents and set them into
+            # the text edit window
+            #Ändrade från open(...) till codecs.open(...) eftersom den inte kunde läsa
+            #in annat är ASCII och det failar om man har med åäö
+            filehandle=codecs.open(os.path.join(self.dirname, self.filename),'r',"utf-8")
+            self.control.SetValue(filehandle.read())
+            filehandle.close()
+
+            # Report on name of latest file read
+            self.SetTitle("Editing ... "+self.filename)
+            # Later - could be enhanced to include a "changed" flag whenever
+            # the text is actually changed, could also be altered on "save" ...
+        dlg.Destroy()
+
+    def OnSave(self,e):
+        # Save away the edited text
+        # Open the file, do an RU sure check for an overwrite!
+        dlg = wx.FileDialog(self, "Choose a file", self.dirname, "", "*.*", \
+                wx.SAVE | wx.OVERWRITE_PROMPT)
+        if dlg.ShowModal() == wx.ID_OK:
+            # Grab the content to be saved
+            itcontains = self.control.GetValue()
+
+              # Open the file for write, write, close
+            self.filename=dlg.GetFilename()
+            self.dirname=dlg.GetDirectory()
+            #Pss som i OnOpen.
+            filehandle=codecs.open(os.path.join(self.dirname, self.filename),'w', "utf-8")
+            filehandle.write(itcontains)
+            filehandle.close()
+        # Get rid of the dialog to keep things tidy
+        dlg.Destroy()
+
+# Set up a window based app, and create a main window in it
+app = wx.PySimpleApp()
+view = MainWindow(None, "Dwiki editor yo")
+# Enter event loop
+app.MainLoop()
+
+
+\end{document}
