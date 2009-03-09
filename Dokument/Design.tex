@@ -30,6 +30,9 @@
     \textbf{version} & \textbf{datum} & \textbf{utförda ändringar} & \textbf{utförda av} & \textbf{granskad} \\
 	\hline 
   0.1 & 2009-02-12 &  Ett första utkast  & Alla & Alla   \\
+	\hline	
+  1.0 & 2009-03-09 & Alla klassdiagram ritade & Victor & Victor\\
+
   \hline
 \end{tabularx}
 
@@ -42,9 +45,11 @@
 \section{Design}
 
 \section{Systemet}
-Nedan följer designen för det färdiga systemet.
+Nedan följer designen för programvaran Dwiki.
+\subsection{Språk och beroenden}
+Dwiki är skrivet i python 2.6 och utnyttjar det distribuerade versionshanteringssystemet Bazaar. Som grafiskt bibliotek används wxPython.
 \subsection{Överblick över systemet}
-Systemet består av följande delsystem.
+Programvaran består av följande delsystem som beskrivs mer i detalj senare i dokumentet.
 \subsubsection{Interface}
 \begin{itemize}
 \item Model
@@ -64,6 +69,7 @@ Systemet består av följande delsystem.
 Nedan följer en överskådlig bild på systemet.
  
 \begin{figure}[ht]
+  \centering
   \includegraphics[width=160mm]{klassdiagram.png}
   \caption{Klassdiagram över systemet}
   \label{fig1}
@@ -73,7 +79,7 @@ Nedan följer en överskådlig bild på systemet.
 Nedan följer en mer detaljerad beskrivning över de olika delsystemen.
 
 \subsubsection{Model}
-Interfacet model är en del i Observer designmönstret. En model låter en viewer registrera sig så att den kan bli uppmärksammad  på viktiga händelser av modellen.
+Interfacet model är en del i MVC(Model View Controller) designmönstret. En model låter en viewer registrera sig så att den kan bli uppmärksammad på viktiga händelser av modellen. Detta är användbart då man vill minska beroenden mellan klasser.
 
 
 \begin{tabular}{|l|p{10 cm}|}
@@ -90,7 +96,7 @@ viewers om en händelse\\
 \end{tabular}
 
 \subsubsection{Viewer}
-Interfacet viewer är en del i Observer designmönstret. En viewer kan registrera sig hos en model och på så sätt bli uppmärksammad om viktiga händelser som modellen fått kännedom om.
+Interfacet viewer är en del i MVC(Model View Controller) designmönstret. En viewer kan registrera sig hos en model och på så sätt bli uppmärksammad om viktiga händelser som modellen fått kännedom om.
 
 
 \begin{tabular}{|l|p{10 cm}|}
