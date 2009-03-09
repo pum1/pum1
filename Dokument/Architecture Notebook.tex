@@ -32,7 +32,9 @@
 	\hline 
   0.1 & 2009-02-12 &  Ett första utkast  & Alla & Alla   \\
 	\hline 
-  0.2 & 2009-02-12 &  Arkitekturen utvecklad ytterligare  & Alla & Alla   \\
+  0.2 & 2009-02-28 &  Arkitekturen utvecklad ytterligare  & Alla & Alla   \\
+	\hline 
+  1.0 & 2009-03-09 &  Arkitekturen färdigställd    & Alla & Alla   \\
   \hline
 \end{tabularx}
 
@@ -43,27 +45,56 @@
 \newpage
 
 \section{Syfte}
-Detta dokument syftar till att beskriva de filosofier och motiveringar som står till grund för det arkitekturella ramverket för projektet.
-\section{Arkitekturella mål och filosofi}
-Arkitekturen i projektet styrs främst av de krav som har stipulerats.
+Detta dokument syftar till att beskriva de filosofier och motiveringar som står till grund för det arkitekturella ramverket för projektet. Dokumentet återkopplar till krav som finns med i dokumentet System Wide Requirements. Referenser dit betecknas SWR.
+%\section{Arkitekturella mål och filosofi}
+%Arkitekturen i projektet styrs främst av de krav som har stipulerats.
+\section{Arkitektoniskt signifikanta krav}
+Krav som har stor inverkan på arkitekturen är enligt tabellen nedan.
+
+\vspace{10pt}
+\begin{tabularx}{\textwidth}{ |l|l|X| }
+  \hline
+    \textbf{dokument} & \textbf{krav} & \textbf{namn} \\
+    \hline
+    SWR & 3.2 & Applikationens tillförlitlighet \\
+    SWR & 3.3 & Prestandakrav \\
+    SWR & 3.4 & Support och påbyggnadsmöjligheter \\
+    SWR & 4.1.2 & Layout och navigering \\
+    SWR & 4.2.1 & Mjukvarugränssnitt \\
+    SWR & 4.2.2 & Hårdvarugränssnitt \\
+    SWR & 4.2.3 & Kommunikationsgränssnitt \\
+    \hline
+\end{tabularx}
+
 \section{Antaganden och beroenden}
 I denna sektion nämns de antaganden och beroenden som finns och som tillsammans bygger upp en bild över hur programvaran kommer byggas.
 \begin{itemize}
-\item Systemet ska fungera på Linux
+\item Systemet ska fungera på Linux (SWR 5)
 \item Systemet ska fungera decentraliserat
-\item Systemet ska kunna kommunicera via nätverk
+\item Systemet ska kunna kommunicera via nätverk (SWR 4.2.3)
+\item Systemet ska kunna kommunicera data säkert (SWR 4.2.3)
 \item Systemet ska lagra data lokalt
 \end{itemize}
-\section{Arkitekturellt signifikanta krav}
-Här kommer referenser till krav i andra dokument att finnas.
 \section{Beslut, begränsningar och motiveringar}
 Här är en lista med beslut, begränsningar och tillhörande motiveringar.
 \begin{itemize}
-\item Bazaar används som distributionssystem, eftersom det är lätt att integrera.
+\item Bazaar används som distributionssystem. Bazaars enkla gränssnitt mot Python gör distributionssystemet Bazaar lämpligt att använda.
+\item 
 \end{itemize}
+\section{Huvudabstraktioner}
+För att få en överblick över de olika nyckelorden och abstraktionerna som används för att beskriva arkitekturen presenteras här arkitekturens huvudabstraktioner.
+\subsection*{Användare}
+En användare är en person i systemet. 
+\subsection*{Artikel}
+En artikel är en mängd textdata som behandlar ett begränsat område. En artikel kan redigeras och distribueras, samt relatera till andra artiklar.
+\subsection*{Klient}
+En klient är en instans av programvaran som körs aktivt på någon
+plattform. En användare kan inneha en klient.
+\subsection*{Nyckel}
+En datamängd som används för signering, verifiering och säker kommunikation.
 \section{Arkitekturen}
 I den här sektionen beskrivs arkitekturen övergripande, med mer
-detaljerade beskrivningar i respektive moduls sektion.
+detaljerade beskrivningar i respektive moduls sektion. Figur \ref{fig1} visar en övergripande bild av arkitekturen.
 
 \begin{figure}[ht]
   \includegraphics[width=160mm]{Architecture-diagram.png}
@@ -73,7 +104,7 @@ detaljerade beskrivningar i respektive moduls sektion.
 
 Kommunikationsmodulen är central i systemet, och tillhandahåller
 kommunikationsmöjligheter mellan klienten,
-distribueringsundersystemet, redigeringsverktyget och andra klienter.
+distributionsundersystemet, redigeringsverktyget och andra klienter.
 
 För kommunikation klienter emellan används TLS över TCP/IP. En av
 klienterna ansluter till den andra och TLS-handskakning och
@@ -92,9 +123,8 @@ och tillhandahåller metoder för att modifiera filer mot
 denna. Kommunikationsmodulen via distributionssystemet tillhandahåller
 metoder för att distribuera modifieringar som sker i arbetsmappen.
 \section{Arkitekturella mekanismer}
-I denna sektion nämns de olika mekanismerna som driver
-programvaran. Dessa kommer få mer detaljerade beskrivningar under
-senare iterationer.
+I denna sektion nämns de olika mekanismerna som på olika sätt driver
+programvaran.
 %\subsection{Säkerhet}
 %Som en del av programvarans specifikation nämns säkerhet mellan
 %klienterna. Informationens integritet ska vidbehållas, alltså skyddas
@@ -106,21 +136,11 @@ senare iterationer.
 %\item Hur stort fokus ska läggas på datasäkerhet?
 %\item Strider åtgärderna för ökad sökerhet mot andra krav såsom tillgänglighet?
 %\end{itemize}
-\subsection{Felsökning}
-Programvaran kommer med största sannolikhet behöva felsökas under
-utvecklingstiden. Felsökning kommer vara relevant i många delar av
-programvaran.
+\subsection{Felsökningsmekanismen}
+Felsökningsmekanismen är inbyggd i systemet och tillhandahåller information om de olika modulernas tillstånd för att underlätta förståelse för de kausala sambanden fram till ett visst skeende.
 
-Felsökning kan ske passivt och aktivt. Aktivt genom att till exempel
-stega kod under körning. Passivt genom loggning.
+Felsökningsmekanismen är inbyggd i de olika modulerna. Felsökningsmekanismen kommer i första hand vara textdriven, med loggar som utdata. Enstaka moduler kan dessutom tillhandahålla särskilda felsökningsfunktioner som särskilt exponerar modulens inre tillstånd för felsökningsmekanismen.
 
-Frågor rörande felsökning som kommer utvecklas senare i projektet följer nedan.
-\begin{itemize}
-\item I vilka instanser kommer felsökning att vara relevant?
-\item Vilka felsökningsmetoder och verktyg skall användas?
-\item Hur stora datamängder behöver loggas?
-\item Hur ska loggning ske utan att användarens integritet kränks?
-\end{itemize}
 \subsection{Lagring}
 Lagringsmekanismen är den mekanism som sköter den lokalt lagrade datan
 hos alla klienter.
@@ -131,18 +151,12 @@ historik om filer i systemet. De inbyggda distributionsmekanismerna i
 Bazaar används, varför ingen särskild mekanism för läs- och
 skrivrättigheter för lagringsmekanismen krävs.
 
-Ytterligare frågor rörande lagringsmekanismen är som följer.
-\begin{itemize}
-\item Hur mycket utrymme krävs på den lokala hårddisken?
-\item Vad händer om hårddiskutrymmer tar slut?
-\item Vad händer om en delmängd av allt data tas bort eller blir korrupt?
-\end{itemize}
 \subsection{Distribution}
 Distributionsmekanismen är den som sköter synkroniseringen klienterna
 emellan. Den ser till att uppdateringar sprider sig över nätverket
 till alla andra klienter som arbetar online.
 
-Som distrubitionsmodul är Bazaar vald. Denna går lätt att integrera
+Som distributionsmodul är Bazaar vald (System Wide Requirements 4.2.1). Denna går lätt att integrera
 med Python då den är skriven i densamma samt tillhandahåller ett
 heltäckande och väldokumenterat gränssnitt för initiering,
 manipulering och distribution av repositorier.
@@ -155,11 +169,6 @@ kan lösa den. Om en av parterna är den lokala användaren informeras
 denna via användargränssnittet, annars publiceras konflikten i det
 lokala nätverket.
 
-Relevanta frågor som rör distribuering följer.
-\begin{itemize}
-\item Hur ofta skall synkronisering ske?
-\item Vad händer om en användare bryter en pågående distribution?
-\end{itemize}
 \subsection{Kommunikation}
 Kommunikationsmodulens uppgift består i att upprätta kommunikation
 mellan klienter och att arbeta som ett mellanled mot
@@ -171,12 +180,9 @@ att kryptera datatrafik och autentisera användare.
 För att möjliggöra distribution över TLS-anslutningen tillhandahåller
 kommunikationsmodulen emulerade portar, som från den lokala datorn går
 via TLS-anslutningen till mottagarklienten. Detta innebär att
-distribueringen kan ske dubbelriktat även om den ena av klienterna
+distributionen kan ske dubbelriktat även om den ena av klienterna
 ligger bakom en brandvägg.
 
-\begin{itemize}
-\item Vilka krav skall ställas på kommunikationskanalens karaktäristika?
-\end{itemize}
 \subsection{Redigering}
 Redigeringsmodulen finns lokalt hos klienten och tillåter användaren
 att redigera wiki-sidor via ett grafiskt gränssnitt.
@@ -184,23 +190,10 @@ att redigera wiki-sidor via ett grafiskt gränssnitt.
 När användaren redigerat klart sparas ändringen till det lokala
 versionshanteringssystemet och distributionsmodulen informeras om
 uppdateringen.
-\subsection{Bläddring}
-Bläddringsmodulen går ut på att visa wiki-sidor för
-användaren. Användaren kan använda bläddringsmodulen för att utforska
+\subsection{Navigering}
+Navigeringsmodulen går ut på att visa wiki-sidor för
+användaren. Användaren kan använda navigeringsmodulen för att utforska
 sin lokala kopia av den distribuerade wikin. När ändringar sker i
-sidor som är i vy ser bläddringsmodulen till att uppdateringarna
+sidor som är i vy ser navigeringsmodulen till att uppdateringarna
 presenteras till användaren på ett enkelt och tydligt sätt.
-\section{Huvudabstraktioner}
-Här definieras de abstraktioner som används för att beskriva systemet.
-\subsection*{Användare}
-En användare är en person i systemet. 
-\subsection*{Klient}
-En klient är en instans av programvaran som körs aktivt på någon
-plattform. En användare kan inneha en klient.
-\subsection*{Nyckel}
-En datamängd som används för signering, verifiering och säker kommunikation.
-\section{Arkitekturellt ramverk}
-Det arkitekturella ramverket definierar hur systemet är
-sammansatt. Ramverket definieras bättre under senare delar av
-projektet.
 \end{document}
