@@ -11,7 +11,7 @@
   \DeclareGraphicsExtensions{.eps, .jpg}
 \fi
 
-\title{System-WideRequirements \\ Version 1.1}
+\title{Distribuerad wiki \\ System-WideRequirements \\ Version 1.1}
 \author{PUM-grupp 1}
 \date{\today}
 
@@ -28,11 +28,11 @@
   \hline
     \textbf{version} & \textbf{datum} & \textbf{utförda ändringar} & \textbf{utförda av} & \textbf{granskad} \\
 	\hline 
-  0.1 & 2009-02-12 &  Dokumentet är påbörjat, all engelsk text kommer från OpenUP & Erik Thorselius & Alla  \\
+  0.1 & 2009-02-12 &  Dokumentet är påbörjat, all engelsk text kommer från OpenUP & Erik & Alla  \\
   \hline
-  1.0 & 2009-03-03 & Dokumentet är klart & Erik Thorselius & \\
+  1.0 & 2009-03-03 & Dokumentet är klart & Erik & Alla \\
   \hline
-  1.1 & 2009-03-09 & Uppdaterad efter opponering & Erik Thorselius & \\
+  1.1 & 2009-03-09 & Uppdaterad efter opponering & Erik & Linus \\
   \hline 
 \end{tabularx}
 
@@ -52,26 +52,27 @@ Dokumentet ska innehålla krav på applikationen som är svåra att fånga upp i
 Krav på applikationen som ställs utifrån den egenskap som vi önskar på systemet. 
 
 \subsection{Användbarhet}
-Målet är att användaren ska kunna starta en ny wiki, ansluta till en wiki och redigera olika wiki sidor utan tekisktstöd. Det ska mätas och utvärderas med en användargrupp där 70 \% ska klara uppgifterna. 
+Målet är att användaren ska kunna starta en ny wiki, ansluta till en wiki och redigera olika wiki sidor utan tekiskt stöd. Det ska mätas och utvärderas med en användargrupp där minst 70 \% ska klara uppgifterna. 
 
 \subsection{Tillförlitlighet} 
-Applikationens tillförlitlighet ligger i hur datan hanteras. Användaren ska kunna lita på att den data som användaren lägger till kommer vara detsamma efter den kommer ut. Det kan mätas med tester på skillnaden mellan in och utdata, det får inte skillja något mellan in och utdata. En stor del ansvaret kommer ligga på den versionshanterare som används så därför bör även den testas och utvärderas. 
+Applikationens tillförlitlighet beror främst på hur data hanteras. Användaren ska kunna lita på att den data som användaren lägger till kommer vara oförändrat när det läses vid ett senare tillfälle. Det kan mätas med tester på skillnaden mellan in och utdata, det får inte skillja något mellan in och utdata. En stor del ansvaret kommer ligga på den versionshanterare som används så därför bör även den testas och utvärderas. 
 
 \subsection{Prestanda}
-Systemet är inte prestandakrävande, bandbreddskrävande eller kräver snabba svarstider. Det viktiga är att användaren kan spara till den lokala datorn. Det viktiga är att fel som sker inte stör användarvänligheten. Uppstart av applikationen ska max ta 3 sekunder. Synkroniseringen mot den lokala datorn ska ske inom 1 sekund. 
+Systemet är inte prestandakrävande, bandbreddskrävande och kräver inte snabba svarstider. Programmet är gjort så att data sparas på den lokala datorns hårddisk där access- och skrivtid är snabb (beror på datorns och hårddiskens snabbhet). Synkroniseringen med andra användare sker under ytan utan att användaren påverkas. Fel eller konflikter rörande synkroniseringen med andra användare ska inte behöva åtgärdas omedelbart och inte heller störa användaren i pågående arbete. Uppstart av applikationen ska max ta 3 sekunder.
 
 \subsection{Support och påbyggnadsmöjligheter} 
-Applikationen ska byggas modulbaserat. Det är viktigt att olika delar kan uppdateras för sig just för att vår applikation bygger på flera olika program. Systeminstallationen ska gå via en pakethanterar i linux.  Hur det sker på andra plattformar är en senare fråga.
+Applikationen ska byggas modulbaserat. Det är viktigt att olika delar kan uppdateras för sig just för att vår applikation bygger på flera olika moduler. Systeminstallationen ska gå via en pakethanterar i linux.
 
 %This section indicates any requirements that will enhance the supportability or maintainability of the system being built, including adaptability and upgrading, compatibility, configurability, scalability and requirements regarding system installation, level of support and maintenance.
 
 \section{Systemgränssnitt}
 Krav på gränssnitt mellan hårdvara, mjukvara och mot användaren. 
+
 \subsection{Användargränsnitt}
 I detta avsnitt behandlas krav rörande användargränssnittet. 
 
 \subsubsection{Utseende och känsla}
-Applikationen ska i redigeringsläget kännas som en ordbehandlare. Gränssnittet ska upplevas som effektivt och enkelt. Hämtning av data och synkronisering mot andra användare ska ske i bakgrunden utan att påverka användarens arbete. 
+Applikationen ska i redigeringsläget kännas som en ordbehandlare, formatering av text ska visas direkt i redigeringsfönstret till skillnad från traditionell wiki där taggar används. Gränssnittet ska upplevas som effektivt och enkelt, knappar till vanliga funktioner och snabbkommandon ska finnas. Synkronisering mot andra användare ska ske i bakgrunden utan att påverka användarens arbete. 
 
 \subsubsection{Layout och navigering}
 Användaren ska kunna nå stora delar av systemet med endast ett fåtal navigeringar. Max tre navigeringshandlingar för att utföra enklare funktionern till exempel editera eller lägg till ny artikel. Mer avancerade inställningar som att starta en ny wiki kan vara en 10 navigeringshandlingar. Navigeringen ska vara intuitiv och efterlikna operativsystemet som programmet körs på. Beteendemönster ska kännas igen från andra textredigeringsprogram och Webbläsare. Applikationen har främst två lägen, ett för visning och ett för redigering och från varje visningssida som man har rätt att redigera ska man enkelt kunna byta till redigeringsläge. När man redigerat klart och godkänner ändringarna så återvänder man till visningssläget.
@@ -83,12 +84,12 @@ Användaren ska kunna nå stora delar av systemet med endast ett fåtal navigeri
 Det är ett krav att vi ska släppa applikationen som open source. Open source är en otroligt effektivt metod för kundanpassning. Koden är öppen så att det är fritt för kunden att göra förändringar och förbättringar. 
 
 \subsection{Gränssnitt mot externa system}
-Inga externa system finns som kräver gränssnitt. 
+Inga externa system tas hänsyn till som skulle kräva eget gränssnitt. 
 
 \subsubsection{Mjukvarugränssnitt}
-Applikationen kommer i huvudsak kodas i python. För extern kommunikation distributionssystemet Bazaar att användas. Bazaar tillhandahåller en komplett uppsättning funktioner för styrning av versionhanteringsystemet. Bazaar är skrivet i Python och är därför särskilt enkel att integrera.
+Applikationen kommer i huvudsak kodas i python. För extern kommunikation används distributionssystemet Bazaar. Bazaar tillhandahåller en komplett uppsättning funktioner för versionhantering. Bazaar är skrivet i Python och är därför enkelt att integrera.
 
-För användargränssnitt kommer wxPython att användas. wxPython är ett bibliotek för att tillhandahålla grafiska användargränssnitt till Pythonprogram och kan anpassa sig till flera operativsystem, bland annat det som vi utvecklar till.
+För användargränssnitt kommer wxPython att användas. wxPython är ett bibliotek för att tillhandahålla grafiska användargränssnitt till Pythonprogram och kan anpassa sig till flera operativsystem.
 
 \subsubsection{Hårdvarugränsnitt}
 Python tillhandahåller abstraktioner för den grundläggande operativsystemsfunktionaliteten.
@@ -104,7 +105,7 @@ Klienter kommunicerar över nätverket med ett gränssnitt som möjliggör autom
 %Describe any communications interfaces to other systems or devices such as local area networks, remote serial devices, and so on.
 
 \section{Systembegränsningar}
-Applikationen kommer skrivas i python. Det finns flera tredjeparts delar bland annat Bazaar och wxPython. Applikationen kommer släppas på linux till att börja med men troligtvis kommer en konvertering till flera system vara möjligt. Systemet är tänkt att utnyttjas av 10 personer för att ha en gemensam och distribuerad wiki.
+Applikationen kommer skrivas i python. Det finns flera tredjeparts delar bland annat Bazaar och wxPython. Applikationen kommer utvecklas för linux till att börja med men då pythonkod kan interpreteras av Windows och Mac OSX så kommer versioner eventuellt släppas till dessa system också i mån av tid. Slutprodukten är tänkt att kunna utnyttjas av en grupp på upp till 10 personer kring en gemensam distribuerad wiki.
 
 \section{Övrig systeminformation} %Vet inte om det finns en bätte översättning
 
