@@ -17,6 +17,7 @@ build: \
 	${OUTPUT_DIR}/Develop_Technical_Vision.pdf \
 	${OUTPUT_DIR}/Glossary.pdf \
 	${OUTPUT_DIR}/Index_over_dokument.pdf \
+	${OUTPUT_DIR}/Iteration_plan_-_construction.pdf \
 	${OUTPUT_DIR}/Iteration_plan_-_elaboration.pdf \
 	${OUTPUT_DIR}/Iteration_plan_-_inception.pdf \
 	${OUTPUT_DIR}/Project_plan.pdf \
@@ -58,6 +59,10 @@ ${OUTPUT_DIR}/Glossary.pdf:
 ${OUTPUT_DIR}/Index_over_dokument.pdf:
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Index over dokument.tex"
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Index over dokument.tex" > /dev/null
+
+${OUTPUT_DIR}/Iteration_plan_-_construction.pdf:
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Iteration plan - construction.tex"
+	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Iteration plan - construction.tex" > /dev/null
 
 ${OUTPUT_DIR}/Iteration_plan_-_elaboration.pdf:
 	${TEX_COMPILER} -output-directory ${OUTPUT_DIR}/ "Iteration plan - elaboration.tex"
